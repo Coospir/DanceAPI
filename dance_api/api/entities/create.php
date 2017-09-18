@@ -28,14 +28,14 @@ $teacher->email = $data->email;
 // create the product
 if($teacher->create()){
     echo '{';
-    echo '"message": "Product was created."';
+    echo '"message": "Entity was created."';
     echo '}';
 }
 
 // if unable to create the product, tell the user
 else{
     echo '{';
-    echo '"message": "Unable to create product."';
+    echo '"message": "Unable to create entity."';
     echo '}';
 }
 ?>
