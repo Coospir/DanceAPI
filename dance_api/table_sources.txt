@@ -1,0 +1,21 @@
+// TEACHERS
+use api_db;
+
+CREATE TABLE IF NOT EXISTS `teachers` (
+
+`id` int(11) not null auto_increment,
+
+`surname` varchar(50) not null, 
+
+`name` varchar(50) not null,
+
+`patronymic` varchar(50) not null,
+
+`date_of_birth` date not null,
+
+`phone_number` varchar(15) not null,
+
+`email` varchar(100) not null,
+
+PRIMARY KEY (`id`));
+

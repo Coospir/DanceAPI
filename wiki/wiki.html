@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <link href="../style/css/bootstrap.css" rel="stylesheet">
+    <link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico">
+
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width; initial-scale=0.65; maximum-scale=0.85; user-scalable=0;" />
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../style/js/jquery-3.2.1.min.js"></script>
+    <script src="../style/js/bootstrap.js"></script>
+    <title>Wiki Dance</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+        <a class="navbar-brand" href="#">WikiDance</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="../index.html">Главная <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link active" href="wiki.html">Wiki</a>
+                <a class="nav-item nav-link" href="#">DanceAPI</a>
+                <a class="nav-item nav-link" href="#">Система управления студией</a>
+            </div>
+        </div>
+    </nav>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <br>
+            <h1 class="display-4">Wiki Dance - первая "танцевальная" энциклопедия.</h1>
+            <p class="lead">Кратко и понятно о мире танцев. Ничего лишнего.</p>
+        </div>
+    </div>
+    <div class="container">
+        <h1 class="display-3">Танцевальные стили. Теория.</h1><br>
+        <div id="accordion" role="tablist">
+            <!--<div class="card">
+                <div class="card-header" role="tab" id="headingOne">
+                    <h5 class="mb-0">
+                        <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            Hip-Hop Culture
+                        </a>
+                    </h5>
+                </div>
+
+                <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
+                    <div class="card-body">
+                        <img src="http://therapfest.com/wp-content/uploads/2017/02/maxresdefault-1.jpg" class="img-fluid" alt="Hip hop">
+                        <h3>Общие "знания"</h3>
+                        <p>Хип-хоп культура возникла в Нью-Йорке среди афро-американских и латинских гетто.
+                        Она выплеснулась на улицы белых кварталов, а затем в массы – шоу-бизнес, дискотеки, кино и т.д .
+                        «Гетто» часто называют районы городов США, населенные `цветными меньшинствами` — в основном афроамериканцами, пуэрториканцами, латинос и т.д.</p>
+                        <p><b>Хип-хоп</b> — культурное направление, зародившееся в среде рабыочего класса Нью-Йорка 1974года.
+                        Диджей <b>Afrika Bambaataa</b> первым определил пять столпов хип-хоп культуры:
+                        <ul>
+                            <li>эМсиинг (англ. MCing),</li>
+                            <li>ДиДжеинг (англ. DJing),</li>
+                            <li>брейкинг (англ. breaking),</li>
+                            <li>граффити (англ. graffiti writing),</li>
+                            <li>knowledge (определённую философию)</li>
+                        </ul>
+                        Другие элементы включают битбоксинг, хип-хоп моду и сленг. </p>
+                        <p>Хип-хоп, как таковой, делится на <b>множество направлений:</b>
+                        <ul>
+                            <li>Рэп, Хип-хоп, Битбокс (музыкальное)</li>
+                            <li>Брейк-данс, Хип-хоп (New Style, Old School и др.), Паппинг, Крамп, Флексинг, C-Walk, Turfing, Locking (танцевальное)</li>
+                            <li>Граффити (изобразительное)</li>
+                        </ul>
+                        Человек, относящий себя к субкультуре хип-хопа, может заниматься одновременно и рэпом, и граффити, и брейк-дансом.</p>
+                        <hr>
+                        <h3>Человек, изменивший все.</h3>
+                        <p>В Южный Бронкс в 1967 году приехал из Ямайки Clive Campbell, получивший прозвище <b>Кул Херк (Kool Herc).</b>
+                        Он считается одним из основателей хип-хопа. Кул Херк стал тем, что позднее получило название «ди-джей».
+                        Он привнес с собой ямайский стиль, где главное было в ведущей роли ди-джея.
+                        На Ямайке DJ был «хозяином» музыкальной системы, вокруг которой складывалась молодежная жизнь.
+                        Он сам устраивал вечеринки, произносил в микрофон интересные речи-маевки. </p>
+                        <p>Вскоре его стали называть <b>МС (“master of ceremony” - «эм-си» мастер церемонии)</b> - он подбирал пластинки, проигрывал, анонсировал их.
+                        А когда ди-джей стал помимо анонсирования произносить под музыку ритмические тексты, это стало называться словом «рэп».
+                        Кул Херк не проигрывал поп-хиты, он предпочитал более жесткий черный фанк типа Джеймса Брауна, соул и ритм-энд-блюз (R’n’B).
+                        Влияние Кул Херка с подобными вечеринками распространялось и вскоре он, Grandmaster Flash, Afrika Bambaataa и Grandmaster Caz начали играть на вечеринках по всему Бронксу, а также в Бруклине, Манхэттэне.
+                        Вскоре Кул Херк для удобства танцоров начинает повторять инструментальные перерывы - так называемые брэйки - между куплетами, во время которых на танцпол выходили танцоры и показывали свое мастерство.
+                        Кул Херк отметил энтузиазм танцоров к таким брэйкам и придумал термин “B-Boy” (би-бой), “Break boys” - для тех, кто движется в манере брэйка, а сам танец получил название breakdancing style (breaking).
+                            «Эм-си» стало синонимом рэпа уже тогда, когда рэпперами сделались не только ди-джеи, а и исполнители, умеющие двигаться в специальной хипхоповской манере. </p>
+
+                        <p>В конце 60-х брэйк существовал в виде двух самостоятельных танцев - нью-йоркского акробатического стиля, который у нас называется нижним брэйком, и лос-анжелесской пантомимы (верхний брэйк).
+                        Именно акробатический стиль брэйкинга первоначально крутили би-бои в брэйках. Популярен он стал после того, как в 1969 Джеймс Браун написал фанк-хит «The Good Foot» и исполнил на сцене элементы этого танца.
+                        Этот стиль положил начало танцевальным соревнованиям. В конце 70-х произошло расширение влияния и географии хип-хопа, сначала в Нью-Йорке.
+                        В районах Harlem, Bronx, Queens начали выступать диджеи и брэйкерские группы. Начались «сражения» между диджеями, соревнования танцоров.
+                        Различные уличные шайки танцоров стали известными как брэйкинг-команды, которые практиковались, выступали вместе, развивали свое мастерство.
+                        Году к 1972-му b-boys и flygirls стали оформленным движением - со своей музыкой, одеждой и оторванным, бесшабашным стилем жизни.
+                        Хоперы тусовались в спортивных костюмах, дутых болониевых жилетках, бейсболках набекрень и огромных белых кроссовках с длинными язычищами.
+                        Дивчины - в таких же жилетках и облегающих лосинах.
+                            Потом этот наряд станет парадной униформой хип-хопа, а белоснежные адидасовские шузы - таким же культовым символом поколения, как шляпа для ковбоев.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" role="tab" id="headingTwo">
+                    <h5 class="mb-0">
+                        <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            Locking Culture
+                        </a>
+                    </h5>
+                </div>
+                <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
+                    <div class="card-body">
+                        <img src="https://dancetchrprobs.files.wordpress.com/2014/06/6.jpg" class="img-fluid" alt="Locking">
+                        <p><b>Локинг, или кэмпбеллокинг (англ. Campbelllocking)</b>— это форма танцевального искусства,
+                        созданная Доном Кэмпбеллом в ночных клубах Лос-Анджелеса в начале 70-х годов ХХ в.,
+                        которая включает импровизационные позиции — «замки» (locks). </p>
+                        <p>Сегодня локинг — <b>фанковый стиль и уличный танец</b>,
+                        ассоциируемый также с хип-хопом. Он основан на быстрых и четких движениях руками и кистями рук в сочетании
+                        с более мягкими движениями бедер и ног. Движения всегда амплитудны, ритмичны и тесно привязаны к музыке.
+                        Локинг ориентирован на представление, постоянное взаимодействие со зрителями, несёт в себе элементы клоунады.</p>
+                        <p><b>Локер</b> — танцор локинга. У локеров яркий, особый стиль одежды: береты, штаны на подтяжках, белые перчатки, носки в полоску.
+                        Страны, где есть локеры мирового уровня: США, Канада, Бразилия, Франция, Италия, Испания, Великобритания, Швеция, Германия,
+                        Дания, Швейцария, страны Бенилюкса, Япония, Корея, Тайвань, Филлипины... </p>
+                        <p>Во многих странах локинг находится на этапе становления.
+                        Это Кипр, страны СНГ, некоторые страны Африки (например, Египет), Китай.</p>
+                        <h3>С кого все началось?</h3>
+                        <i>История танца (70-80-е гг.)</i>
+                        <p>Несмотря на то, что в хип-хопе идут большие споры о том, кто какое движение или стиль создал, и зачастую
+                            каждый тянет одеяло на себя, с локингом все обстоит иначе. История танца началась с одного человека по имени <b>Дон Кэмпбелл.</b>
+                        Родился он в начале 50-х годов в Сент-Луисе, а рос в южной части Лос-Анджелеса. Ребенком он проявлял большие способности в
+                        рисовании: делал наброски людей, окружающей природы. Этим он выделялся среди остальных членов семьи, которые считали его
+                        странным. Но занятие своё он не забросил, когда стал студентом Торгово-технического колледжа Лос-Анджелеса и решил изучать
+                        коммерческое искусство. Он подрабатывал тем, что в перерывах между занятиями набрасывал портреты в местном кафетерии.
+                        В колледже Дон занимался легкой атлетикой. Он рисовал и временами поглядывал на детей, танцующих возле колонки в углу.</p>
+
+                        <p>Дон попытался освоить какой-нибудь танцевальный стиль, в чём ему помогал один из друзей, показывавший различные движения
+                        из разных стилей, однако особых успехов не достиг. И вот однажды вечером на дискотеке в колледже Дон решил показать то,
+                        чему научился. Он вышел в круг и начал танцевать подряд все элементы из разных стилей, какие только помнил, при этом
+                        частенько забывая то или иное движение и замирая посреди танца, чтобы вспомнить, что делать дальше. Глядя на это, один
+                        парень, который в колледже считался одним из лучших танцоров, Сэм Вильямс, подошёл к Дону и назвал его <b>«Campbell-lock»</b>
+                        (слово «lock» в переводе с английского, обозначает «замок» или «стопор». Дону понравилась эта идея, и он продолжал танцевать
+                        с такими остановками (locks).</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" role="tab" id="headingThree">
+                    <h5 class="mb-0">
+                        <a class="collapsed" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Popping Culture
+                        </a>
+                    </h5>
+                </div>
+                <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
+                    <div class="card-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                    </div>
+                </div>
+            </div>-->
+        </div>
+
+    </div>
+</body>
+</html>
