@@ -27,8 +27,7 @@ class Teacher {
     function create(){
 
         // query to insert record
-        $query = "INSERT INTO" . $this->table_name . "SET surname=:surname, name=:name, patronymic=:patronymic, date_of_birth=:date_of_birth, phone_number=:phone_number, email=:email";
-
+        $query = "INSERT INTO `teachers`(surname, name, patronymic, date_of_birth, phone_number, email) VALUES (surname=:surname, name=:name, patronymic=:patronymic, date_of_birth=:date_of_birth, phone_number=:phone_number, email=:email)";
         // prepare query
         $stmt = $this->conn->prepare($query);
 
@@ -49,7 +48,7 @@ class Teacher {
         $stmt->bindParam(":email", $this->email);
 
         // execute query
-        if($stmt->execute()){
+        if($stmt->execute(array(':surname' => "Стародубов", ':name' => "Евгений", ':patronymic' => "Алексеевич", ':date_of_birth' => "1999-02-15", ':phone_number' => "1234", ':email' => "test@yandex.ru"))){
             return true;
         }else{
             return false;

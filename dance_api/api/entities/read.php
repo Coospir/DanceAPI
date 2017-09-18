@@ -7,7 +7,7 @@ include_once '../config/database.php';
 include_once '../objects/teachers.php';
 
 $database = new Database();
-$db = $database->getConnection();
+$db = $database->getConnection('localhost','api_db', 'root','');;
 
 $teacher = new Teacher($db);
 
