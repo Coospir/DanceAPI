@@ -26,7 +26,10 @@ $teacher->phone_number = $data->phone_number;
 $teacher->email = $data->email;
 
 // create the product
-if($teacher->create()){
+if($teacher->createTeacher('Стародубов', 'Евгений', 'Алексеевич','1999-02-15', '495', 'test@yandex.ru')){
+//    echo "<pre>";
+//    print_r($teacher);
+
     echo '{';
     echo '"message": "Entity was created."';
     echo '}';
