@@ -2,14 +2,13 @@
 
 class Teacher {
     private $conn;
-    private $table_name = "teachers";
 
     public function __construct($db){
         $this->conn = $db;
     }
 
-    function read() {
-        $query = "SELECT * FROM ".$this->table_name." ORDER BY `surname` DESC";
+    function readTeacher() {
+        $query = "SELECT * FROM `teachers` ORDER BY `surname` DESC";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt;
@@ -20,23 +19,51 @@ class Teacher {
         // query to insert record
         $query = "INSERT INTO `teachers`(surname, name, patronymic, date_of_birth, phone_number, email) VALUES (:surname, :name, :patronymic, :date_of_birth, :phone_number, :email)";
         // prepare query
-        print_r($surname);
         $stmt = $this->conn->prepare($query);
-
-        print_r($stmt);
         // bind values
-        $stmt->bindValue(":surname", $surname, PDO::PARAM_STR);
+        $stmt->bindValue(":surname", $surname);
         $stmt->bindValue(":name", $name);
         $stmt->bindValue(":patronymic", $patronymic);
         $stmt->bindValue(":date_of_birth", $date_of_birth);
         $stmt->bindValue(":phone_number", $phone_number);
         $stmt->bindValue(":email", $email);
-    // execute query
-        print_r($stmt);
+        // execute query
         if($stmt->execute()){
             return true;
         }else{
+            var_dump($stmt->errorInfo());
+            var_dump($date_of_birth);
             return false;
         }
     }
+
+    function updateTeacher($id, $surname, $name, $patronymic, $date_of_birth, $phone_number, $email) {
+        $query = "UPDATE `teachers` SET surname=:surname, name=:name, patronymic=:patronymic, date_of_birth=:date_of_birth, phone_number=:phone_number, email=:email WHERE id=:id";
+        $stmt = $this->conn->prepare($query);
+        // bind values
+        $stmt->bindValue(":id", $id);
+        $stmt->bindValue(":surname", $surname);
+        $stmt->bindValue(":name", $name);
+        $stmt->bindValue(":patronymic", $patronymic);
+        $stmt->bindValue(":date_of_birth", $date_of_birth);
+        $stmt->bindValue(":phone_number", $phone_number);
+        $stmt->bindValue(":email", $email);
+        if($stmt->execute()){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function deleteTeacher($id) {
+        $query = "DELETE FROM `teachers` WHERE id=:id";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindValue(":id", $id);
+        if($stmt->execute()){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

@@ -1,28 +1,28 @@
 <?php
 header("Access-Control-Allow-Origin: *");
-header("Content-Type: application/json; charset=UTF-8");
+/*header("Content-Type: application/json; charset=UTF-8");*/
 
 
 include_once '../config/database.php';
 include_once '../objects/teachers.php';
 
 $database = new Database();
-$db = $database->getConnection('localhost','api_db', 'root','');;
+$db = $database->getConnection('localhost','api_db', 'root','');
 
 $teacher = new Teacher($db);
 
-$stmt = $teacher->read();
+$stmt = $teacher->readTeacher();
 $num = $stmt->rowCount();
 
-if($num > 0){
+if($num > 0) {
 
     $teachers_arr = array();
-    $teachers_arr["records"] = array();
+    $teachers_arr["teachers"] = array();
 
-    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)){
+    while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         extract($row);
 
-        $teacher_item=array(
+        $teacher_item = array(
             "id" => $id,
             "surname" => $surname,
             "name" => $name,
@@ -32,15 +32,13 @@ if($num > 0){
             "email" => $email
         );
 
-        array_push($teachers_arr["records"], $teacher_item);
+        array_push($teachers_arr["teachers"], $teacher_item);
+    }
+    echo json_encode($teachers_arr);
+
+}
+    else {
+        echo json_encode(array("message" => "No teachers found."));
     }
 
-    echo json_encode($teachers_arr);
-}
 
-else{
-    echo json_encode(
-        array("message" => "No teachers found.")
-    );
-}
-?>
