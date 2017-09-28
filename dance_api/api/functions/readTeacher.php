@@ -34,7 +34,8 @@ if($num > 0) {
 
         array_push($teachers_arr["teachers"], $teacher_item);
     }
-    echo json_encode($teachers_arr);
+    print_r($teachers_arr["teachers"]);
+    //include_once __DIR__ . '/../../../system_pages/teachers.php';
 
 }
     else {

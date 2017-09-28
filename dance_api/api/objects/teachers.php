@@ -12,8 +12,8 @@ class Teacher {
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt;
-
     }
+
 
     function createTeacher($surname, $name, $patronymic, $date_of_birth, $phone_number, $email){
         // query to insert record
@@ -31,8 +31,6 @@ class Teacher {
         if($stmt->execute()){
             return true;
         }else{
-            var_dump($stmt->errorInfo());
-            var_dump($date_of_birth);
             return false;
         }
     }

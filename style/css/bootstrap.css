@@ -1549,6 +1549,10 @@ pre code {
   }
 }
 
+
+.WhyWe {
+  display: none;
+}
 /*footer{
     padding-top: 3rem;
     padding-bottom: 3rem;
@@ -4099,6 +4103,7 @@ tbody.collapse.show {
 .jumbotron {
   padding: 2rem 1rem;
   margin-bottom: 2rem;
+  margin-top: 2rem;
   background-color: #e9ecef;
   border-radius: 0.3rem;
   box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.50);

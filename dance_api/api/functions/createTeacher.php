@@ -31,7 +31,7 @@ if(isset($_POST['addNewTeacher'])) {
     $dateTeacher = !empty($_POST['birth']) ? trim($_POST['birth']) : null;
     $phone_numberTeacher = !empty($_POST['phone']) ? trim($_POST['phone']) : null;
     $emailTeacher = !empty($_POST['mail']) ? trim($_POST['mail']) : null;
-} else echo "Error!";
+}
 
 if($teacher->createTeacher($surnameTeacher, $nameTeacher, $patronymicTeacher, $dateTeacher, $phone_numberTeacher, $emailTeacher)){
 
