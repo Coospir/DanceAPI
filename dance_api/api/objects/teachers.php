@@ -15,22 +15,23 @@ class Teacher {
     }
 
 
-    function createTeacher($surname, $name, $patronymic, $date_of_birth, $phone_number, $email){
-        // query to insert record
-        $query = "INSERT INTO `teachers`(surname, name, patronymic, date_of_birth, phone_number, email) VALUES (:surname, :name, :patronymic, :date_of_birth, :phone_number, :email)";
-        // prepare query
+    function createTeacher($surname, $name, $patronymic, $date_of_birth, $phone_number, $email, $style, $social_page, $passport, $about){
+        $query = "INSERT INTO `teachers`(surname, name, patronymic, date_of_birth, phone_number, email, style, social_page, $passport, $about) VALUES (:surname, :name, :patronymic, :date_of_birth, :phone_number, :email, :style, :social_page, :passport, :about)";
         $stmt = $this->conn->prepare($query);
-        // bind values
         $stmt->bindValue(":surname", $surname);
         $stmt->bindValue(":name", $name);
         $stmt->bindValue(":patronymic", $patronymic);
         $stmt->bindValue(":date_of_birth", $date_of_birth);
         $stmt->bindValue(":phone_number", $phone_number);
         $stmt->bindValue(":email", $email);
-        // execute query
+        $stmt->bindValue(":style", $style);
+        $stmt->bindValue(":social_page", $social_page);
+        $stmt->bindValue(":passport", $passport);
+        $stmt->bindValue(":about", $about);
         if($stmt->execute()){
             return true;
         }else{
+            var_dump($stmt);
             return false;
         }
     }
@@ -38,7 +39,6 @@ class Teacher {
     function updateTeacher($id, $surname, $name, $patronymic, $date_of_birth, $phone_number, $email) {
         $query = "UPDATE `teachers` SET surname=:surname, name=:name, patronymic=:patronymic, date_of_birth=:date_of_birth, phone_number=:phone_number, email=:email WHERE id=:id";
         $stmt = $this->conn->prepare($query);
-        // bind values
         $stmt->bindValue(":id", $id);
         $stmt->bindValue(":surname", $surname);
         $stmt->bindValue(":name", $name);

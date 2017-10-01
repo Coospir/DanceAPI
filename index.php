@@ -63,6 +63,9 @@
                 </div>
             </div>
         </div>
+        <h2 class="display-3 align-middle" style="text-align: center">CRM-система для танцевальной школы.</h2>
+        
+
     </div>
 
 </body>
