@@ -13,32 +13,17 @@
     <title>DanceCRM</title>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
-        <a class="navbar-brand" href="#">DanceCRM</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-item nav-link active" href="#">Главная <span class="sr-only">(current)</span></a>
-                <a class="nav-item nav-link" href="dance_system/main.php">Dance System</a>
-            </div>
-        </div>
-        <form class="form-inline my-2 my-lg-0">
-            <button class="btn btn-primary my-2 my-sm-2" type="submit">Войти в систему</button>
-        </form>
-    </nav>
     <div class="jumbotron jumbotron-fluid">
         <div class="container">
             <br>
-            <h1 class="display-1">DanceCRM </h1>
-            <p class="lead">Простая система управления танцевальной студией.</p>
+            <p class="display-1 text-center" style="color: white">DanceCRM</p>
+            <p class="display-5" style="font-size: 20px; text-align: center; color: white">Первая, бесплатная и удобная система управления танцевальной студией.</p>
         </div>
     </div>
     <div class="container">
+        <button type="button" class="btn btn-primary btn-md ali">Block level button</button>
         <div class="WhyWe">
-            <h2 class="display-3 align-middle" style="text-align: center">Почему стоит выбрать именно нас?</h2>
-            <br>
+            <p class="display-4 align-middle" style="text-align: center">Почему стоит выбрать именно нас?</p>
             <div class="row" style="text-align: center">
                 <div class="col-md-4">
                     <img class="rounded" src="/icons/like-icon.png" alt="Простота">
@@ -63,10 +48,8 @@
                 </div>
             </div>
         </div>
-        <h2 class="display-3 align-middle" style="text-align: center">CRM-система для танцевальной школы.</h2>
-        
 
     </div>
-
+    <!--<footer class="footer">Copyright by Eugene Starodubov</footer>-->
 </body>
 </html>

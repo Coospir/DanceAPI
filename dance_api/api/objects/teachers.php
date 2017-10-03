@@ -16,7 +16,7 @@ class Teacher {
 
 
     function createTeacher($surname, $name, $patronymic, $date_of_birth, $phone_number, $email, $style, $social_page, $passport, $about){
-        $query = "INSERT INTO `teachers`(surname, name, patronymic, date_of_birth, phone_number, email, style, social_page, $passport, $about) VALUES (:surname, :name, :patronymic, :date_of_birth, :phone_number, :email, :style, :social_page, :passport, :about)";
+        $query = "INSERT INTO `teachers`(surname, name, patronymic, date_of_birth, phone_number, email, style, social_page, passport, about) VALUES (:surname, :name, :patronymic, :date_of_birth, :phone_number, :email, :style, :social_page, :passport, :about)";
         $stmt = $this->conn->prepare($query);
         $stmt->bindValue(":surname", $surname);
         $stmt->bindValue(":name", $name);

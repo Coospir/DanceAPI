@@ -14,6 +14,8 @@ $teacher = new Teacher($db);
 $stmt = $teacher->readTeacher();
 $num = $stmt->rowCount();
 
+
+
 if($num > 0) {
 
     $teachers_arr = array();
@@ -29,13 +31,18 @@ if($num > 0) {
             "patronymic" => $patronymic,
             "date_of_birth" => $date_of_birth,
             "phone_number" => $phone_number,
-            "email" => $email
+            "email" => $email,
+            "style" => $style,
+            "social_page" => $social_page,
+            "passport" => $passport,
+            "about" => $about
         );
 
         array_push($teachers_arr["teachers"], $teacher_item);
     }
-    print_r($teachers_arr["teachers"]);
-    //include_once __DIR__ . '/../../../system_pages/teachers.php';
+    //print_r($teachers_arr["teachers"]);
+    include __DIR__ . '/../../../templates/teachers.php';
+
 
 }
     else {
