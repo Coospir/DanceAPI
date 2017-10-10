@@ -42,11 +42,10 @@ if($num > 0) {
     }
     //print_r($teachers_arr["teachers"]);
     include __DIR__ . '/../../../templates/teachers.php';
-
-
 }
     else {
-        echo json_encode(array("message" => "No teachers found."));
+        //echo json_encode(array("message" => "No teachers found."));
+        include __DIR__ . '/../../../templates/teachers.php';
     }
 
 

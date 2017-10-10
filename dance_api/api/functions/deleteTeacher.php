@@ -18,13 +18,16 @@ $db = $database->getConnection('localhost','api_db', 'root','');
 $teacher = new Teacher($db);
 $data = json_decode(file_get_contents("php://input"));
 
-
-if($teacher->deleteTeacher('1')){
-    echo '{';
-    echo '"message": "Teacher was deleted."';
-    echo '}';
-} else {
-    echo '{';
-    echo '"message": "Unable to delete teacher."';
-    echo '}';
+if(isset($_POST['deleteTeacherBtn'])) {
+    $selected = !empty($_POST['deleteTeacherBtn']) ? trim($_POST['deleteTeacherBtn']) : null;
+    if ($teacher->deleteTeacher($selected)) {
+        echo '{';
+        echo '"message": "Teacher was deleted."';
+        echo '}';
+    }
+    else {
+        echo '{';
+        echo '"message": "Unable to delete teacher."';
+        echo '}';
+    }
 }
