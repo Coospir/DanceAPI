@@ -18,8 +18,8 @@ $db = $database->getConnection('localhost','api_db', 'root','');
 $teacher = new Teacher($db);
 $data = json_decode(file_get_contents("php://input"));
 
-if(isset($_POST['deleteTeacherBtn'])) {
-    $selected = !empty($_POST['deleteTeacherBtn']) ? trim($_POST['deleteTeacherBtn']) : null;
+if(isset($_POST['id'])) {
+    $selected = !empty($_POST['id']) ? trim($_POST['id']) : null;
     if ($teacher->deleteTeacher($selected)) {
         echo '{';
         echo '"message": "Teacher was deleted."';
