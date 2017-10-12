@@ -4,6 +4,7 @@
 /*$(document).ready(function() {
         $(".WhyWe").slideDown("slow");
 });*/
+
 $(document).ready(function () {
     $("#phone").mask("9(999)999-99-99");
 });
@@ -53,12 +54,84 @@ $(window).keydown(function(event){
 
 });
 
+window.onload = function () {
+    var modal = document.getElementById('addTeacherModal');
+    var btn = document.getElementById('addTeacherBtn');
+    var span = document.getElementsByClassName("close")[0];
+
+    btn.onclick = function() {
+        $("#addTeacherModal").slideToggle('fast');
+        modal.style.display = "block";
+    }
+    span.onclick = function() {
+        $("#addTeacherModal").slideDown('slow');
+        modal.style.display = "none";
+    }
+
+    window.onclick = function (event) {
+        if(event.target == modal){
+
+            $("#addTeacherModal").slideToggle('fast');
+            modal.style.display = "none";
+        }
+    }
+}
+
+
+
+function exportTableToCSV($table, filename) {
+
+    var $rows = $table.find('tr:has(td)'),
+
+        // Temporary delimiter characters unlikely to be typed by keyboard
+        // This is to avoid accidentally splitting the actual contents
+        tmpColDelim = String.fromCharCode(11), // vertical tab character
+        tmpRowDelim = String.fromCharCode(0), // null character
+
+        // actual delimiter characters for CSV format
+        colDelim = '","',
+        rowDelim = '"\r\n"',
+
+        // Grab text from table into CSV formatted string
+        csv = '"' + $rows.map(function (i, row) {
+                var $row = $(row),
+                    $cols = $row.find('td');
+
+                return $cols.map(function (j, col) {
+                    var $col = $(col),
+                        text = $col.text();
+
+                    return text.replace('"', '""'); // escape double quotes
+
+                }).get().join(tmpColDelim);
+
+            }).get().join(tmpRowDelim)
+                .split(tmpRowDelim).join(rowDelim)
+                .split(tmpColDelim).join(colDelim) + '"',
+
+        // Data URI
+        csvData = 'data:application/csv;charset=utf-8,' + encodeURIComponent(csv);
+
+    $(this)
+        .attr({
+            'download': filename,
+            'href': csvData,
+            'target': '_blank'
+        });
+}
+
+function getTeachersCSV() {
+    alert(123);
+    exportTableToCSV(this, [$('#teacher-table'), 'teachers.csv']);
+}
+
+/*
 function downloadCSV(csv, filename) {
     var csvFile;
     var downloadLink;
 
     // CSV file
-    csvFile = new Blob([csv], { type: "text/csv; charset=utf8" });
+    csvFile = new Blob([csv], { type: "text/csv", charset: "utf8" });
     // Download link
     downloadLink = document.createElement("a");
 
@@ -93,4 +166,4 @@ function exportTableToCSV(filename) {
 
     // Download CSV file
     downloadCSV(csv.join("\n"), filename);
-}
+}*/

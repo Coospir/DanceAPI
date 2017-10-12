@@ -15,7 +15,7 @@
     <div class="jumbotron jumbotron-fluid">
         <div class="container text-center">
             <br>
-            <p class="display-1 text-center" style="color: white">DanceCRM</p>
+            <p class="display-1 text-center" style="color: white">Dance Studio System</p>
             <p class="display-5" style="font-size: 20px; text-align: center; color: white">Первая, бесплатная и удобная система управления танцевальной студией.</p>
             <a class="btn btn-success justify-content-center" href="/dance_system/main.php">Начать работу</a> <b class="lead" style="color:white">или</b>
             <button class="btn btn-success justify-content-center">Регистрация в системе</button>
