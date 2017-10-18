@@ -13,7 +13,7 @@ include_once '../objects/teachers.php';
 
 // get database connection
 $database = new Database();
-$db = $database->getConnection('localhost','api_db', 'root','');
+$db = $database->getConnection('localhost','h117710_api_db', 'h117710_root','DanceCRM');
 
 $teacher = new Teacher($db);
 $data = json_decode(file_get_contents("php://input"));

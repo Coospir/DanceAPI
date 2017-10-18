@@ -12,41 +12,37 @@
     <title>DanceCRM</title>
 </head>
 <body>
-    <div class="jumbotron jumbotron-fluid">
+    <div class="jumbotron">
         <div class="container text-center">
             <br>
-            <p class="display-1 text-center" style="color: white">Dance Studio System</p>
-            <p class="display-5" style="font-size: 20px; text-align: center; color: white">Первая, бесплатная и удобная система управления танцевальной студией.</p>
-            <a class="btn btn-success justify-content-center" href="/dance_system/main.php">Начать работу</a> <b class="lead" style="color:white">или</b>
-            <button class="btn btn-success justify-content-center">Регистрация в системе</button>
+            <h1 style="color: white">Dance Studio System</h1>
+            <p style="font-size: 20px; text-align: center; color: white">Первая, бесплатная и удобная система управления танцевальной студией.</p>
+            <a class="btn btn-success justify-content-center" style="font-size: 18px" href="/dance_system/main.php">Войти в систему</a> <b class="lead" style="color:white">или</b>
+            <button class="btn btn-success justify-content-center" style="font-size: 18px">Регистрация</button>
         </div>
     </div>
     <div class="container">
         <div class="WhyWe">
-            <p class="display-4 align-middle" style="text-align: center">Почему стоит выбрать именно нас?</p>
-            <div class="row" style="text-align: center">
-                <div class="col-md-4">
-                    <img class="rounded" src="/icons/like-icon.png" alt="Простота">
-                    <div class="card-block">
-                        <h4 class="card-title">Простота</h4>
-                        <p class="card-text">Система, в которой разберется каждый.</p>
+            <h1 style="text-align: center">Почему стоит выбрать именно нас?</h1>
+                <div class="container" style="margin-top: 50px;">
+                    <div class="row">
+                        <div class="col-md-4" style="margin-top: 10px;">
+                            <img class="rounded center-block"  src="/icons/like-icon.png" alt="Простота">
+                            <h2 style="text-align: center">Простота</h2>
+                            <p style="text-align: center">Система, в которой разберется каждый</p>
+                        </div>
+                        <div class="col-md-4" style="margin-top: 10px;">
+                            <img class="rounded center-block" src="/icons/settings.png" alt="Простота">
+                            <h2 style="text-align: center">Функциональность</h2>
+                            <p style="text-align: center">Мощная и гибкая система для удобной работы</p>
+                        </div>
+                        <div class="col-md-4" style="margin-top: 10px;">
+                            <img class="rounded center-block" src="/icons/freee.png" alt="Простота">
+                            <h2 style="text-align: center">Свободный доступ</h2>
+                            <p style="text-align: center">Все необходимые функции для работы - бесплатно!</p>
+                        </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <img class="rounded" src="/icons/settings.png" alt="Простота">
-                    <div class="card-block">
-                        <h4 class="card-title">Функциональность</h4>
-                        <p class="card-text">Мощная и гибкая система для удобной работы.</p>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <img class="rounded" src="/icons/freee.png" alt="Простота">
-                    <div class="card-block">
-                        <h4 class="card-title">Свободный доступ</h4>
-                        <p class="card-text">Все необходимые функции для работы - бесплатно!</p>
-                    </div>
-                </div>
-            </div>
         </div>
 
     </div>

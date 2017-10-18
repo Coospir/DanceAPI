@@ -9,7 +9,7 @@ include_once '../config/database.php';
 include_once '../objects/teachers.php';
 
 $database = new Database();
-$db = $database->getConnection('localhost','api_db', 'root','');
+$db = $database->getConnection('localhost','h117710_api_db', 'h117710_root','DanceCRM');
 
 $teacher = new Teacher($db);
 
