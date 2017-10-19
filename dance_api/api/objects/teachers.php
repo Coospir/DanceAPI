@@ -64,4 +64,14 @@ class Teacher {
         }
     }
 
+    function deleteAllTeachers() {
+        $query = "TRUNCATE TABLE `teachers`";
+        $stmt = $this->conn->prepare($query);
+        if($stmt->execute()){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }

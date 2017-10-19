@@ -9,10 +9,15 @@ $(document).ready(function () {
     $("#phone").mask("9(999)999-99-99");
 });
 
+/*
+
 setTimeout(function () {
     $(".alert").slideToggle('fast');
 }, 4000);
-
+*/
+$(document).ready(function(){
+    $('#teacher-table').DataTable();
+});
 
 $(function(){
     $('.information').click(function(e)	{

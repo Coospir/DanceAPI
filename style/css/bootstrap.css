@@ -2289,10 +2289,10 @@ th {
 }
 .table > thead > tr > th {
     vertical-align: bottom;
-    border-bottom: 2px solid black;
-    font-size: 16px;
+    /*border-bottom: 2px solid black;*/
+    /*font-size: 16px;*/
     color: white;
-    background-color: rgb(54, 49, 103);
+    background-color: #292b2c;
 }
 
 .table > caption + thead > tr:first-child > th,
@@ -5466,11 +5466,11 @@ button.list-group-item-danger.active:focus {
 }
 .panel {
   margin-bottom: 20px;
-  background-color: #fff;
-  border: 1px solid transparent;
+  /*background-color: #fff;
+  border: 1px solid transparent;*/
   /*border-radius: 4px;*/
-  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
-          box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+ /* -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+          box-shadow: 0 1px 1px rgba(0, 0, 0, .05);*/
 }
 .panel-body {
   padding: 15px;
@@ -5700,12 +5700,12 @@ button.list-group-item-danger.active:focus {
   border-bottom: 1px solid #ddd;
 }
 .panel-default {
-  border-color: rebeccapurple;
+  /*border-color: rebeccapurple;*/
 }
 .panel-default > .panel-heading {
   color: #333;
-  background-color: rebeccapurple;
-  border-color: rebeccapurple;
+  background-color: white;
+  /*border-color: rebeccapurple;*/
 }
 .panel-default > .panel-heading + .panel-collapse > .panel-body {
   border-top-color: #ddd;
