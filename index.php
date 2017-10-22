@@ -4,6 +4,7 @@
     <link href="style/css/bootstrap.css" rel="stylesheet">
     <link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico">
     <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Jura|Ubuntu+Mono" rel="stylesheet">
     <!--<meta name="viewport" content="width=device-width, initial-scale=0.65, maximum-scale=0.85, user-scalable=0">-->
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="style/js/jquery-3.2.1.min.js"></script>
@@ -12,12 +13,15 @@
     <title>DanceCRM</title>
 </head>
 <body>
+    <div id="preloader">
+        <div id="status">&nbsp;</div>
+    </div>
     <div class="jumbotron">
         <div class="container text-center">
             <br>
             <h1 style="color: white">Dance Studio System</h1>
             <p style="font-size: 20px; text-align: center; color: white">Первая, бесплатная и удобная система управления танцевальной студией.</p>
-            <a class="btn btn-success justify-content-center" style="font-size: 18px" href="/dance_system/main.php">Войти в систему</a> <b class="lead" style="color:white">или</b>
+            <a class="btn btn-success justify-content-center" style="font-size: 18px" href="/dance_api/api/functions/loginUser.php">Войти в систему</a> <b class="lead" style="color:white">или</b>
             <button class="btn btn-success justify-content-center" style="font-size: 18px">Регистрация</button>
         </div>
     </div>
