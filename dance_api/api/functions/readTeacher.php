@@ -40,7 +40,6 @@ if($num > 0) {
 
         array_push($teachers_arr["teachers"], $teacher_item);
     }
-    //print_r($teachers_arr["teachers"]);
     include __DIR__ . '/../../../templates/teachers.php';
 }
     else {

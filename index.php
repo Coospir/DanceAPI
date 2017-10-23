@@ -10,6 +10,7 @@
     <script src="style/js/jquery-3.2.1.min.js"></script>
     <script src="style/js/bootstrap.js"></script>
     <script src="style/js/functions_jquery.js"></script>
+    <script src="/dance_api/api/functions/ajax.js"></script>
     <title>DanceCRM</title>
 </head>
 <body>
@@ -21,8 +22,8 @@
             <br>
             <h1 style="color: white">Dance Studio System</h1>
             <p style="font-size: 20px; text-align: center; color: white">Первая, бесплатная и удобная система управления танцевальной студией.</p>
-            <a class="btn btn-success justify-content-center" style="font-size: 18px" href="/dance_api/api/functions/loginUser.php">Войти в систему</a> <b class="lead" style="color:white">или</b>
-            <button class="btn btn-success justify-content-center" style="font-size: 18px">Регистрация</button>
+            <a class="btn btn-success justify-content-center" style="font-size: 18px" href="/templates/login.php">Войти в систему</a> <b class="lead" style="color:white">или</b>
+            <a class="btn btn-success justify-content-center" style="font-size: 18px" href="/templates/register.php">Регистрация</a>
         </div>
     </div>
     <div class="container">
