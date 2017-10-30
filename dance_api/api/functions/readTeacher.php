@@ -11,6 +11,9 @@ $db = $database->getConnection('localhost','h117710_api_db', 'h117710_root','Dan
 
 $teacher = new Teacher($db);
 
+
+$title = 'Преподаватели';
+
 $stmt = $teacher->readTeacher();
 $num = $stmt->rowCount();
 
@@ -23,7 +26,6 @@ if($num > 0) {
 
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         extract($row);
-
         $teacher_item = array(
             "id" => $id,
             "surname" => $surname,
@@ -37,14 +39,18 @@ if($num > 0) {
             "passport" => $passport,
             "about" => $about
         );
-
         array_push($teachers_arr["teachers"], $teacher_item);
     }
+
+    include __DIR__ . '/../../../templates/header.php';
     include __DIR__ . '/../../../templates/teachers.php';
+    include __DIR__ . '/../../../templates/modal.php';
 }
     else {
         //echo json_encode(array("message" => "No teachers found."));
+        include __DIR__ . '/../../../templates/header.php';
         include __DIR__ . '/../../../templates/teachers.php';
+        include __DIR__ . '/../../../templates/modal.php';
     }
 
 

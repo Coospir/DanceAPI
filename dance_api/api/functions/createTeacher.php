@@ -25,6 +25,21 @@ $passportTeacher = !empty($_POST['passport']) ? trim($_POST['passport']) : null;
 $aboutTeacher = !empty($_POST['about']) ? trim($_POST['about']) : null;
 
 if($teacher->createTeacher($surnameTeacher, $nameTeacher, $patronymicTeacher, $dateTeacher, $phone_numberTeacher, $emailTeacher, $styleTeacher, $socialPageTeacher, $passportTeacher, $aboutTeacher)){
+$dateT = date_format(new DateTime($dateTeacher), "d.m.Y");
+
+echo <<< START
+        <tr>
+        <td class="information">$surnameTeacher $nameTeacher $patronymicTeacher</td>
+        <td class="information">$dateT</td>
+        <td class="information">$phone_numberTeacher</td>
+        <td class="information">$emailTeacher</td>
+        <td class="information">$socialPageTeacher</td>
+        <td class="information">$styleTeacher</td>
+        <td class="information">$passportTeacher</td>
+        <td><button type="submit" name="deleteTeacherBtn" class="btn btn-danger" onclick="window.deleteTeacher('')">Удалить</button></td>
+        </tr>
+START;
+
     echo '{';
     echo '"message": "New teacher was created."';
     echo '}';
