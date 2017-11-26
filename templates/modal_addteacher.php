@@ -17,9 +17,6 @@
                         <input type="text" class="form-control" name="patronymic" id="patronymic" placeholder="Отчество">
                     </div>
                     <div class="form-group">
-                        <input type="date" class="form-control" name="birth" id="birth" placeholder="Дата рождения" required>
-                    </div>
-                    <div class="form-group">
                         <input type="text" class="form-control" name="phone" id="phone" placeholder="Телефон">
                     </div>
                     <div class="form-group">
@@ -30,12 +27,6 @@
                     </div>
                     <div class="form-group">
                         <input type="text" class="form-control" name="social_page" id="social_page" placeholder="Ссылка на соц. сеть">
-                    </div>
-                    <div class="form-group">
-                        <textarea class="form-control" name="passport" id="passport" placeholder="Паспортные данные" row="4" required></textarea>
-                    </div>
-                    <div class="form-group">
-                        <textarea class="form-control" name="about" id="about" placeholder="Примечание" row="5"></textarea>
                     </div>
                 </form>
             </div>

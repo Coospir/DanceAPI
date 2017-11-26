@@ -13,7 +13,7 @@ class User {
         $this->conn = $db;
     }
 
-    function registerUser($username, $password, $email) {
+    public function RegisterUser($username, $password, $email) {
         $user_exists = "SELECT * FROM users WHERE username = :username";
         $stmt = $this->conn->prepare($user_exists);
         $stmt -> bindValue(":username", $username);
@@ -52,7 +52,7 @@ class User {
         } else return false;
     }
 
-    function loginUser($email, $password) {
+    public function LoginUser($email, $password) {
         try {
 
         }catch(PDOException $e) {

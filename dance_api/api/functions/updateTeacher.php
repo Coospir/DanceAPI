@@ -32,7 +32,7 @@ $teacher->phone_number = $data->phone_number;
 $teacher->email = $data->email;
 
 // update the product
-if($teacher->updateTeacher('1', 'Иванов', 'Евгений','Алексеевич','1999-03-15','888','ttt@yandex.ru')){
+if($teacher->UpdateTeacher('1', 'Иванов', 'Евгений', 'Алексеевич', '1999-03-15', '888', 'ttt@yandex.ru')){
     echo '{';
     echo '"message": "Teacher was updated."';
     echo '}';

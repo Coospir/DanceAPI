@@ -30,48 +30,36 @@
         </form>
     </div>
 </nav>
-<script>
-    (function() {
-        var cx = '008003615689996662499:gdoyczr8y6y';
-        var gcse = document.createElement('script');
-        gcse.type = 'text/javascript';
-        gcse.async = true;
-        gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-        var s = document.getElementsByTagName('script')[0];
-        s.parentNode.insertBefore(gcse, s);
-    })();
-</script>
-<gcse:search></gcse:search>
 <div class="container" style="margin-top: 50px;">
     <div class="WhyWe">
-        <h1 style="text-align: center; font-size: 44px;">Главное меню</h1>
+        <h1 style="text-align: center; font-size: 44px;">Выберите пункт меню для начала работы:</h1>
             <div class="row" style="margin-top: 40px;">
-                <div class="col-md-2" id="card" style="margin-top: 50px;" onclick="location.href='/../dance_api/api/functions/readTeacher.php'">
+                <div class="col-md-4" id="card" style="margin-top: 50px;" onclick="location.href='/../dance_api/api/functions/readTeacher.php'">
                     <img class="rounded center-block" src="/icons/teachers.png" alt="Преподаватели">
                     <h3 style="text-align: center">Преподаватели</h3>
                     <p style="text-align: center">Система, в которой разберется каждый</p>
                 </div>
-                <div class="col-md-2" id="card" style="margin-top: 50px;" onclick="location.href=''">
+                <div class="col-md-4" id="card" style="margin-top: 50px;" onclick="location.href=''">
                     <img class="rounded center-block" src="/icons/groups.png" alt="Группы">
                     <h3 style="text-align: center">Группы</h3>
                     <p style="text-align: center">Танцевальные группы Вашей танцевальной студии</p>
                 </div>
-                <div class="col-md-2" id="card" style="margin-top: 50px;" onclick="location.href=''">
+                <div class="col-md-4" id="card" style="margin-top: 50px;" onclick="location.href=''">
                     <img class="rounded center-block" src="/icons/clients.png" alt="Клиенты">
                     <h3 style="text-align: center">Клиенты</h3>
                     <p style="text-align: center">Клиенты Вашей танцевальной студии</p>
                 </div>
-                <div class="col-md-2" id="card" style="margin-top: 50px;" onclick="location.href=''">
+                <div class="col-md-4" id="card" style="margin-top: 50px;" onclick="location.href=''">
                     <img class="rounded center-block" src="/icons/shedule.png" alt="Расписание">
                     <h3 style="text-align: center">Расписание</h3>
                     <p style="text-align: center">Расписание Вашей танцевальной студии</p>
                 </div>
-                <div class="col-md-2" id="card" style="margin-top: 50px;" onclick="location.href=''">
+                <div class="col-md-4" id="card" style="margin-top: 50px;" onclick="location.href=''">
                     <img class="rounded center-block" src="/icons/action.png" alt="События">
                     <h3 style="text-align: center">События</h3>
                     <p style="text-align: center">Различные мероприятия Вашей танцевальной студии</p>
                 </div>
-                <div class="col-md-2" id="card" style="margin-top: 50px;" onclick="location.href=''">
+                <div class="col-md-4" id="card" style="margin-top: 50px;" onclick="location.href=''">
                     <img class="rounded center-block" src="/icons/stngs.png" alt="Настройки">
                     <h3 style="text-align: center">Настройки</h3>
                     <p style="text-align: center">Настройки Вашей танцевальной студии</p>

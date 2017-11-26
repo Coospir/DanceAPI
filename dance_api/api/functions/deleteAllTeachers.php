@@ -20,7 +20,7 @@ $data = json_decode(file_get_contents("php://input"));
 
 
 
-    if ($teacher->deleteAllTeachers()) {
+    if ($teacher->DeleteAllTeachers()) {
         echo '{';
         echo '"message": "Teachers was deleted."';
         echo '}';

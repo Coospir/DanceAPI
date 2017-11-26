@@ -22,8 +22,8 @@
             <br>
             <h1 style="color: white">Dance Studio System</h1>
             <p style="font-size: 20px; text-align: center; color: white">Первая, бесплатная и удобная система управления танцевальной студией.</p>
-            <a class="btn btn-success justify-content-center" style="font-size: 18px" href="/templates/login.php">Войти в систему</a> <b class="lead" style="color:white">или</b>
-            <a class="btn btn-success justify-content-center" style="font-size: 18px" href="/templates/register.php">Регистрация</a>
+            <a class="btn btn-success justify-content-center" style="font-size: 18px" href="/templates/login">Войти в систему</a> <b class="lead" style="color:white">или</b>
+            <a class="btn btn-success justify-content-center" style="font-size: 18px" href="/templates/register">Регистрация</a>
         </div>
     </div>
     <div class="container">

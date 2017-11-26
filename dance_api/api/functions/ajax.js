@@ -1,7 +1,7 @@
 function addNewTeacher(){
     $.ajax({
         type: "POST",
-        url: '/dance_api/api/functions/createTeacher.php',
+        url: '/dance_api/api/functions/CreateTeacher.php',
         data: $("#addTeacherForm").serialize()
     }).done(function (data) {
         //alert(data);
@@ -9,8 +9,8 @@ function addNewTeacher(){
         // TODO: Добавить обновление таблички
         $('#addNewTeacher').modal('hide');
         $(".panel").append("<div class='alert alert-success alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Успешно!</strong> Добавлен новый преподаватель. </div>");
-        /*$("#teacher-table").append("<td class='information'>" + data + "</td>");*/
-        $("#teacher-table-data").append(data);
+        $("#teacher-table").append("<td class='information'>" + data + "</td>");
+        //$("#teacher-table-data").append(data);
         //location.reload();
     });
     return false;
@@ -22,7 +22,7 @@ function deleteTeacher(selectedId) {
     if(answer == true) {
         $.ajax({
             type: "POST",
-            url: '/dance_api/api/functions/deleteTeacher.php',
+            url: '/dance_api/api/functions/DeleteTeacher.php',
             data: {'id': selectedId}
         }).done(function (data) {
             //alert(data);
@@ -36,8 +36,8 @@ function deleteTeacher(selectedId) {
 function deleteAllTeachers() {
     $.ajax({
         type: "POST",
-        url: '/dance_api/api/functions/deleteAllTeachers.php',
-        data: $("#deleteAllTeachers").serialize()
+        url: '/dance_api/api/functions/DeleteAllTeachers.php',
+        data: $("#DeleteAllTeachers").serialize()
     }).done(function(data){
         console.log(data);
         location.reload();
@@ -47,7 +47,7 @@ function deleteAllTeachers() {
 function registerUser() {
     $.ajax({
         type: "POST",
-        url: '/dance_api/api/functions/registerUser.php',
+        url: '/dance_api/api/functions/RegisterUser.php',
         data: $("#registerUserForm").serialize()
     }).done(function (data, status, xhr) {
         alert($.parseJSON(data.responseText).message);

@@ -1,2 +1,3 @@
 # DanceAPI
-Dance API - application programming interface for Dance Studios
+**Дипломный проект** <br>
+**Dance API** - application programming interface for Dance Studios.

@@ -23,7 +23,8 @@ $username = !empty($_POST['username']) ? trim($_POST['username']) : null;
 $email = !empty($_POST['email']) ? trim($_POST['email']) : null;
 $password = !empty($_POST['password']) ? trim($_POST['password']) : null;
 
-if($user->registerUser($username, $password, $email)) {
+
+if($user->RegisterUser($username, $password, $email)) {
     http_response_code(200);
     echo '{';
     echo '"message": "New user registered."';

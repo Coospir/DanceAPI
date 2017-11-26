@@ -20,7 +20,7 @@ $data = json_decode(file_get_contents("php://input"));
 
 if(isset($_POST['id'])) {
     $selected = !empty($_POST['id']) ? trim($_POST['id']) : null;
-    if ($teacher->deleteTeacher($selected)) {
+    if ($teacher->DeleteTeacher($selected)) {
         echo '{';
         echo '"message": "Teacher was deleted."';
         echo '}';
