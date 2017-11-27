@@ -6,12 +6,9 @@ header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
 
+include_once __DIR__ . '/../config/database.php';
+include_once __DIR__ . '/../objects/teachers.php';
 
-// include database and object file
-include_once '../config/database.php';
-include_once '../objects/teachers.php';
-
-// get database connection
 $database = new Database();
 $db = $database->getConnection('localhost','h117710_api_db', 'h117710_root','DanceCRM');
 

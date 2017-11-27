@@ -24,6 +24,7 @@ $(document).ready(function(){
     $('#teacher-table').DataTable();
 });
 
+/*
 $(function(){
     $('.information').click(function(e)	{
         //ловим элемент, по которому кликнули
@@ -42,6 +43,7 @@ $(function(){
         });
     });
 });
+*/
 
 $(window).keydown(function(event){
     //ловим событие нажатия клавиши

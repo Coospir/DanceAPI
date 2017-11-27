@@ -1,15 +1,18 @@
 function addNewTeacher(){
     $.ajax({
         type: "POST",
-        url: '/dance_api/api/functions/CreateTeacher.php',
+        url: '/dance_api/api/functions/createTeacher.php',
         data: $("#addTeacherForm").serialize()
     }).done(function (data) {
         //alert(data);
         //console.log(data);
         // TODO: Добавить обновление таблички
         $('#addNewTeacher').modal('hide');
-        $(".panel").append("<div class='alert alert-success alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Успешно!</strong> Добавлен новый преподаватель. </div>");
-        $("#teacher-table").append("<td class='information'>" + data + "</td>");
+        $(".panel").append("<div class='alert alert-success alert-dismissible' id='success-added-teacher'role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Успешно!</strong> Добавлен новый преподаватель. </div>");
+        setTimeout(function () {
+            $('#success-added-teacher').hide();
+        }, 3000);
+        $("#teacher-table-data").append("<td class='information'>" + data + "</td>");
         //$("#teacher-table-data").append(data);
         //location.reload();
     });
@@ -22,12 +25,12 @@ function deleteTeacher(selectedId) {
     if(answer == true) {
         $.ajax({
             type: "POST",
-            url: '/dance_api/api/functions/DeleteTeacher.php',
+            url: '/dance_api/api/functions/deleteTeacher.php',
             data: {'id': selectedId}
         }).done(function (data) {
             //alert(data);
             console.log(data);
-            location.reload();
+            $("#teacher-table-data").remove("<td class='information'>" + data + "</td>");
         });
         return false;
     } else return false;
@@ -36,7 +39,7 @@ function deleteTeacher(selectedId) {
 function deleteAllTeachers() {
     $.ajax({
         type: "POST",
-        url: '/dance_api/api/functions/DeleteAllTeachers.php',
+        url: '/dance_api/api/functions/deleteAllTeachers.php',
         data: $("#DeleteAllTeachers").serialize()
     }).done(function(data){
         console.log(data);
@@ -47,7 +50,7 @@ function deleteAllTeachers() {
 function registerUser() {
     $.ajax({
         type: "POST",
-        url: '/dance_api/api/functions/RegisterUser.php',
+        url: '/dance_api/api/functions/registerUser.php',
         data: $("#registerUserForm").serialize()
     }).done(function (data, status, xhr) {
         alert($.parseJSON(data.responseText).message);

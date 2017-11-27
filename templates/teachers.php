@@ -1,5 +1,5 @@
 <?php if(!empty($teachers_arr["teachers"])) : ?>
-        <div class="table-responsive">
+        <div class="table">
             <table class="table" id="teacher-table">
                 <thead>
                 <tr>
@@ -9,7 +9,7 @@
                     <th>E-Mail</th>
                     <th>Соц. сеть (url)</th>
                     <th>Направление/-я</th>
-                    <th>Действие</th>
+                    <!--<th>Действие</th>-->
                 </tr>
                 </thead>
                 <tbody id="teacher-table-data">
@@ -17,12 +17,12 @@
                         <tr>
                             <!--<th scope="row">/*= $teacher['id'] */</th>-->
                             <td class="information"><?= $teacher['surname'] . ' ' . $teacher['name'] . ' ' . $teacher['patronymic'] ?></td>
-                            <td class="information"><?= $teacher['phone_number'] ?></td>
-                            <td class="information"><?= $teacher['email'] ?></td>
-                            <td class="information"><?= $teacher['social_page'] ?></td>
-                            <td class="information"><?= $teacher['style']?></td>
-                            <td><button type="submit" name="deleteTeacherBtn" class="btn btn-danger" onclick="window.deleteTeacher('<?= $teacher['id'] ?>')">Удалить</button></td>
-                        </tr>
+                            <td class="information"><?= $teacher['phone_number']; ?></td>
+                            <td class="information"><?= $teacher['email']; ?></td>
+                            <td class="information"><?= $teacher['social_page']; ?></td>
+                            <td class="information"><?= $teacher['style']; ?> <button type="submit" style="align-content: flex-end; " name="deleteTeacherBtn" class="btn btn-danger" onclick="window.deleteTeacher('<?= $teacher['id'] ?>')">Удалить</button></td>
+<!--                            <td><button type="submit" name="deleteTeacherBtn" class="btn btn-danger" onclick="window.deleteTeacher('<?/*= $teacher['id'] */?>')">Удалить</button></td>
+-->                     </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>
