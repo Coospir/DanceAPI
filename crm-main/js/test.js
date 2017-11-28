@@ -1,7 +1,7 @@
 /**
  * Created by COOSPIR-PC on 28.11.2017.
  */
-alert("TEST");
+
 var clients = [
   { "Name": "Otto Clay", "Age": 25, "Country": 1, "Address": "Ap #897-1459 Quam Avenue", "Married": false },
   { "Name": "Connor Johnston", "Age": 45, "Country": 2, "Address": "Ap #370-4647 Dis Av.", "Married": true },

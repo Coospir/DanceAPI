@@ -1391,6 +1391,8 @@ a.bg-danger:hover {
   padding-bottom: 9px;
   margin: 40px 0 20px;
   border-bottom: 1px solid #eee;
+  color: #FE424D;
+  font-weight: bold;
 }
 ul,
 ol {
@@ -4475,8 +4477,8 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #ccc;
 }
 .navbar-inverse {
-  background-color: #6eb9ff;
-  border-color: #6eb9ff;
+  background-color: #1AA6B7;
+  border-color: #1AA6B7;
   font-size: 18px;
 }
 .navbar-inverse .navbar-brand {

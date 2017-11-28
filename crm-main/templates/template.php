@@ -34,17 +34,13 @@
 				<span class="icon-bar"></span>
 			</button>
 		</div>
-		<!-- Top Menu Items -->
 		<ul class="nav navbar-right top-nav">
 			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> <b class="caret"></b></a>
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Супер-лог <b class="caret"></b></a>
 				<ul class="dropdown-menu message-dropdown">
 					<li class="message-preview">
 						<a href="#">
 							<div class="media">
-								<span class="pull-left">
-									<img class="media-object" src="http://placehold.it/50x50" alt="">
-								</span>
 								<div class="media-body">
 									<h5 class="media-heading">
 										<strong>John Smith</strong>
@@ -58,9 +54,6 @@
 					<li class="message-preview">
 						<a href="#">
 							<div class="media">
-								<span class="pull-left">
-									<img class="media-object" src="http://placehold.it/50x50" alt="">
-								</span>
 								<div class="media-body">
 									<h5 class="media-heading">
 										<strong>John Smith</strong>
@@ -74,9 +67,6 @@
 					<li class="message-preview">
 						<a href="#">
 							<div class="media">
-								<span class="pull-left">
-									<img class="media-object" src="http://placehold.it/50x50" alt="">
-								</span>
 								<div class="media-body">
 									<h5 class="media-heading">
 										<strong>John Smith</strong>
@@ -89,33 +79,6 @@
 					</li>
 					<li class="message-footer">
 						<a href="#">Посмотреть все сообщения..</a>
-					</li>
-				</ul>
-			</li>
-			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bell"></i> <b class="caret"></b></a>
-				<ul class="dropdown-menu alert-dropdown">
-					<li>
-						<a href="#">Alert Name <span class="label label-default">Alert Badge</span></a>
-					</li>
-					<li>
-						<a href="#">Alert Name <span class="label label-primary">Alert Badge</span></a>
-					</li>
-					<li>
-						<a href="#">Alert Name <span class="label label-success">Alert Badge</span></a>
-					</li>
-					<li>
-						<a href="#">Alert Name <span class="label label-info">Alert Badge</span></a>
-					</li>
-					<li>
-						<a href="#">Alert Name <span class="label label-warning">Alert Badge</span></a>
-					</li>
-					<li>
-						<a href="#">Alert Name <span class="label label-danger">Alert Badge</span></a>
-					</li>
-					<li class="divider"></li>
-					<li>
-						<a href="#">View All</a>
 					</li>
 				</ul>
 			</li>
@@ -135,26 +98,25 @@
 				</ul>
 			</li>
 		</ul>
-		<!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
 		<div class="collapse navbar-collapse navbar-ex1-collapse">
 			<ul class="nav navbar-nav side-nav">
-				<li class="active">
-					<a href="/crm-main/start.php"> Рабочий стол</a>
+				<li>
+					<a href="/crm-main/templates/dashboard.php"> Рабочий стол</a>
 				</li>
 				<li>
-					<a href="charts.html"> Преподаватели</a>
+					<a href="/crm-main/templates/teachers.php"> Преподаватели</a>
 				</li>
 				<li>
-					<a href="tables.html"> Группы</a>
+					<a href="/crm-main/templates/groups.php"> Группы</a>
 				</li>
 				<li>
-					<a href="forms.html"> Клиенты</a>
+					<a href="/crm-main/templates/clients.php"> Клиенты</a>
 				</li>
 				<li>
-					<a href="bootstrap-elements.html"> Расписание</a>
+					<a href="/crm-main/templates/shedule.php"> Расписание</a>
 				</li>
 				<li>
-					<a href="bootstrap-grid.html"> События</a>
+					<a href="/crm-main/templates/events.php"> События</a>
 				</li>
 				<li>
 					<a href="javascript:;" data-toggle="collapse" data-target="#settings"><i class="fa fa-fw fa-arrows-v"></i> Настройки <i class="fa fa-fw fa-caret-down"></i></a>
@@ -169,44 +131,26 @@
 				</li>
 			</ul>
 		</div>
-		<!-- /.navbar-collapse -->
 	</nav>
 
-	<div id="page-wrapper">
 
+	<!--<div id="page-wrapper">
 		<div class="container-fluid">
-
-			<!-- Page Heading -->
 			<div class="row">
 				<div class="col-lg-12">
 					<h1 class="page-header">
 						Рабочий стол
-						<small>Информация о студии</small>
+						<small></small>
 					</h1>
-
-					<!--<ol class="breadcrumb">
-						<li>
-							<i class="fa fa-dashboard"></i>  <a href="index.html">Рабочий стол</a>
-						</li>
-						<li class="active">
-							<i class="fa fa-file"></i> Информация о студии
-						</li>
-					</ol>-->
 				</div>
+
         <div id="jsGrid">
           <script type="text/javascript" src="/crm-main/js/test.js"></script>
         </div>
 			</div>
-			<!-- /.row -->
-
 		</div>
-		<!-- /.container-fluid -->
-
 	</div>
-	<!-- /#page-wrapper -->
-
-</div>
-<!-- /#wrapper -->
+</div>-->
 
 
 

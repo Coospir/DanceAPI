@@ -2,7 +2,7 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="b41406ac-55bb-4e99-bd59-2b17f1f6ad9c" name="Diploma" url="http://s06.host-food.ru">
+      <webServer id="c853964b-1a22-416f-b4c0-a7f2b2cf995e" name="Dance" url="http://s06.host-food.ru">
         <fileTransfer host="s06.host-food.ru" port="21">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" />

@@ -8,7 +8,7 @@
 
 body {
     margin-top: 100px;
-    background-color: #6eb9ff;
+    background-color: #1AA6B7;
 }
 
 @media(min-width:768px) {
@@ -19,12 +19,14 @@ body {
 
 #wrapper {
     padding-left: 0;
+    background-color: #022D41;
 }
 
 #page-wrapper {
     width: 100%;
     padding: 0;
     background-color: #fff;
+
 }
 
 .huge {
@@ -38,7 +40,7 @@ body {
     }
 
     #page-wrapper {
-        padding: 10px;
+        padding: 20px;
     }
 }
 
@@ -66,7 +68,7 @@ body {
 .top-nav>.open>a:hover,
 .top-nav>.open>a:focus {
     color: #fff;
-    background-color: #6eb9ff;
+    background-color: #1AA6B7;
 }
 
 .top-nav>.open>.dropdown-menu {
@@ -115,17 +117,19 @@ ul.alert-dropdown {
 @media(min-width:768px) {
     .side-nav {
         position: fixed;
-        top: 51px;
+        top: 0px;
+        bottom: 0px;
         left: 225px;
         width: 225px;
         margin-left: -225px;
         border: none;
         border-radius: 0;
         overflow-y: auto;
-        background-color: #6eb9ff;
+        background-color: #022D41;
     }
 
     .side-nav>li>a {
+        top: 10px;
         width: 225px;
     }
 
