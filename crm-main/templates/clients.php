@@ -1,5 +1,5 @@
 <?php
-include __DIR__ . '/../templates/template.php';
+  include __DIR__ . '/../templates/template.php';
 ?>
 
 <div id="page-wrapper">

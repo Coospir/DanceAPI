@@ -38,15 +38,13 @@ if($num > 0) {
         array_push($teachers_arr["teachers"], $teacher_item);
     }
 
-    include __DIR__ . '/../../../templates/header.php';
-    include __DIR__ . '/../../../templates/teachers.php';
-    include __DIR__ . '/../../../templates/modal_addteacher.php';
+    include __DIR__ . '/../../../crm-main/templates/template.php';
+    include __DIR__ . '/../../../crm-main/templates/teachers.php';
 }
     else {
         //echo json_encode(array("message" => "No teachers found."));
-        include __DIR__ . '/../../../templates/header.php';
-        include __DIR__ . '/../../../templates/teachers.php';
-        include __DIR__ . '/../../../templates/modal_addteacher.php';
+		include __DIR__ . '/../../../crm-main/templates/template.php';
+		include __DIR__ . '/../../../crm-main/templates/teachers.php';
     }
 
 

@@ -7,16 +7,15 @@
 	<meta name="description" content="crm_main_page">
 	<meta name="author" content="crm_main_page">
 	<title>DS Admin</title>
-	<!-- Bootstrap Core CSS -->
 	<link href="/crm-main/styles/bootstrap.css" rel="stylesheet">
-	<!-- Custom CSS -->
 	<link href="/crm-main/styles/sb-admin.css" rel="stylesheet">
   <link type="text/css" rel="stylesheet" href="/crm-main/tbl/jsgrid.min.css" />
   <link type="text/css" rel="stylesheet" href="/crm-main/tbl/jsgrid-theme.min.css" />
   <script src="/crm-main/js/jquery-3.2.1.min.js"></script>
+  <script src="/crm-main/js/maskedinput.js"></script>
+  <script src="/dance_api/api/functions/ajax.js"></script>
   <script src="/crm-main/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="/crm-main/tbl/jsgrid.min.js"></script>
-
 </head>
 
 <body>
