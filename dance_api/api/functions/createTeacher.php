@@ -9,25 +9,24 @@ include_once __DIR__. '/../config/database.php';
 include_once __DIR__. '/../objects/teachers.php';
 
 $database = new Database();
-$db = $database->getConnection('MySQL','h117710_api_db', 'h117710_root','DanceCRM');
+$db = $database->getConnection('localhost','h117710_api_db', 'h117710_root','DanceCRM');
 
 $teacher = new Teacher($db);
 
 $surnameTeacher = !empty($_POST['surname']) ? trim($_POST['surname']) : null;
 $nameTeacher = !empty($_POST['name']) ? trim($_POST['name']) : null;
 $patronymicTeacher = !empty($_POST['patronymic']) ? trim($_POST['patronymic']) : null;
-$phone_numberTeacher = !empty($_POST['phone']) ? trim($_POST['phone']) : null;
 $emailTeacher = !empty($_POST['mail']) ? trim($_POST['mail']) : null;
+$phone_numberTeacher = !empty($_POST['phone']) ? trim($_POST['phone']) : null;
 $styleTeacher = !empty($_POST['style']) ? trim($_POST['style']) : null;
-$socialPageTeacher = !empty($_POST['social_page']) ? trim($_POST['social_page']) : null;
 
-if($teacher->CreateTeacher($surnameTeacher, $nameTeacher, $patronymicTeacher, $phone_numberTeacher, $emailTeacher, $styleTeacher, $socialPageTeacher)){
+
+if($teacher->CreateTeacher($surnameTeacher, $nameTeacher, $patronymicTeacher, $emailTeacher, $phone_numberTeacher, $styleTeacher, 1)){
 echo <<< START
         <tr>
         <td class="information">$surnameTeacher $nameTeacher $patronymicTeacher</td>
-        <td class="information">$phone_numberTeacher</td>
         <td class="information">$emailTeacher</td>
-        <td class="information">$socialPageTeacher</td>
+        <td class="information">$phone_numberTeacher</td>
         <td class="information">$styleTeacher</td>
         <td><button type="submit" name="deleteTeacherBtn" class="btn btn-danger" onclick="window.DeleteTeacher('')">Удалить</button></td>
         </tr>

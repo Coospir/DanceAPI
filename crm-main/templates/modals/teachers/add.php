@@ -15,22 +15,19 @@
 					<div class="form-group">
 						<input type="text" class="form-control" name="patronymic" id="patronymic" placeholder="Отчество">
 					</div>
+          <div class="form-group">
+            <input type="email" class="form-control" name="mail" id="mail" placeholder="E-Mail">
+          </div>
 					<div class="form-group">
 						<input type="text" class="form-control" name="phone" id="phone" placeholder="Телефон">
 					</div>
 					<div class="form-group">
-						<input type="email" class="form-control" name="mail" id="mail" placeholder="E-Mail">
-					</div>
-					<div class="form-group">
 						<input type="text" class="form-control" name="style" id="style" placeholder="Направление(-я)" required>
-					</div>
-					<div class="form-group">
-						<input type="text" class="form-control" name="social_page" id="social_page" placeholder="Ссылка на соц. сеть">
 					</div>
 				</form>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-success" name="addNewTeacher" onclick="window.addNewTeacher()">Создать</button>
+				<button type="button" class="btn btn-success" id="add-teacher-btn" name="addNewTeacher" onclick="window.addNewTeacher()">Создать</button>
 				<button class="btn btn-danger" data-dismiss="modal">Закрыть</button>
 			</div>
 		</div>

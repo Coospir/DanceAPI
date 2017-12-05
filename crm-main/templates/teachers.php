@@ -20,9 +20,8 @@
                 <tr>
                   <!--<th>#</th>-->
                   <th>Фамилия Имя Отчество</th>
-                  <th>Контактный телефон</th>
                   <th>E-Mail</th>
-                  <th>Соц. сеть (url)</th>
+                  <th>Контактный телефон</th>
                   <th>Направление/-я</th>
                   <!--<th>Действие</th>-->
                 </tr>
@@ -32,9 +31,8 @@
                   <tr>
                     <!--<th scope="row">/*= $teacher['id'] */</th>-->
                     <td class="information"><?= $teacher['surname'] . ' ' . $teacher['name'] . ' ' . $teacher['patronymic'] ?></td>
-                    <td class="information"><?= $teacher['phone_number']; ?></td>
                     <td class="information"><?= $teacher['email']; ?></td>
-                    <td class="information"><?= $teacher['social_page']; ?></td>
+                    <td class="information"><?= $teacher['phone']; ?></td>
                     <td class="information"><?= $teacher['style']; ?> <button type="submit" style="align-content: flex-end; " name="deleteTeacherBtn" class="btn btn-danger" onclick="window.deleteTeacher('<?= $teacher['id'] ?>')">Удалить</button></td>
                     <!--                            <td><button type="submit" name="deleteTeacherBtn" class="btn btn-danger" onclick="window.deleteTeacher('<?/*= $teacher['id'] */?>')">Удалить</button></td>
 -->                     </tr>

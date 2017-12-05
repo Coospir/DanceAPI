@@ -19,13 +19,14 @@ body {
 
 #wrapper {
     padding-left: 0;
-    background-color: #022D41;
+
 }
 
 #page-wrapper {
     width: 100%;
     padding: 0;
     background-color: #fff;
+    padding-left: 50px;
 
 }
 
@@ -36,7 +37,7 @@ body {
 
 @media(min-width:768px) {
     #wrapper {
-        padding-left: 225px;
+        padding-left: 250px;
     }
 
     #page-wrapper {
@@ -116,6 +117,9 @@ ul.alert-dropdown {
 
 @media(min-width:768px) {
     .side-nav {
+        -webkit-box-shadow: 3px 0px 4px 0px rgba(0,0,0,1);
+        -moz-box-shadow: 3px 0px 4px 0px rgba(0,0,0,1);
+        box-shadow: 3px 0px 4px 0px rgba(0,0,0,1);
         position: fixed;
         top: 0px;
         bottom: 0px;

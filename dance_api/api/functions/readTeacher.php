@@ -12,8 +12,6 @@ $db = $database->getConnection('localhost','h117710_api_db', 'h117710_root','Dan
 $teacher = new Teacher($db);
 
 
-$title = 'Преподаватели';
-
 $stmt = $teacher->ReadTeacher();
 $num = $teacher->ShowCountTeachers();
 
@@ -30,20 +28,17 @@ if($num > 0) {
             "surname" => $surname,
             "name" => $name,
             "patronymic" => $patronymic,
-            "phone_number" => $phone_number,
-            "email" => $email,
+            "email" => $mail,
+            "phone" => $phone,
             "style" => $style,
-            "social_page" => $social_page
+			"id_user" => 1
         );
         array_push($teachers_arr["teachers"], $teacher_item);
     }
-
-    include __DIR__ . '/../../../crm-main/templates/template.php';
     include __DIR__ . '/../../../crm-main/templates/teachers.php';
 }
     else {
         //echo json_encode(array("message" => "No teachers found."));
-		include __DIR__ . '/../../../crm-main/templates/template.php';
 		include __DIR__ . '/../../../crm-main/templates/teachers.php';
     }
 

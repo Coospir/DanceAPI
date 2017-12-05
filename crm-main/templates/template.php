@@ -20,8 +20,8 @@
 
 <body>
 
-<div id="wrapper">
 
+<div id="wrapper">
 	<!-- Navigation -->
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 		<!-- Brand and toggle get grouped for better mobile display -->
@@ -103,7 +103,7 @@
 					<a href="/crm-main/templates/dashboard.php"> Рабочий стол</a>
 				</li>
 				<li>
-					<a href="/crm-main/templates/teachers.php"> Преподаватели</a>
+					<a href="/dance_api/api/functions/readTeacher.php"> Преподаватели</a>
 				</li>
 				<li>
 					<a href="/crm-main/templates/groups.php"> Группы</a>

@@ -15,16 +15,16 @@ class Teacher {
     }
 
 
-    public function CreateTeacher($surname, $name, $patronymic, $phone_number, $email, $style, $social_page){
-        $query = "INSERT INTO `teachers`(surname, name, patronymic, phone_number, email, style, social_page) VALUES (:surname, :name, :patronymic, :phone_number, :email, :style, :social_page)";
+    public function CreateTeacher($surname, $name, $patronymic, $mail, $phone, $style, $id_user){
+        $query = "INSERT INTO `teachers`(surname, name, patronymic, email, phone, style, id_user) VALUES (:surname, :name, :patronymic, :mail, :phone, :style, :id_user)";
         $stmt = $this->conn->prepare($query);
         $stmt->bindValue(":surname", $surname);
         $stmt->bindValue(":name", $name);
         $stmt->bindValue(":patronymic", $patronymic);
-        $stmt->bindValue(":phone_number", $phone_number);
-        $stmt->bindValue(":email", $email);
+		$stmt->bindValue(":email", $mail);
+        $stmt->bindValue(":phone", $phone);
         $stmt->bindValue(":style", $style);
-        $stmt->bindValue(":social_page", $social_page);
+        $stmt->bindValue(":id_user", $id_user);
         if($stmt->execute()){
             return true;
         }else{

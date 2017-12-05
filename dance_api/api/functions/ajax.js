@@ -4,15 +4,15 @@ function addNewTeacher(){
         url: '/dance_api/api/functions/createTeacher.php',
         data: $("#addTeacherForm").serialize()
     }).done(function (data) {
-        //alert(data);
+        alert(data);
         //console.log(data);
         // TODO: Добавить обновление таблички
         $('#addNewTeacher').modal('hide');
-        $(".panel").append("<div class='alert alert-success alert-dismissible' id='success-added-teacher'role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Успешно!</strong> Добавлен новый преподаватель. </div>");
+        $("#add-teacher-btn").append("<div class='alert alert-success alert-dismissible' id='success-added-teacher'role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Успешно!</strong> Добавлен новый преподаватель. </div>");
         setTimeout(function () {
             $('#success-added-teacher').hide();
         }, 3000);
-        $("#teacher-table-data").append("<td class='information'>" + data + "</td>");
+        $(".table").append("<td class='information'>" + data + "</td>");
         //$("#teacher-table-data").append(data);
         //location.reload();
     });
