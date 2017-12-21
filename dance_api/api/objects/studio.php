@@ -6,18 +6,24 @@ class Studio {
 		$this->conn = $db;
 	}
 
-	public function CreateStudio($name, $address, $phone, $email){
-		$query = "INSERT INTO `studios` (name, address, phone, email) VALUES (:name, :address, :phone, :email)";
+	public function CreateStudio($name, $address, $phone){
+		$query = "INSERT INTO `studios` (name, address, phone) VALUES (:name, :address, :phone)";
 		$stmt = $this->conn->prepare($query);
 		$stmt->bindValue(":name", $name);
 		$stmt->bindValue(":address", $address);
 		$stmt->bindValue(":phone", $phone);
-		$stmt->bindValue(":email", $email);
-		if($stmt->execute()){
-			return true;
-		} else {
-			var_dump($stmt);
-			return false;
+		try {
+			if($stmt->execute()){
+				echo 'Создание сущности "Студия" успешно!';
+				return true;
+			}else{
+				echo 'Ошибка при создании сущности "Студия": ';
+				echo $stmt->errorInfo();
+				return false;
+			}
+		} catch(Exception $e){
+			echo 'Ошибка при создании сущности "Студия": ';
+			echo $e->getMessage();
 		}
 	}
 

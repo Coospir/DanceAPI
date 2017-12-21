@@ -13,18 +13,13 @@ $database = new Database();
 $db = $database->getConnection('localhost','h117710_api_db', 'h117710_root','DanceCRM');
 
 $teacher = new Teacher($db);
-$data = json_decode(file_get_contents("php://input"));
-
-if(isset($_POST['id'])) {
-    $selected = !empty($_POST['id']) ? trim($_POST['id']) : null;
+/*$data = json_decode(file_get_contents("php://input"));*/
+if(isset($_POST['id_teacher'])) {
+    $selected = !empty($_POST['id_teacher']) ? trim($_POST['id_teacher']) : null;
     if ($teacher->DeleteTeacher($selected)) {
-        echo '{';
-        echo '"message": "Teacher was deleted."';
-        echo '}';
+        return true;
     }
     else {
-        echo '{';
-        echo '"message": "Unable to delete teacher."';
-        echo '}';
+        return false;
     }
 }

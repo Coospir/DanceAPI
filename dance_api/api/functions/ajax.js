@@ -8,7 +8,7 @@ function addNewTeacher(){
         //console.log(data);
         // TODO: Добавить обновление таблички
         $('#addNewTeacher').modal('hide');
-        $("#add-teacher-btn").append("<div class='alert alert-success alert-dismissible' id='success-added-teacher'role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Успешно!</strong> Добавлен новый преподаватель. </div>");
+        $(".container-fluid").append("<div class='alert alert-success alert-dismissible' id='success-added-teacher'role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Успешно!</strong> Добавлен новый преподаватель. </div>");
         setTimeout(function () {
             $('#success-added-teacher').hide();
         }, 3000);
@@ -19,6 +19,17 @@ function addNewTeacher(){
     return false;
 }
 
+function addNewStudio(){
+  $.ajax({
+    type: "POST",
+    url: '/dance_api/api/functions/createStudio.php',
+    data: $("#addStudioForm").serialize()
+  }).done(function (data) {
+    alert(data);
+    $("#addStudioForm").append("<div class='alert alert-success alert-dismissible' id='success-added-teacher'role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Успешно!</strong> Новая студия создана.</div>");
+  });
+  return false;
+}
 
 function deleteTeacher(selectedId) {
     var answer = confirm('Вы уверены, что хотите удалить выбранный элемент?');
@@ -26,14 +37,14 @@ function deleteTeacher(selectedId) {
         $.ajax({
             type: "POST",
             url: '/dance_api/api/functions/deleteTeacher.php',
-            data: {'id': selectedId}
+            data: {'id_teacher': selectedId}
         }).done(function (data) {
-            //alert(data);
+            alert(data);
             console.log(data);
             $("#teacher-table-data").remove("<td class='information'>" + data + "</td>");
         });
         return false;
-    } else return false;
+    } else alert(data); return false;
 }
 
 function deleteAllTeachers() {

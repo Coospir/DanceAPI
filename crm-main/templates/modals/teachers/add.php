@@ -1,3 +1,4 @@
+<script src="/crm-main/js/maskedinput.js"></script>
 <div id="addNewTeacher" class="modal fade">
 	<div class="modal-dialog">
 		<div class="modal-content">

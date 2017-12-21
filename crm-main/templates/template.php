@@ -11,6 +11,7 @@
 	<link href="/crm-main/styles/sb-admin.css" rel="stylesheet">
   <link type="text/css" rel="stylesheet" href="/crm-main/tbl/jsgrid.min.css" />
   <link type="text/css" rel="stylesheet" href="/crm-main/tbl/jsgrid-theme.min.css" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&amp;subset=cyrillic" rel="stylesheet">
   <script src="/crm-main/js/jquery-3.2.1.min.js"></script>
   <script src="/crm-main/js/maskedinput.js"></script>
   <script src="/dance_api/api/functions/ajax.js"></script>

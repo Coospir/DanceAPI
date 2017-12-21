@@ -8,15 +8,15 @@ class Teacher {
     }
 
     public function ReadTeacher() {
-        $query = "SELECT * FROM `teachers` ORDER BY `surname` DESC";
+        $query = "SELECT id_teacher, surname, name, patronymic, email, phone, style FROM `teachers`";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt;
     }
 
 
-    public function CreateTeacher($surname, $name, $patronymic, $mail, $phone, $style, $id_user){
-        $query = "INSERT INTO `teachers`(surname, name, patronymic, email, phone, style, id_user) VALUES (:surname, :name, :patronymic, :mail, :phone, :style, :id_user)";
+    public function CreateTeacher($surname, $name, $patronymic, $mail, $phone, $style){
+        $query = "INSERT INTO `teachers`(surname, name, patronymic, email, phone, style) VALUES (:surname, :name, :patronymic, :email, :phone, :style)";
         $stmt = $this->conn->prepare($query);
         $stmt->bindValue(":surname", $surname);
         $stmt->bindValue(":name", $name);
@@ -24,13 +24,20 @@ class Teacher {
 		$stmt->bindValue(":email", $mail);
         $stmt->bindValue(":phone", $phone);
         $stmt->bindValue(":style", $style);
-        $stmt->bindValue(":id_user", $id_user);
-        if($stmt->execute()){
-            return true;
-        }else{
-            var_dump($stmt);
-            return false;
-        }
+        var_dump ($surname,$name,$patronymic,$mail,$phone,$style);
+		try {
+			if($stmt->execute()){
+				echo 'Создание сущности "Преподаватель" успешно!';
+				return true;
+			}else{
+				echo 'Ошибка при создании сущности "Преподаватель": ';
+				echo $stmt->errorInfo();
+				return false;
+			}
+		} catch(Exception $e){
+			echo 'Ошибка при создании сущности "Преподаватель": ';
+			echo $e->getMessage();
+		}
     }
 
     public function UpdateTeacher($id, $surname, $name, $patronymic, $phone_number, $email) {
@@ -50,14 +57,22 @@ class Teacher {
     }
 
     public function DeleteTeacher($id) {
-        $query = "DELETE FROM `teachers` WHERE id=:id";
+        $query = "DELETE FROM `teachers` WHERE id_teacher=:id";
         $stmt = $this->conn->prepare($query);
         $stmt->bindValue(":id", $id);
-        if($stmt->execute()){
-            return true;
-        } else {
-            return false;
-        }
+		try {
+			if($stmt->execute()){
+				echo 'Удаление сущности "Преподаватель" c ID = '.$id.' прошло успешно!';
+				return true;
+			} else {
+				echo 'Ошибка при удалении сущности "Преподаватель" с ID = '.$id.': ';
+				echo $stmt->errorInfo();
+				return false;
+			}
+		} catch(Exception $e){
+			echo 'Ошибка при удалении сущности "Преподаватель" с ID = '.$id.':';
+			echo $e->getMessage();
+		}
     }
 
     public function DeleteAllTeachers() {
@@ -71,7 +86,7 @@ class Teacher {
     }
 
 	public function ShowCountTeachers(){
-    	$query = "SELECT COUNT(*) as count FROM `teachers`";
+    	$query = "SELECT COUNT(*) FROM `teachers`";
     	$stmt = $this->conn->prepare($query);
 		$result = $stmt->fetchAll();
     	if($stmt->execute()){

@@ -5,6 +5,7 @@
  */
 
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&subset=cyrillic');
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
@@ -1392,7 +1393,8 @@ a.bg-danger:hover {
   margin: 40px 0 20px;
   border-bottom: 1px solid #eee;
   color: #FE424D;
-  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+  font-size: 36px;
 }
 ul,
 ol {
@@ -4494,6 +4496,7 @@ fieldset[disabled] .navbar-default .btn-link:focus {
 }
 .navbar-inverse .navbar-nav > li > a {
   color: #ffffff;
+  font-family: 'Roboto', sans-serif;
 }
 .navbar-inverse .navbar-nav > li > a:hover,
 .navbar-inverse .navbar-nav > li > a:focus {

@@ -21,22 +21,17 @@ $phone_numberTeacher = !empty($_POST['phone']) ? trim($_POST['phone']) : null;
 $styleTeacher = !empty($_POST['style']) ? trim($_POST['style']) : null;
 
 
-if($teacher->CreateTeacher($surnameTeacher, $nameTeacher, $patronymicTeacher, $emailTeacher, $phone_numberTeacher, $styleTeacher, 1)){
+if($teacher->CreateTeacher($surnameTeacher, $nameTeacher, $patronymicTeacher, $emailTeacher, $phone_numberTeacher, $styleTeacher)){
 echo <<< START
         <tr>
         <td class="information">$surnameTeacher $nameTeacher $patronymicTeacher</td>
         <td class="information">$emailTeacher</td>
         <td class="information">$phone_numberTeacher</td>
         <td class="information">$styleTeacher</td>
-        <td><button type="submit" name="deleteTeacherBtn" class="btn btn-danger" onclick="window.DeleteTeacher('')">Удалить</button></td>
+        <td><button type="submit" name="deleteTeacherBtn" class="btn btn-danger" onclick="window.deleteTeacher()">Удалить</button></td>
         </tr>
 START;
-
-    echo '{';
-    echo '"message": "New teacher was created."';
-    echo '}';
+	return true;
 } else {
-    echo '{';
-    echo '"message": "Unable to create teacher."';
-    echo '}';
+    return false;
 }
