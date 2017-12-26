@@ -27,14 +27,15 @@
 <div class="container">
   <form class="form-control-static" id="addStudioForm" method="post">
     <div class="form-group">
-      <input type="text" class="form-control input-lg" name="name" id="name" placeholder="Название студии" required>
+      <input type="text" class="form-control input-lg" name="name" id="name" placeholder="Название студии *" required>
     </div>
     <div class="form-group">
-      <input type="text" class="form-control input-lg" name="address" id="address" placeholder="Адрес студии" required>
+      <input type="text" class="form-control input-lg" name="address" id="address" placeholder="Адрес студии *" required>
     </div>
     <div class="form-group">
       <input type="text" class="form-control input-lg" name="phone" id="phone" placeholder="Контактный телефон">
     </div>
+    <p class="text-success text-center"><b>Звездочкой * обозначены поля, обязательные для заполнения.</b></p>
     <button type="button" class="btn btn-lg center-block btn-success" id="add-studio-btn" name="addNewStudio" onclick="window.addNewStudio()">Завершить настройку</button>
   </form>
 </div>

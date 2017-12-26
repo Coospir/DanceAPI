@@ -13,11 +13,20 @@ $db = $database->getConnection('localhost','h117710_api_db', 'h117710_root','Dan
 
 $studio = new Studio($db);
 
+$errors = false;
 $NameStudio = !empty($_POST['name']) ? trim($_POST['name']) : null;
-$AddresStudio = !empty($_POST['address']) ? trim($_POST['address']) : null;
+if(strlen($NameStudio) == 0) {
+	echo "Не заполнено поле 'Название студии'!";
+	$errors = true;
+}
+$AddressStudio = !empty($_POST['address']) ? trim($_POST['address']) : null;
+if(strlen($AddressStudio) == 0) {
+	echo "Не заполнено поле 'Адрес студии'!";
+	$errors = true;
+}
 $PhoneStudio = !empty($_POST['phone']) ? trim($_POST['phone']) : null;
 
-var_dump($NameStudio, $AddresStudio, $PhoneStudio);
-if($studio->CreateStudio($NameStudio, $AddresStudio, $PhoneStudio)) {
+var_dump($NameStudio, $AddressStudio, $PhoneStudio);
+if($studio->CreateStudio($NameStudio, $AddressStudio, $PhoneStudio) && $errors != true) {
 	echo "ОК";
 }
