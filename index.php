@@ -20,31 +20,31 @@
     <div class="jumbotron">
         <div class="container text-center">
             <br>
-            <h1 style="color: white">Dance Studio CRM</h1>
-            <p style="font-size: 20px; text-align: center; color: white">Первая, бесплатная и удобная система управления танцевальной студией.</p>
-            <a class="btn btn-success justify-content-center" style="font-size: 18px" href="/templates/login">Войти в систему</a> <b class="lead" style="color:white">или</b>
-            <a class="btn btn-success justify-content-center" style="font-size: 18px" href="/templates/register">Регистрация</a>
+            <h1 style="color: white; font-size: 80px;">Dance Studio CRM</h1>
+            <p style="font-size: 24px; text-align: center; color: white">Первая, бесплатная и удобная система управления танцевальной студией.</p>
+            <a class="btn btn-info justify-content-center" style="font-size: 18px" href="/templates/login">Войти в систему</a> <b class="lead" style="color:white">или</b>
+            <a class="btn btn-info justify-content-center" style="font-size: 18px" href="/templates/register">Регистрация нового пользователя</a>
         </div>
     </div>
     <div class="container">
         <div class="WhyWe">
-            <h1 style="text-align: center">Почему стоит выбрать именно нас?</h1>
+            <h1 style="text-align: center;">Почему стоит выбрать именно нас?</h1>
                 <div class="container" style="margin-top: 50px;">
                     <div class="row">
                         <div class="col-md-4" style="margin-top: 10px;">
-                            <img class="rounded center-block"  src="/icons/like-icon.png" alt="Простота">
+                            <img class="rounded center-block"  src="/icons/easy.png" alt="Простота">
                             <h2 style="text-align: center">Простота</h2>
-                            <p style="text-align: center">Система, в которой разберется каждый</p>
+                            <p style="text-align: center; font-size: 16px;">Отзывчивый и понятный интерфейс, в котором разберется каждый.</p>
                         </div>
                         <div class="col-md-4" style="margin-top: 10px;">
                             <img class="rounded center-block" src="/icons/settings.png" alt="Простота">
                             <h2 style="text-align: center">Функциональность</h2>
-                            <p style="text-align: center">Мощная и гибкая система для удобной работы</p>
+                            <p style="text-align: center; font-size: 16px; ">Мощная и гибкая система для удобной работы с ресурсами танцевальной студии.</p>
                         </div>
                         <div class="col-md-4" style="margin-top: 10px;">
-                            <img class="rounded center-block" src="/icons/freee.png" alt="Простота">
+                            <img class="rounded center-block" src="/icons/free.png" alt="Простота">
                             <h2 style="text-align: center">Свободный доступ</h2>
-                            <p style="text-align: center">Все необходимые функции для работы - бесплатно!</p>
+                            <p style="text-align: center; font-size: 16px;">Все базовые функции аккаунта предоставляются совершенно бесплатно!</p>
                         </div>
                     </div>
                 </div>

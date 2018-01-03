@@ -4,6 +4,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&subset=cyrillic');
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
@@ -1183,7 +1184,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: inherit;
+  font-family: 'Roboto', sans-serif;
   font-weight: 500;
   line-height: 1.1;
   color: inherit;
@@ -1213,6 +1214,7 @@ h6 .small,
 .h5 .small,
 .h6 .small {
   font-weight: normal;
+  font-family: 'Roboto', sans-serif;
   line-height: 1;
   color: #777;
 }
@@ -1288,6 +1290,7 @@ h6,
 }
 p {
   margin: 0 0 10px;
+  font-family: 'Roboto', sans-serif;
 }
 .lead {
   margin-bottom: 20px;
@@ -3034,7 +3037,7 @@ select[multiple].input-lg {
           user-select: none;
   background-image: none;
   border: 1px solid transparent;
-  border-radius: 4px;
+  //border-radius: 4px;
 }
 .btn:focus,
 .btn:active:focus,
@@ -4605,8 +4608,8 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #ccc;
 }
 .navbar-inverse {
-  background-color: rebeccapurple;
-  border-color: rebeccapurple;
+  background-color: #1AA6B7;
+  border-color: #1AA6B7;
   /*font-size: 16px;*/
 }
 .navbar-inverse .navbar-brand {
@@ -5007,11 +5010,15 @@ a.badge:focus {
   padding-bottom: 30px;
   margin-bottom: 30px;
   color: inherit;
-  background-color: rebeccapurple;
+  background-color: #1AA6B7;
+  -webkit-box-shadow: 0px 5px 5px -2px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 5px 5px -2px rgba(0,0,0,0.75);
+  box-shadow: 0px 5px 5px -2px rgba(0,0,0,0.75);
 }
 .jumbotron h1,
 .jumbotron .h1 {
   color: inherit;
+  font-family: 'Roboto', sans-serif;
 }
 .jumbotron p {
   margin-bottom: 15px;
