@@ -35,7 +35,7 @@
     <div class="form-group">
       <input type="text" class="form-control input-lg" name="phone" id="phone" placeholder="Контактный телефон">
     </div>
-    <p class="text-success text-center"><b>Звездочкой * обозначены поля, обязательные для заполнения.</b></p>
+    <p class="text-info text-center"><b>Звездочкой * обозначены поля, обязательные для заполнения.</b></p>
     <button type="button" class="btn btn-lg center-block btn-info" id="add-studio-btn" name="addNewStudio" onclick="window.addNewStudio()">Завершить настройку</button>
   </form>
 </div>

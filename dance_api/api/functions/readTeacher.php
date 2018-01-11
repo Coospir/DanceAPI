@@ -6,12 +6,13 @@ include_once __DIR__. '/../config/database.php';
 include_once __DIR__. '/../objects/teachers.php';
 
 $database = new Database();
-$db = $database->getConnection('localhost','h117710_api_db', 'h117710_root','DanceCRM');
+$db = $database->getConnection();
 
 $teacher = new Teacher($db);
 
 $stmt = $teacher->ReadTeacher();
 $num = $teacher->ShowCountTeachers();
+
 //TODO: Что-то метод показа кол-ва преподавателей не сработал :с
 if($num > 0) {
     $teachers_arr = array();

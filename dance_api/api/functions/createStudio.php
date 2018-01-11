@@ -9,7 +9,7 @@ include_once __DIR__. '/../config/database.php';
 include_once __DIR__ . '/../objects/studio.php';
 
 $database = new Database();
-$db = $database->getConnection('localhost','h117710_api_db', 'h117710_root','DanceCRM');
+$db = $database->getConnection();
 
 $studio = new Studio($db);
 
@@ -18,11 +18,13 @@ $NameStudio = !empty($_POST['name']) ? trim($_POST['name']) : null;
 if(strlen($NameStudio) == 0) {
 	echo "Не заполнено поле 'Название студии'!";
 	$errors = true;
+	exit;
 }
 $AddressStudio = !empty($_POST['address']) ? trim($_POST['address']) : null;
 if(strlen($AddressStudio) == 0) {
 	echo "Не заполнено поле 'Адрес студии'!";
 	$errors = true;
+	exit;
 }
 $PhoneStudio = !empty($_POST['phone']) ? trim($_POST['phone']) : null;
 

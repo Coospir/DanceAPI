@@ -1,17 +1,24 @@
 <?php
 
+require_once("config.php");
+
 class Database {
-    public $conn;
-    public function getConnection($host, $db_name, $user_name, $password){
-        $this->conn = null;
+    public $connection;
+
+    function __construct() {
+		$this->getConnection();
+    }
+
+	public function getConnection(){
+        $this->connection = null;
         try {
-            $this->conn = new PDO("mysql:host=".$host.";dbname=".$db_name, $user_name, $password);
-            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            $this->conn->exec("set names utf8");
+            $this->connection = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PASS);
+            $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->connection->exec("set names utf8");
         } catch (PDOException $exception){
             echo "Connection error: ". $exception->getMessage();
         }
-        return $this->conn;
+        return $this->connection;
     }
 }
 
