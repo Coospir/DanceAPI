@@ -8,7 +8,7 @@ function addNewTeacher(){
         alert(data);
         //console.log(data);
         // TODO: Добавить обновление таблички
-        $('#addTeacherForm').modal('hide');
+        $('#addNewTeacher').modal('hide');
         $(".container-fluid").append("<div class='alert alert-success alert-dismissible' id='success-added-teacher'role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Успешно!</strong> Добавлен новый преподаватель. </div>");
         setTimeout(function () {
             $('#success-added-teacher').hide();

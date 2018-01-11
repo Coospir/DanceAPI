@@ -26,6 +26,14 @@
             <a class="btn btn-info justify-content-center" style="font-size: 18px" href="/templates/register">Регистрация нового пользователя</a>
         </div>
     </div>
+    <?php
+	    //TODO: Можно ли оставить такую проверочку?
+      require __DIR__ . "/dance_api/api/config/database.php";
+      $database = new Database();
+      if(!$database->getConnection()) {
+        echo "<div class='alert alert-danger' style='text-align: center'><b>Проблема с подключением к сервису DanceCRM:</b> обратитесь в тех. поддержку.</div>";
+      }
+    ?>
     <div class="container">
         <div class="WhyWe">
             <h1 style="text-align: center;">Почему стоит выбрать именно нас?</h1>
