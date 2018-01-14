@@ -10,7 +10,7 @@ include_once __DIR__ . '/../config/database.php';
 include_once __DIR__ . '/../objects/teachers.php';
 
 $database = new Database();
-$db = $database->getConnection('localhost','h117710_api_db', 'h117710_root','DanceCRM');
+$db = $database->getConnection();
 
 $teacher = new Teacher($db);
 /*$data = json_decode(file_get_contents("php://input"));*/

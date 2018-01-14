@@ -90,6 +90,7 @@ class Teacher {
     	$query = "SELECT COUNT(*) FROM `teachers`";
     	$stmt = $this->conn->prepare($query);
 		$result = $stmt->fetchAll();
+		var_dump($result);
     	if($stmt->execute()){
     		return $result;
 		} else {

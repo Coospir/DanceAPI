@@ -8,7 +8,7 @@ function addNewTeacher(){
         alert(data);
         //console.log(data);
         // TODO: Добавить обновление таблички
-        $('#addNewTeacher').modal('hide');
+        $('#addNewTeacher').hide();
         $(".container-fluid").append("<div class='alert alert-success alert-dismissible' id='success-added-teacher'role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Успешно!</strong> Добавлен новый преподаватель. </div>");
         setTimeout(function () {
             $('#success-added-teacher').hide();
@@ -33,7 +33,7 @@ function addNewStudio(){
   return false;
 }
 
-//TODO: Не работает удаление преподавателя, кнопка не кликабельна
+//TODO: Обновление элемента
 function deleteTeacher(selectedId) {
     var answer = confirm('Вы уверены, что хотите удалить выбранный элемент?');
     if(answer == true) {

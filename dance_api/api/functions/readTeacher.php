@@ -20,7 +20,7 @@ if($num > 0) {
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         extract($row);
         $teacher_item = array(
-            "id_teacher" => $id,
+            "id_teacher" => $id_teacher,
             "surname" => $surname,
             "name" => $name,
             "patronymic" => $patronymic,
