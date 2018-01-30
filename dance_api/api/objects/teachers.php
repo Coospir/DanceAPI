@@ -24,7 +24,6 @@ class Teacher {
 		$stmt->bindValue(":email", $mail);
         $stmt->bindValue(":phone", $phone);
         $stmt->bindValue(":style", $style);
-        var_dump ($surname,$name,$patronymic,$mail,$phone,$style);
 		try {
 			if($stmt->execute()){
 				echo 'Создание сущности "Преподаватель" успешно!';

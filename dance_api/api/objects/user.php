@@ -5,58 +5,67 @@
  * Date: 22.10.2017
  * Time: 15:43
  */
-
+ini_set('error_reporting', E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 class User {
     private $conn;
+    public $errors;
 
     public function __construct($db){
         $this->conn = $db;
     }
 
-    public function RegisterUser($username, $password, $email) {
-        $user_exists = "SELECT * FROM users WHERE username = :username";
-        $stmt = $this->conn->prepare($user_exists);
-        $stmt -> bindValue(":username", $username);
-        $stmt->execute();
-        $row = $stmt -> fetch(PDO::FETCH_ASSOC);
-        if($row){
-            $error = "Ошибка: логин занят";
-        }
-        $email_exists = "SELECT * FROM users WHERE email = :email";
-        $stmt = $this->conn->prepare($email_exists);
-        $stmt -> bindValue(":email", $email);
-        $stmt->execute();
-        $row = $stmt -> fetch(PDO::FETCH_ASSOC);
-        if($row){
-            $error = "Ошибка: почта уже зарегистрирована";
-        }
+    public function signup($name, $email, $password) {
+		if($this->isValid($name, $email, $password)){
+			try {
+				$query = "INSERT INTO `user` (name, email ,password) VALUES (:name, :email, :password)";
+				$stmt = $this->conn->prepare($query);
+				$stmt->bindValue(":name", $name);
+				$stmt->bindValue(":email", $email);
+				$stmt->bindValue(":password", password_hash($password, PASSWORD_DEFAULT));
+				$stmt->execute();
+			}catch (PDOException $exception) {
+				error_log($exception->getMessage());
+			}
+		}
+	}
 
-        if(!$error){
-            $query = "INSERT INTO users (username, password, email, join_date) VALUES (:username, :password, :email, now())";
-            $stmt = $this->conn->prepare($query);
-            $stmt->bindValue(":username", $username);
-            //var_dump($username);
-            $stmt->bindValue(":password", md5($password));
-            $stmt->bindValue(":email", $email);
-            try{
-                $result = $stmt->execute();
-            }catch (Exception $e) {
-                echo $e->getMessage();
-            }
+	public function emailExists($email){
+    	try {
+    		$query = "SELECT COUNT(*) FROM `user` WHERE email = :email LIMIT 1";
+			$stmt = $this->conn->prepare($query);
+    		$stmt->execute([':email' => $email]);
+    		$rowCount = $stmt->fetchColumn();
+    		return $rowCount == 1;
+		} catch (PDOException $exception) {
+    		error_log($exception->getMessage());
+    		return false;
+		}
+	}
+	public function isValid($name, $email, $password) {
+    	$this->errors = [];
 
+    	if($name == '') {
+    		var_dump("TEST1");
+    		$this->errors['name'] = 'Введите корректное имя пользователя!';
+		}
 
-            if(($result) && (!$row)){
-                $success = "Успешно";
-                return true;
-            }
-        } else return false;
-    }
+		if(filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
+			var_dump("TEST2");
+    		$this->errors['email'] = 'Введите корректный E-Mail!';
+		}
 
-    public function LoginUser($email, $password) {
-        try {
+		if($this->emailExists($email)) {
+			var_dump("TEST3");
+    		$this->errors['email'] = 'Введенный E-Mail адрес занят!';
+		}
 
-        }catch(PDOException $e) {
-            echo '{"error":{"text":' . $e->getMessage() .'}}';
-        }
-    }
+		if(strlen($password) < 5) {
+			var_dump("TEST4");
+			$this->errors['password'] = 'Длина пароля должна быть не менее 5 символов!';
+		}
+
+		return empty($this->errors);
+	}
 }

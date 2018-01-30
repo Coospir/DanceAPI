@@ -6,7 +6,6 @@ function addNewTeacher(){
         data: $("#addTeacherForm").serialize()
     }).done(function (data) {
         alert(data);
-        //console.log(data);
         // TODO: Добавить обновление таблички
         $('#addNewTeacher').hide();
         $(".container-fluid").append("<div class='alert alert-success alert-dismissible' id='success-added-teacher'role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Успешно!</strong> Добавлен новый преподаватель. </div>");
@@ -62,18 +61,17 @@ function deleteAllTeachers() {
 }
 
 function registerUser() {
+    //TODO: Обработка ошибок есть, но на фронте их не видно
     $.ajax({
         type: "POST",
         url: '/dance_api/api/functions/registerUser.php',
         data: $("#registerUserForm").serialize()
-    }).done(function (data, status, xhr) {
-        alert($.parseJSON(data.responseText).message);
+    }).done(function (data) {
+        alert(data);
         $("#username").val('');
         $("#email").val('');
         $("#password").val('');
         $("#registerUserForm").append("<div class='alert alert-success alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Успешно!</strong> Аккаунт зарегистрирован. Подтвердите Ваш аккаунт, данные отправлены на E-Mail.  На <a href='/index.php'>главную</a> страницу.</div>");
-    }).fail(function (data){
-        alert($.parseJSON(data.responseText).message);
     });
     return false;
 }
