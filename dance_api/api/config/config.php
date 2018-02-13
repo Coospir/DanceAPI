@@ -2,6 +2,6 @@
 
 // Database Information
 define('DB_HOST', 'localhost');
-define('DB_USER', 'h117710_root');
-define('DB_PASS', 'DanceCRM');
-define('DB_NAME', 'h117710_api_db');
+define('DB_USER', 'u0465192_default');
+define('DB_PASS', 'l4BH7!v3');
+define('DB_NAME', 'u0465192_default');

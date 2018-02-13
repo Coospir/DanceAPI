@@ -2,8 +2,8 @@
 <project version="4">
   <component name="WebServers">
     <option name="servers">
-      <webServer id="c853964b-1a22-416f-b4c0-a7f2b2cf995e" name="Dance" url="http://dancecrm@dancecrm.shn-host.ru">
-        <fileTransfer host="dancecrm@dancecrm.shn-host.ru" port="21">
+      <webServer id="c853964b-1a22-416f-b4c0-a7f2b2cf995e" name="Dance" url="http://31.31.196.85">
+        <fileTransfer host="31.31.196.85" port="21">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" />
           </advancedOptions>

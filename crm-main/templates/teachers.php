@@ -21,7 +21,6 @@
               <table class="table" id="teacher-table">
                 <thead>
                 <tr>
-                  <th>ID преподавателя</th>
                   <th>Фамилия Имя Отчество</th>
                   <th>E-Mail</th>
                   <th>Контактный телефон</th>
@@ -33,7 +32,6 @@
                 <tbody id="teacher-table-data">
 				<?php foreach ($teachers_arr["teachers"] as $teacher) : ?>
                   <tr>
-                    <th scope="row"><?=$teacher['id_teacher']; ?></th>
                     <td class="information"><?= $teacher['surname'] . ' ' . $teacher['name'] . ' ' . $teacher['patronymic'] ?></td>
                     <td class="information"><?= $teacher['email']; ?></td>
                     <td class="information"><?= $teacher['phone']; ?></td>
@@ -51,6 +49,7 @@
               <strong>Внимание!</strong> Список преподавателей пуст.
             </div>
 		  <?php endif; ?>
+
       </div>
 			<!--<div id="jsGrid">
 				<script type="text/javascript" src="/crm-main/js/test.js"></script>

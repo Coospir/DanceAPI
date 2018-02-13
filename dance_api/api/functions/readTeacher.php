@@ -2,14 +2,13 @@
 header("Access-Control-Allow-Origin: *");
 /*header("Content-Type: application/json; charset=UTF-8");*/
 
-include_once __DIR__. '/../config/database.php';
-include_once __DIR__. '/../objects/teachers.php';
+include_once __DIR__ . '/../config/database.php';
+include_once __DIR__ . '/../objects/teachers.php';
 
 $database = new Database();
 $db = $database->getConnection();
 
 $teacher = new Teacher($db);
-
 $stmt = $teacher->ReadTeacher();
 $num = $teacher->ShowCountTeachers();
 
@@ -24,7 +23,7 @@ if($num > 0) {
             "surname" => $surname,
             "name" => $name,
             "patronymic" => $patronymic,
-            "email" => $mail,
+            "email" => $email,
             "phone" => $phone,
             "style" => $style
         );

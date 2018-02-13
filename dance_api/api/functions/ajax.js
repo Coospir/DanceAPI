@@ -67,11 +67,23 @@ function registerUser() {
         url: '/dance_api/api/functions/registerUser.php',
         data: $("#registerUserForm").serialize()
     }).done(function (data) {
-        alert(data);
-        $("#username").val('');
-        $("#email").val('');
-        $("#password").val('');
-        $("#registerUserForm").append("<div class='alert alert-success alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Успешно!</strong> Аккаунт зарегистрирован. Подтвердите Ваш аккаунт, данные отправлены на E-Mail.  На <a href='/index.php'>главную</a> страницу.</div>");
+        var json = JSON.parse(data);
+        console.log(json);
+        $('#display_errors').html('');
+        if(json) {
+            if(json.name){
+                $('#display_errors').append(json.name);
+            }
+            if(json.email){
+                $('#display_errors').append(json.email);
+            }
+            if(json.password){
+                $('#display_errors').append(json.password);
+            }
+            if(json.message){
+                $("#registerUserForm").append("<div class='alert alert-success alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Успешно!</strong> Аккаунт зарегистрирован. Подтвердите Ваш аккаунт, данные отправлены на E-Mail.  На <a href='/index.php'>главную</a> страницу.</div>");
+            }
+        }
     });
     return false;
 }

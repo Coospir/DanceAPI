@@ -8,8 +8,8 @@
   <meta name="description" content="crm_main_page">
 	<meta name="author" content="crm_main_page">
 	<title>DS Admin</title>
-	<link href="/crm-main/styles/bootstrap.css" rel="stylesheet">
-	<link href="/crm-main/styles/sb-admin.css" rel="stylesheet">
+	<link href="/crm-main/styles/css/bootstrap.css" rel="stylesheet">
+	<link href="/crm-main/styles/css/sb-admin.css" rel="stylesheet">
   <link type="text/css" rel="stylesheet" href="/crm-main/tbl/jsgrid.min.css" />
   <link type="text/css" rel="stylesheet" href="/crm-main/tbl/jsgrid-theme.min.css" />
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&amp;subset=cyrillic" rel="stylesheet">

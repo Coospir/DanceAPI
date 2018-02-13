@@ -29,6 +29,7 @@ if(strlen($AddressStudio) == 0) {
 $PhoneStudio = !empty($_POST['phone']) ? trim($_POST['phone']) : null;
 
 var_dump($NameStudio, $AddressStudio, $PhoneStudio);
+//ToDo: проблема с созданием танцевальной студии (внешние ключи)
 if($studio->CreateStudio($NameStudio, $AddressStudio, $PhoneStudio) && $errors != true) {
 	echo "ОК";
 }
