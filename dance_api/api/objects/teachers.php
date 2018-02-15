@@ -84,14 +84,13 @@ class Teacher {
         }
     }
 
-    //TODO: Не работает метод ShowCountTeachers() (см. в readTeacher.php)
+    //TODO: Не работает метод ShowCountTeachers() (см. в show_teachers.php)
 	public function ShowCountTeachers(){
     	$query = "SELECT COUNT(*) FROM `teachers`";
     	$stmt = $this->conn->prepare($query);
-		$result = $stmt->fetchAll();
-		var_dump($result);
     	if($stmt->execute()){
-    		return $result;
+            $result = $stmt->fetchAll();
+    		return $result[0][0];
 		} else {
     		return false;
 		}

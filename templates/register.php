@@ -22,12 +22,17 @@
 </div>
 <div class="wrapper">
     <form id="registerUserForm" class="form-signin" method="post">
-        <h2 class="form-signin-heading">Регистрация нового пользователя</h2>
-        <span id="display_errors"></span>
-        <input type="text" class="form-control" name="username" id="username" placeholder="Фамилия Имя" required="" autofocus=""/>
-        <input type="email" class="form-control" name="email" id="email" placeholder="E-Mail" required="" autofocus="" style="margin-top: 5px;"/>
-        <input type="password" class="form-control" name="password" id="password" placeholder="Пароль" required="" style="margin-top: 5px;"/>
-        <button class="btn btn-lg btn-success btn-block" style="margin-bottom: 10px; margin-top: 20px;" type="button" onclick="window.registerUser()">Зарегистрироваться</button>
+        <div id="form-content">
+            <h2 class="form-signin-heading">Регистрация нового пользователя</h2>
+            <span id="display_errors"></span>
+            <input type="text" class="form-control" name="username" id="username" placeholder="Фамилия Имя" required="" autofocus=""/>
+            <input type="email" class="form-control" name="email" id="email" placeholder="E-Mail" required="" autofocus="" style="margin-top: 5px;"/>
+            <input type="password" class="form-control" name="password" id="password" placeholder="Пароль" required="" style="margin-top: 5px;"/>
+            <p style="margin: 5px 10px 10px; font-size: 10px; font-style: italic;">
+                <input type="checkbox" name="user_type"> Подтверждаю, что являюсь руководителем танцевальной студии
+            </p>
+            <button class="btn btn-lg btn-success btn-block" style="margin-bottom: 10px; margin-top: 20px;" type="button" onclick="window.registerUser()">Зарегистрироваться</button>
+        </div>
     </form>
 </div>
 </body>

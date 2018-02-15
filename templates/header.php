@@ -36,7 +36,7 @@
             <a class="navbar-brand" href="/dance_system/main.php"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span> В меню</a>
         </div>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="/dance_api/api/functions/readTeacher.php">Преподаватели</a></li>
+            <li class="active"><a href="/dance_api/api/functions/show_teachers.php">Преподаватели</a></li>
             <li><a href="#">Группы</a></li>
             <li><a href="#">Клиенты</a></li>
             <li><a href="#">Расписание</a></li>

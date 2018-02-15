@@ -1,6 +1,7 @@
 <?php
   include __DIR__ . '/../templates/template.php';
   include __DIR__ . '/../templates/modals/teachers/add.php';
+  include __DIR__ . '/../../dance_api/api/config/database.php';
 ?>
 <div id="page-wrapper">
 	<div class="container-fluid">
@@ -14,7 +15,6 @@
     </div>
   </div>
   <div class="container-fluid">
-	  <?php print_r($teachers_arr["teachers"]); ?>
     <button class="btn btn-info btn-sm navbar-btn" data-toggle="modal" data-target="#addNewTeacher"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Добавить преподавателя</button>
 		  <?php if(!empty($teachers_arr["teachers"])) : ?>
             <div class="table">
@@ -30,7 +30,12 @@
                 </tr>
                 </thead>
                 <tbody id="teacher-table-data">
-				<?php foreach ($teachers_arr["teachers"] as $teacher) : ?>
+
+				<?php
+                $teacher = new Teacher($db);
+                $num = $teacher->ShowCountTeachers();
+                var_dump($num);
+                foreach ($teachers_arr["teachers"] as $teacher) : ?>
                   <tr>
                     <td class="information"><?= $teacher['surname'] . ' ' . $teacher['name'] . ' ' . $teacher['patronymic'] ?></td>
                     <td class="information"><?= $teacher['email']; ?></td>
@@ -51,8 +56,5 @@
 		  <?php endif; ?>
 
       </div>
-			<!--<div id="jsGrid">
-				<script type="text/javascript" src="/crm-main/js/test.js"></script>
-			</div>-->
 		</div>
 	</div>

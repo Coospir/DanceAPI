@@ -17,28 +17,14 @@ $user = new User($db);
 $username = !empty($_POST['username']) ? trim($_POST['username']) : null;
 $email = !empty($_POST['email']) ? trim($_POST['email']) : null;
 $password = !empty($_POST['password']) ? trim($_POST['password']) : null;
-
-
-//TODO: Что-то ошибки не выводятся в register.php
+$user_type = '';
+//ToDo: Не ловится ошибка, если не выбрана галочка подтверждения
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
-	$user->signup($username, $email, $password);
-	if(empty($user->errors)){
-		echo json_encode($user->success);
-	} else echo json_encode($user->errors);
+    if(empty($user->errors) && isset($_POST['user_type'])){
+        $user_type = 'director';
+        $user->signup($username, $email, $password, $user_type);
+        echo json_encode($user->success);
+    } else echo json_encode($user->errors);
 }
-
-
-        //var_dump("Error");
-/*if($user->signup($_POST) {
-    http_response_code(200);
-    echo '{';
-    echo '"message": "New user registered."';
-    echo '}';
-} else {
-    http_response_code(404);
-    echo '{';
-    echo '"error": "Невозможно зарегистрировать пользователя."';
-    echo '}';
-}*/
 
 

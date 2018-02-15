@@ -67,21 +67,26 @@ function registerUser() {
         url: '/dance_api/api/functions/registerUser.php',
         data: $("#registerUserForm").serialize()
     }).done(function (data) {
+        alert(data);
         var json = JSON.parse(data);
         console.log(json);
         $('#display_errors').html('');
         if(json) {
             if(json.name){
-                $('#display_errors').append(json.name);
+                $('#display_errors').append("<span class='label label-danger'>" + json.name + "</span><br>");
             }
             if(json.email){
-                $('#display_errors').append(json.email);
+                $('#display_errors').append("<span class='label label-danger'>" + json.email + "</span><br>");
             }
             if(json.password){
-                $('#display_errors').append(json.password);
+                $('#display_errors').append("<span class='label label-danger'>" + json.password + "</span><br><br>");
+            }
+            if(json.user_type){
+                $('#display_errors').append("<span class='label label-danger'>" + json.user_type + "</span><br><br>");
             }
             if(json.message){
-                $("#registerUserForm").append("<div class='alert alert-success alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Успешно!</strong> Аккаунт зарегистрирован. Подтвердите Ваш аккаунт, данные отправлены на E-Mail.  На <a href='/index.php'>главную</a> страницу.</div>");
+                $('#form-content').hide();
+                $("#registerUserForm").html("<div class='alert alert-success alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Успешно!</strong> Аккаунт зарегистрирован. Подтвердите Ваш аккаунт, данные отправлены на E-Mail.  На <a href='/index.php'>главную</a> страницу.</div>");
             }
         }
     });

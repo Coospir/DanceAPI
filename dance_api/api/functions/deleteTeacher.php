@@ -13,7 +13,6 @@ $database = new Database();
 $db = $database->getConnection();
 
 $teacher = new Teacher($db);
-/*$data = json_decode(file_get_contents("php://input"));*/
 if(isset($_POST['id_teacher'])) {
     $selected = !empty($_POST['id_teacher']) ? trim($_POST['id_teacher']) : null;
     if ($teacher->DeleteTeacher($selected)) {

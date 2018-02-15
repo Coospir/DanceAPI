@@ -105,7 +105,7 @@
 					<a href="/crm-main/templates/dashboard.php"> Рабочий стол</a>
 				</li>
 				<li>
-					<a href="/dance_api/api/functions/readTeacher.php"> Преподаватели</a>
+					<a href="/dance_api/api/functions/show_teachers.php"> Преподаватели</a>
 				</li>
 				<li>
 					<a href="/crm-main/templates/groups.php"> Группы</a>

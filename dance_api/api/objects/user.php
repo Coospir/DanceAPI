@@ -18,14 +18,15 @@ class User {
         $this->conn = $db;
     }
 
-    public function signup($name, $email, $password) {
-		if($this->isValid($name, $email, $password)){
+    public function signup($name, $email, $password, $user_type) {
+		if($this->isValid($name, $email, $password, $user_type)){
 			try {
-				$query = "INSERT INTO `users` (name, email ,password) VALUES (:name, :email, :password)";
+				$query = "INSERT INTO `users` (name, email ,password, user_type) VALUES (:name, :email, :password, :user_type)";
 				$stmt = $this->conn->prepare($query);
 				$stmt->bindValue(":name", $name);
 				$stmt->bindValue(":email", $email);
 				$stmt->bindValue(":password", password_hash($password, PASSWORD_DEFAULT));
+                $stmt->bindValue(":user_type", $user_type);
 				$stmt->execute();
 			}catch (PDOException $exception) {
 				error_log($exception->getMessage());
@@ -45,7 +46,7 @@ class User {
     		return false;
 		}
 	}
-	public function isValid($name, $email, $password) {
+	public function isValid($name, $email, $password, $user_type) {
     	$this->errors = [];
     	$this->success = [];
 
@@ -64,6 +65,10 @@ class User {
 		if(strlen($password) < 5) {
 			$this->errors['password'] = 'Длина пароля должна быть не менее 5 символов!';
 		}
+
+		if($user_type == '') {
+    	    $this->errors['user_type'] = 'Вы не выбрали тип учетной записи!';
+        }
 
         if(empty($this->errors)){
     	    $this->success['message'] = "Регистрация успешна!";
