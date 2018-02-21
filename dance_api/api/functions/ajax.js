@@ -7,12 +7,12 @@ function addNewTeacher(){
     }).done(function (data) {
         alert(data);
         // TODO: Добавить обновление таблички
-        $('#addNewTeacher').hide();
-        $(".container-fluid").append("<div class='alert alert-success alert-dismissible' id='success-added-teacher'role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Успешно!</strong> Добавлен новый преподаватель. </div>");
-        setTimeout(function () {
+        //$('#addNewTeacher').hide();
+        //$(".container-fluid").append("<div class='alert alert-success alert-dismissible' id='success-added-teacher'role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Успешно!</strong> Добавлен новый преподаватель. </div>");
+        /*setTimeout(function () {
             $('#success-added-teacher').hide();
-        }, 3000);
-        $(".table").append("<td class='information'>" + data + "</td>");
+        }, 3000);*/
+        //$(".table").append("<td class='information'>" + data + "</td>");
         //$("#teacher-table-data").append(data);
         //location.reload();
     });
@@ -64,10 +64,9 @@ function registerUser() {
     //TODO: Обработка ошибок есть, но на фронте их не видно
     $.ajax({
         type: "POST",
-        url: '/dance_api/api/functions/registerUser.php',
+        url: '/dance_api/api/functions/register_user.php',
         data: $("#registerUserForm").serialize()
     }).done(function (data) {
-        alert(data);
         var json = JSON.parse(data);
         console.log(json);
         $('#display_errors').html('');
@@ -79,10 +78,10 @@ function registerUser() {
                 $('#display_errors').append("<span class='label label-danger'>" + json.email + "</span><br>");
             }
             if(json.password){
-                $('#display_errors').append("<span class='label label-danger'>" + json.password + "</span><br><br>");
+                $('#display_errors').append("<span class='label label-danger'>" + json.password + "</span><br>");
             }
             if(json.user_type){
-                $('#display_errors').append("<span class='label label-danger'>" + json.user_type + "</span><br><br>");
+                $('#display_errors').append("<span class='label label-danger'>" + json.user_type + "</span><br>");
             }
             if(json.message){
                 $('#form-content').hide();

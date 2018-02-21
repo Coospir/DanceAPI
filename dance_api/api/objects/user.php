@@ -19,7 +19,7 @@ class User {
     }
 
     public function signup($name, $email, $password, $user_type) {
-		if($this->isValid($name, $email, $password, $user_type)){
+        if($this->isValid($name, $email, $password, $user_type)){
 			try {
 				$query = "INSERT INTO `users` (name, email ,password, user_type) VALUES (:name, :email, :password, :user_type)";
 				$stmt = $this->conn->prepare($query);
@@ -46,6 +46,7 @@ class User {
     		return false;
 		}
 	}
+
 	public function isValid($name, $email, $password, $user_type) {
     	$this->errors = [];
     	$this->success = [];
@@ -73,7 +74,6 @@ class User {
         if(empty($this->errors)){
     	    $this->success['message'] = "Регистрация успешна!";
         }
-
 		return empty($this->errors);
 	}
 }

@@ -1,6 +1,6 @@
 <?php if(!empty($teachers_arr["teachers"])) : ?>
         <div class="table">
-            <table class="table" id="teacher-table">
+            <table class="table table-bordered table-hover" id="teacher-table">
                 <thead>
                 <tr>
                     <!--<th>#</th>-->
@@ -15,15 +15,12 @@
                 <tbody id="teacher-table-data">
                     <?php foreach ($teachers_arr["teachers"] as $teacher) : ?>
                         <tr>
-                            <!--<th scope="row">/*= $teacher['id'] */</th>-->
-                            <!--<th scope="row"><?/*= var_dump($nu) */?></th>-->
                             <td class="information"><?= $teacher['surname'] . ' ' . $teacher['name'] . ' ' . $teacher['patronymic'] ?></td>
                             <td class="information"><?= $teacher['phone_number']; ?></td>
                             <td class="information"><?= $teacher['email']; ?></td>
                             <td class="information"><?= $teacher['social_page']; ?></td>
                             <td class="information"><?= $teacher['style']; ?> <button type="submit" style="align-content: flex-end; " name="deleteTeacherBtn" class="btn btn-danger" onclick="window.deleteTeacher('<?= $teacher['id_teacher'] ?>')">Удалить</button></td>
-<!--                            <td><button type="submit" name="deleteTeacherBtn" class="btn btn-danger" onclick="window.deleteTeacher('<?/*= $teacher['id'] */?>')">Удалить</button></td>
--->                     </tr>
+                       </tr>
                     <?php endforeach; ?>
                 </tbody>
             </table>

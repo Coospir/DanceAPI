@@ -11,7 +11,7 @@ $database = new Database();
 $db = $database->getConnection();
 
 $teacher = new Teacher($db);
-
+//TODO: Сломался метод создания преподов
 $surnameTeacher = !empty($_POST['surname']) ? trim($_POST['surname']) : null;
 $nameTeacher = !empty($_POST['name']) ? trim($_POST['name']) : null;
 $patronymicTeacher = !empty($_POST['patronymic']) ? trim($_POST['patronymic']) : null;

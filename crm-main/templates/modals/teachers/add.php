@@ -15,15 +15,15 @@
 					<div class="form-group">
 						<input type="text" class="form-control" name="patronymic" id="patronymic" placeholder="Отчество">
 					</div>
-          <div class="form-group">
-            <input type="email" class="form-control" name="mail" id="mail" placeholder="E-Mail">
-          </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" name="mail" id="mail" placeholder="E-Mail">
+                    </div>
 					<div class="form-group">
 						<input type="text" class="form-control" name="phone" id="phone" placeholder="Телефон">
 					</div>
 					<div class="form-group">
-						<input type="text" class="form-control" name="style" id="style" placeholder="Направление(-я)" required>
-					</div>
+                        <select class="form-control" name="style" id="style"><option value="Hip-Hop">Hip-Hop</option></select>
+                    </div>
 				</form>
 			</div>
 			<div class="modal-footer">

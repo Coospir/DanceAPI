@@ -24,7 +24,7 @@
     <form id="registerUserForm" class="form-signin" method="post">
         <div id="form-content">
             <h2 class="form-signin-heading">Регистрация нового пользователя</h2>
-            <span id="display_errors"></span>
+            <span id="display_errors"></span><br>
             <input type="text" class="form-control" name="username" id="username" placeholder="Фамилия Имя" required="" autofocus=""/>
             <input type="email" class="form-control" name="email" id="email" placeholder="E-Mail" required="" autofocus="" style="margin-top: 5px;"/>
             <input type="password" class="form-control" name="password" id="password" placeholder="Пароль" required="" style="margin-top: 5px;"/>

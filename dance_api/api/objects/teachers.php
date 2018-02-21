@@ -8,7 +8,7 @@ class Teacher {
     }
 
     public function ReadTeacher() {
-        $query = "SELECT id_teacher, surname, name, patronymic, email, phone, style FROM `teachers`";
+        $query = "SELECT id_teacher, surname, name, patronymic, email, phone, style, id_style FROM `teachers`";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt;
@@ -95,5 +95,17 @@ class Teacher {
     		return false;
 		}
 	}
+
+	public function ShowStyles() {
+	    $query = "SELECT id_style, style FROM `teachers`";
+	    $stmt = $this->conn->prepare($query);
+	    if($stmt->execute()){
+	        $result = $stmt->fetchAll();
+	        return $result;
+        } else {
+	        return false;
+        }
+
+    }
 
 }

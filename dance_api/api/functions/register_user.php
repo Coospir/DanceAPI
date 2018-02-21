@@ -18,13 +18,17 @@ $username = !empty($_POST['username']) ? trim($_POST['username']) : null;
 $email = !empty($_POST['email']) ? trim($_POST['email']) : null;
 $password = !empty($_POST['password']) ? trim($_POST['password']) : null;
 $user_type = '';
+
 //ToDo: Не ловится ошибка, если не выбрана галочка подтверждения
 if($_SERVER['REQUEST_METHOD'] === 'POST'){
-    if(empty($user->errors) && isset($_POST['user_type'])){
+    if(isset($_POST['user_type'])){
         $user_type = 'director';
-        $user->signup($username, $email, $password, $user_type);
+    }
+    $user->signup($username, $email, $password, $user_type);
+    if(empty($user->errors)){
         echo json_encode($user->success);
-    } else echo json_encode($user->errors);
+    } else {
+        echo json_encode($user->errors);
+    }
+
 }
-
-
