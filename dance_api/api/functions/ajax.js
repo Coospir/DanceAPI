@@ -4,6 +4,7 @@ function addNewTeacher(){
         type: "POST",
         url: '/dance_api/api/functions/createTeacher.php',
         data: $("#addTeacherForm").serialize()
+
     }).done(function (data) {
         alert(data);
         // TODO: Добавить обновление таблички

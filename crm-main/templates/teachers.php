@@ -1,7 +1,13 @@
 <?php
   include __DIR__ . '/../templates/template.php';
-  include __DIR__ . '/../templates/modals/teachers/add.php';
   include __DIR__ . '/../../dance_api/api/config/database.php';
+
+  $db = new Database();
+  $db = $db->getConnection();
+
+  $styles = $db->query("SELECT * FROM dance_style;")->fetchAll(PDO::FETCH_ASSOC);
+
+  include __DIR__ . '/../templates/modals/teachers/add.php';
 ?>
 <div id="page-wrapper">
 	<div class="container-fluid">

@@ -6,11 +6,10 @@ class Database {
     public $connection;
 
     function __construct() {
-		$this->getConnection();
+		return $this->getConnection();
     }
 
-	public function getConnection(){
-        $this->connection = null;
+	public function getConnection() {
         try {
             $this->connection = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME, DB_USER, DB_PASS);
             $this->connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -21,4 +20,3 @@ class Database {
         return $this->connection;
     }
 }
-

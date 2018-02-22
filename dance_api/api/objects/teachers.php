@@ -97,7 +97,7 @@ class Teacher {
 	}
 
 	public function ShowStyles() {
-	    $query = "SELECT id_style, style FROM `teachers`";
+	    $query = "SELECT id_style, name FROM `dance_style`";
 	    $stmt = $this->conn->prepare($query);
 	    if($stmt->execute()){
 	        $result = $stmt->fetchAll();
