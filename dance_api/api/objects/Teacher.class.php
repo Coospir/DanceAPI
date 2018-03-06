@@ -2,40 +2,40 @@
 
 class Teacher {
     private $conn;
-
+    public $errors = [];
+    public $data = [];
     public function __construct($db){
         $this->conn = $db;
     }
 
+    //TODO: сделать нормальный метод для добавления ид_препода и ид_стиля в промежуточную
     public function ReadTeacher() {
-        $query = "SELECT id_teacher, surname, name, patronymic, email, phone, style, id_style FROM `teachers`";
+        $query = "SELECT teachers.id_teacher, teachers.surname, teachers.name, teachers.patronymic, teachers.email, teachers.phone FROM teachers";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt;
     }
 
 
-    public function CreateTeacher($surname, $name, $patronymic, $mail, $phone, $style){
-        $query = "INSERT INTO `teachers`(surname, name, patronymic, email, phone, style) VALUES (:surname, :name, :patronymic, :email, :phone, :style)";
+    public function CreateTeacher($surname, $name, $patronymic, $mail, $phone, $style) {
+        $this->errors = [];
+        $query = "INSERT INTO `teachers`(surname, name, patronymic, email, phone) VALUES (:surname, :name, :patronymic, :email, :phone)";
         $stmt = $this->conn->prepare($query);
         $stmt->bindValue(":surname", $surname);
         $stmt->bindValue(":name", $name);
         $stmt->bindValue(":patronymic", $patronymic);
 		$stmt->bindValue(":email", $mail);
         $stmt->bindValue(":phone", $phone);
-        $stmt->bindValue(":style", $style);
 		try {
 			if($stmt->execute()){
-				echo 'Создание сущности "Преподаватель" успешно!';
-				return true;
-			}else{
-				echo 'Ошибка при создании сущности "Преподаватель": ';
-				echo $stmt->errorInfo();
-				return false;
+                $this->data[] = 'Успешное создание сущности "Преподаватель"';
+                echo json_encode($this->data);
+			} else {
+				$this->errors[] = 'Ошибка при создании сущности "Преподаватель": ' . $stmt->errorInfo();
+				echo json_encode($this->errors);
 			}
 		} catch(Exception $e){
-			echo 'Ошибка при создании сущности "Преподаватель": ';
-			echo $e->getMessage();
+			echo 'Непредвиденная ошибка при создании сущности "Преподаватель": ' . $e->getMessage();
 		}
     }
 
@@ -97,7 +97,7 @@ class Teacher {
 	}
 
 	public function ShowStyles() {
-	    $query = "SELECT id_style, name FROM `dance_style`";
+	    $query = "SELECT teachers.id_style, dance_style.id_style , dance_style.title FROM teachers, dance_style WHERE teachers.id_style = dance_style.id_style";
 	    $stmt = $this->conn->prepare($query);
 	    if($stmt->execute()){
 	        $result = $stmt->fetchAll();

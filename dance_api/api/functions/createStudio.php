@@ -6,7 +6,7 @@ header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");*/
 
 include_once __DIR__. '/../config/database.php';
-include_once __DIR__ . '/../objects/studio.php';
+include_once __DIR__ . '/../objects/Studio.class.php';
 
 $database = new Database();
 $db = $database->getConnection();

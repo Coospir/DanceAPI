@@ -2,7 +2,7 @@
 function addNewTeacher(){
     $.ajax({
         type: "POST",
-        url: '/dance_api/api/functions/createTeacher.php',
+        url: '/dance_api/api/functions/create_teacher.php',
         data: $("#addTeacherForm").serialize()
 
     }).done(function (data) {
@@ -86,9 +86,21 @@ function registerUser() {
             }
             if(json.message){
                 $('#form-content').hide();
-                $("#registerUserForm").html("<div class='alert alert-success alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Успешно!</strong> Аккаунт зарегистрирован. Подтвердите Ваш аккаунт, данные отправлены на E-Mail.  На <a href='/index.php'>главную</a> страницу.</div>");
+                $("#registerUserForm").html("<h2 class='form-signin-heading'>Аккаунт зарегистрирован.</h2><p>Подтвердите Ваш аккаунт, данные отправлены на E-Mail.</p> <p>На страницу <a href='/templates/login.php'>авторизации</a></p></div>");
             }
         }
+    });
+    return false;
+}
+
+function authUser() {
+    $.ajax({
+        type: "POST",
+        url: '/dance_api/api/functions/loginUser.php',
+        data: $("#loginUserForm").serialize()
+    }).done(function (data) {
+        var json = JSON.parse(data);
+        console.log(json);
     });
     return false;
 }

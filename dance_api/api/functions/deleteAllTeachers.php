@@ -9,7 +9,7 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 
 // include database and object file
 include_once '../config/database.php';
-include_once '../objects/teachers.php';
+include_once '../objects/Teacher.class.php';
 
 // get database connection
 $database = new Database();

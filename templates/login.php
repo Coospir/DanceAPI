@@ -13,7 +13,7 @@
     <script src="/style/js/bootstrap.js"></script>
     <script src="/style/js/functions_jquery.js"></script>
     <script src="/dance_api/api/functions/ajax.js"></script>
-    <title>Вход в систему</title>
+    <title>Авторизация</title>
 </head>
 <body>
 
@@ -21,12 +21,13 @@
     <div id="status">&nbsp;</div>
 </div>
 <div class="wrapper">
-    <form id="loginUserForm" class="form-signin">
+    <form id="loginUserForm" class="form-signin" method="post">
         <h2 class="form-signin-heading">Авторизация в системе</h2>
+        <span id="display_errors"></span><br>
         <input type="email" class="form-control" name="email" id="email" placeholder="E-Mail" required="" autofocus="" />
         <input type="password" class="form-control" name="password" id="password" placeholder="Пароль" required="" style="margin-top: 5px;"/>
         <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Запомнить меня
-        <button class="btn btn-lg btn-success btn-block" style="margin-top: 20px;" type="submit">Войти</button>
+        <button class="btn btn-lg btn-success btn-block" style="margin-top: 20px;" type="submit" onclick="window.authUser()">Войти</button>
     </form>
 </div>
 </body>

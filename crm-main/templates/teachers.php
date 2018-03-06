@@ -3,9 +3,10 @@
   include __DIR__ . '/../../dance_api/api/config/database.php';
 
   $db = new Database();
+
   $db = $db->getConnection();
 
-  $styles = $db->query("SELECT * FROM dance_style;")->fetchAll(PDO::FETCH_ASSOC);
+  $modal_styles = $db->query("SELECT * FROM dance_style")->fetchAll(PDO::FETCH_ASSOC);
 
   include __DIR__ . '/../templates/modals/teachers/add.php';
 ?>
@@ -36,18 +37,14 @@
                 <tbody id="teacher-table-data">
 
 				<?php
-                /*$teacher = new Teacher($db);
-                $num = $teacher->ShowCountTeachers();
-                var_dump($num);*/
                 foreach ($teachers_arr["teachers"] as $teacher) : ?>
                   <tr>
                     <td class="information"><?= $teacher['surname'] . ' ' . $teacher['name'] . ' ' . $teacher['patronymic'] ?></td>
                     <td class="information"><?= $teacher['email']; ?></td>
                     <td class="information"><?= $teacher['phone']; ?></td>
-                    <td class="information"><select class="form-control"><option value="<?= $teacher['id_style']; ?>"><?= $teacher['style']; ?></option></select></td>
+                    <td class="information"><?= $teacher['title']; ?></td>
                     <td><button type="submit" style="align-content: flex-end; " name="deleteTeacherBtn" class="btn btn-danger" onclick="window.deleteTeacher('<?= $teacher['id_teacher'] ?>')">Удалить</button></td>
-                    <!--
--->                     </tr>
+                  </tr>
 				<?php endforeach; ?>
                 </tbody>
               </table>

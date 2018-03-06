@@ -23,10 +23,10 @@
                             <input type="text" class="form-control" name="phone" id="phone" placeholder="Телефон">
                         </div>
                         <div class="form-group">
-                            <select class="form-control" name="style" id="style">
+                            <select class="form-control" multiple name="style[]" id="style">
                                 <?php
-                                    foreach ($styles as $style) {
-                                        echo "<option value=".$style['id_style'].">".$style['name']."</option>";
+                                    foreach ($modal_styles as $style) {
+                                        echo "<option value=".$style['id_style'].">".$style['title']."</option>";
                                     }
                                 ?>
                             </select>
@@ -34,10 +34,6 @@
                 </div>
                 <div class="modal-footer">
                     <input type="submit" name="addNewTeacher" class="btn btn-success" id="add-teacher-btn" onclick="window.addNewTeacher()" value="Создать">
-                    <!--
-
-                    <button type="sumbit" class="btn btn-success" id="add-teacher-btn" name="addNewTeacher" onclick="window.addNewTeacher()">Создать</button>
-                     -->
                     <button class="btn btn-danger" data-dismiss="modal">Закрыть</button>
                 </div>
             </div>

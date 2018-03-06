@@ -5,7 +5,7 @@
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     include_once __DIR__ . '/../config/database.php';
-    include_once __DIR__ . '/../objects/teachers.php';
+    include_once __DIR__ . '/../objects/Teacher.class.php';
 
     $database = new Database();
     $db = $database->getConnection();
@@ -27,8 +27,8 @@
                 "patronymic" => $patronymic,
                 "email" => $email,
                 "phone" => $phone,
-                "id_style" => $id_style,
-                "style" => $style
+               // "id_style" => $id_style,
+                "title" => $title
             );
             array_push($teachers_arr["teachers"], $teacher_item);
         }

@@ -1,17 +1,16 @@
 <?php
-header("Access-Control-Allow-Origin: *");
-
-include_once '../config/database.php';
-include_once '../objects/user.php';
+//header("Access-Control-Allow-Origin: *");
+include_once __DIR__ . '/../config/database.php';
+include_once __DIR__ . '/../objects/User.class.php';
 
 $database = new Database();
-$db = $database->getConnection('localhost','h117710_api_db', 'h117710_root','DanceCRM');
-include __DIR__ . '/../../../templates/login.php';
+$db = $database->getConnection();
 
-/*if(isset($_POST['loginUserForm'])) {
-    $user_email = !empty($_POST['email']) ? trim($_POST['email']) : null;
-    $user_password = !empty($_POST['password']) ? trim($_POST['password']) : null;
-    if(strlen($user_email) > 1 && strlen($user_password) > 1){
+$user = new User($db);
 
-    }
-} else*/
+$email = !empty($_POST['email']) ? trim($_POST['email']) : null;
+$password = !empty($_POST['password']) ? trim($_POST['password']) : null;
+
+if($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $user->authenticate($email, $password);
+}

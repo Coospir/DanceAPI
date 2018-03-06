@@ -7,7 +7,7 @@
  */
 //header("Access-Control-Allow-Origin: *");
 include_once __DIR__ . '/../config/database.php';
-include_once __DIR__ . '/../objects/user.php';
+include_once __DIR__ . '/../objects/User.class.php';
 
 $database = new Database();
 $db = $database->getConnection();
@@ -28,6 +28,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     if(empty($user->errors)){
         echo json_encode($user->success);
     } else {
+        http_response_code(204);
         echo json_encode($user->errors);
     }
 

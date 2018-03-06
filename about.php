@@ -34,7 +34,7 @@
     </div>
 </div>
 <div class="container">
-    <form method="post" action="/dance_api/api/functions/createTeacher.php">
+    <form method="post" action="/dance_api/api/functions/create_teacher.php">
         <div class="form-group">
             <input type="text" class="form-control" name="surname" id="surname">
         </div>
