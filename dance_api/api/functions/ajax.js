@@ -101,6 +101,16 @@ function authUser() {
     }).done(function (data) {
         var json = JSON.parse(data);
         console.log(json);
+        $('#display_errors').html('');
+        if(json) {
+            if(json.user_data) {
+                $('#display_errors').append("<span class='label label-danger'>" + json.user_data + "</span><br>");
+            }
+            if(json.message) {
+                $('#form-content').hide();
+                alert('Успешно авторизован!');
+            }
+        }
     });
     return false;
 }

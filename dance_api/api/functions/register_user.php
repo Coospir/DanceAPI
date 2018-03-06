@@ -28,7 +28,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST'){
     if(empty($user->errors)){
         echo json_encode($user->success);
     } else {
-        http_response_code(204);
         echo json_encode($user->errors);
     }
 

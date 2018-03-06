@@ -17,7 +17,7 @@ class Teacher {
     }
 
 
-    public function CreateTeacher($surname, $name, $patronymic, $mail, $phone, $style) {
+    public function CreateTeacher($surname, $name, $patronymic, $mail, $phone) {
         $this->errors = [];
         $query = "INSERT INTO `teachers`(surname, name, patronymic, email, phone) VALUES (:surname, :name, :patronymic, :email, :phone)";
         $stmt = $this->conn->prepare($query);
@@ -36,6 +36,7 @@ class Teacher {
 			}
 		} catch(Exception $e){
 			echo 'Непредвиденная ошибка при создании сущности "Преподаватель": ' . $e->getMessage();
+            echo json_encode($this->errors);
 		}
     }
 

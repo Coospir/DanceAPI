@@ -77,45 +77,22 @@ class User {
 		return empty($this->errors);
 	}
 
-	public function isValidAuth($email, $password) {
+	public function isValidAuth($name, $password) {
 	    $this->errors = [];
 	    $this->success = [];
-        $pass_from_db = '';
-        $email_from_db = '';
-
-        $query = "SELECT email, password FROM `users` WHERE email = :email, password = :password";
+        //ToDo: что на счет генерации токена, записи в бд? как чекать жизнь токена - cron?
+        $query = "SELECT * FROM `users` WHERE name = :name";
         $stmt = $this->conn->prepare($query);
-        $stmt->bindValue(":password", $pass_from_db);
-        $stmt->bindValue(":email", $email_from_db);
-        $stmt->execute([':password' => $pass_from_db, ":email" => $email_from_db]);
+        $stmt->bindValue(":name", $name);
+        $stmt->execute();
         $user_data = $stmt->fetch(PDO::FETCH_ASSOC);
-        $valid_pass = password_verify($password, $pass_from_db);
-        if(!$valid_pass) {
-            $this->errors['pass'] = 'Неверный пароль!';
-        } elseif(!($this->emailExists($email))) {
-            $this->errors['email'] = 'Данный E-Mail адрес не зарегистрирован!';
-        } elseif(filter_var($email, FILTER_VALIDATE_EMAIL) === false) {
-            $this->errors['email'] = 'Введите корректный E-Mail!';
+        $valid_pass = password_verify($password, $user_data['password']);
+        if(!$user_data AND !$valid_pass) {
+            $this->errors['user_data'] = 'Неверный логин или пароль!';
         } elseif(empty($this->errors) AND $user_data){
-            $this->success['message'] = "Регистрация успешна!";
+            $this->success['message'] = "Авторизация успешна!";
+            $_SESSION['logged_user'] = $user_data['email'];
         }
         return empty($this->errors);
     }
-
-
-
-	public function authenticate($email, $password) {
-        $this->errors = [];
-        $this->success =[];
-        try {
-            if($this->isValidAuth($email, $password)) {
-                $_SESSION['logged_user'] = $user_data['email'];
-            }
-        } catch (PDOException $exception) {
-            error_log($exception->getMessage());
-            return false;
-        }
-
-    }
-
 }

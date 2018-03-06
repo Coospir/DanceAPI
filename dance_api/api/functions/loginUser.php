@@ -8,9 +8,14 @@ $db = $database->getConnection();
 
 $user = new User($db);
 
-$email = !empty($_POST['email']) ? trim($_POST['email']) : null;
+$name = !empty($_POST['name']) ? trim($_POST['name']) : null;
 $password = !empty($_POST['password']) ? trim($_POST['password']) : null;
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $user->authenticate($email, $password);
+    $user->isValidAuth($name, $password);
+    if(empty($user->errors)){
+        echo json_encode($user->success);
+    } else {
+        echo json_encode($user->errors);
+    }
 }
