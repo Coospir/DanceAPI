@@ -1,4 +1,3 @@
-
 <form id="addTeacherForm" method="post">
     <div id="addNewTeacher" class="modal fade">
         <div class="modal-dialog">
@@ -23,13 +22,12 @@
                             <input type="text" class="form-control" name="phone" id="phone" placeholder="Телефон">
                         </div>
                         <div class="form-group">
-                            <select class="form-control" multiple name="style[]" id="style">
+                            <p>Выберите стиль/-ли преподавателя:</p>
                                 <?php
                                     foreach ($modal_styles as $style) {
-                                        echo "<option value=".$style['id_style'].">".$style['title']."</option>";
+                                        echo "<input type='checkbox' name='styles[]' value=".$style['id_style']."><rt>"." ".$style['title']."<br>";
                                     }
                                 ?>
-                            </select>
                         </div>
                 </div>
                 <div class="modal-footer">

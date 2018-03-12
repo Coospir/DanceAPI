@@ -2,10 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d99fd1e-04b7-4459-a0b8-f4759151c771" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/dance_api/api/functions/loginUser.php" afterPath="$PROJECT_DIR$/dance_api/api/functions/login_user.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/dance_api/api/functions/updateTeacher.php" afterPath="$PROJECT_DIR$/dance_api/api/functions/update_teacher.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/crm-main/templates/dashboard.php" afterPath="$PROJECT_DIR$/crm-main/templates/dashboard.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/crm-main/templates/modals/teachers/add.php" afterPath="$PROJECT_DIR$/crm-main/templates/modals/teachers/add.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/crm-main/templates/teachers.php" afterPath="$PROJECT_DIR$/crm-main/templates/teachers.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/crm-main/templates/template.php" afterPath="$PROJECT_DIR$/crm-main/templates/template.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dance_api/api/functions/ajax.js" afterPath="$PROJECT_DIR$/dance_api/api/functions/ajax.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dance_api/api/functions/loginUser.php" afterPath="$PROJECT_DIR$/dance_api/api/functions/loginUser.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dance_api/api/functions/register_user.php" afterPath="$PROJECT_DIR$/dance_api/api/functions/register_user.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dance_api/api/objects/Teacher.class.php" afterPath="$PROJECT_DIR$/dance_api/api/objects/Teacher.class.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dance_api/api/objects/User.class.php" afterPath="$PROJECT_DIR$/dance_api/api/objects/User.class.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/login.php" afterPath="$PROJECT_DIR$/templates/login.php" />
@@ -29,58 +33,131 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ajax.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ajax.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/dance_api/api/functions/ajax.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="607">
-              <caret line="106" column="114" lean-forward="true" selection-start-line="106" selection-start-column="114" selection-end-line="106" selection-end-column="114" />
+            <state relative-caret-position="218">
+              <caret line="141" column="0" lean-forward="true" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
               <folding>
-                <marker date="1520333278917" expanded="true" signature="572:579" ph="×" />
-                <marker date="1520333278917" expanded="true" signature="1370:1377" ph="×" />
+                <marker date="1520841136573" expanded="true" signature="571:578" ph="×" />
+                <marker date="1520841136573" expanded="true" signature="1706:1713" ph="×" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.class.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dashboard.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/crm-main/templates/dashboard.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="286">
+              <caret line="83" column="34" lean-forward="false" selection-start-line="83" selection-start-column="34" selection-end-line="83" selection-end-column="34" />
+              <folding>
+                <marker date="1520841863482" expanded="true" signature="454:1051" ph="..." />
+                <marker date="1520841863482" expanded="true" signature="485:1051" ph="..." />
+                <marker date="1520841863482" expanded="true" signature="505:1051" ph="..." />
+                <marker date="1520841863482" expanded="true" signature="532:620" ph="..." />
+                <marker date="1520841863482" expanded="true" signature="561:610" ph="..." />
+                <marker date="1520841863482" expanded="true" signature="653:1051" ph="..." />
+                <marker date="1520841863482" expanded="true" signature="679:1051" ph="..." />
+                <marker date="1520841863482" expanded="true" signature="721:1051" ph="..." />
+                <marker date="1520841863482" expanded="true" signature="767:1051" ph="..." />
+                <marker date="1520841863482" expanded="true" signature="809:1051" ph="..." />
+                <marker date="1520841863482" expanded="true" signature="843:1051" ph="..." />
+                <marker date="1520841863482" expanded="true" signature="884:967" ph="..." />
+                <marker date="1520841863482" expanded="true" signature="1019:1051" ph="..." />
+                <marker date="1520841863482" expanded="true" signature="1247:1529" ph="..." />
+                <marker date="1520841863482" expanded="true" signature="1290:1510" ph="..." />
+                <marker date="1520841863482" expanded="true" signature="1607:1934" ph="..." />
+                <marker date="1520841863482" expanded="true" signature="1651:1934" ph="..." />
+                <marker date="1520841863482" expanded="true" signature="1693:1934" ph="..." />
+                <marker date="1520841863482" expanded="true" signature="1727:1934" ph="..." />
+                <marker date="1520841863482" expanded="true" signature="1768:1850" ph="..." />
+                <marker date="1520841863482" expanded="true" signature="1902:1934" ph="..." />
+                <marker date="1520841863482" expanded="true" signature="2101:2383" ph="..." />
+                <marker date="1520841863482" expanded="true" signature="2144:2364" ph="..." />
+                <marker date="1520841863482" expanded="true" signature="2461:2785" ph="..." />
+                <marker date="1520841863482" expanded="true" signature="2506:2785" ph="..." />
+                <marker date="1520841863482" expanded="true" signature="2548:2785" ph="..." />
+                <marker date="1520841863482" expanded="true" signature="2582:2785" ph="..." />
+                <marker date="1520841863482" expanded="true" signature="2623:2701" ph="..." />
+                <marker date="1520841863482" expanded="true" signature="2753:2785" ph="..." />
+                <marker date="1520841863482" expanded="true" signature="2957:3239" ph="..." />
+                <marker date="1520841863482" expanded="true" signature="3000:3220" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="User.class.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dance_api/api/objects/User.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="82" column="90" lean-forward="false" selection-start-line="82" selection-start-column="90" selection-end-line="82" selection-end-column="90" />
+            <state relative-caret-position="604">
+              <caret line="121" column="79" lean-forward="false" selection-start-line="121" selection-start-column="79" selection-end-line="121" selection-end-column="79" />
               <folding>
-                <marker date="1520334547091" expanded="true" signature="514:614" ph="INSERT INTO `users`... " />
-                <marker date="1520334547091" expanded="true" signature="1055:1112" ph="SELECT COUNT... users" />
-                <marker date="1520334547091" expanded="true" signature="2411:2451" ph="SELECT * FRO... users" />
+                <marker date="1520594066127" expanded="true" signature="514:614" ph="INSERT INTO `users`... " />
+                <marker date="1520594066127" expanded="true" signature="1055:1112" ph="SELECT COUNT... users" />
+                <marker date="1520594066127" expanded="true" signature="2313:2361" ph="SELECT * FRO... users" />
+                <marker date="1520594066127" expanded="true" signature="3666:3766" ph="INSERT INTO `remembered_logins`... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="loginUser.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dance_api/api/functions/loginUser.php">
+      <file leaf-file-name="teachers.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/crm-main/templates/teachers.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="17" column="12" lean-forward="false" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
-              <folding />
+            <state relative-caret-position="525">
+              <caret line="35" column="40" lean-forward="false" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="40" />
+              <folding>
+                <element signature="n#style#0;n#button#1;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+                <marker date="1520840759413" expanded="true" signature="207:232" ph="SELECT * FRO... dance_style" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="register_user.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dance_api/api/functions/register_user.php">
+      <file leaf-file-name="update_teacher.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dance_api/api/functions/update_teacher.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="29" column="12" lean-forward="false" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
-              <folding />
+            <state relative-caret-position="345">
+              <caret line="32" column="28" lean-forward="false" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
+              <folding>
+                <element signature="e#1095#1553#0#PHP" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="register.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/register.php">
+      <file leaf-file-name="Teacher.class.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dance_api/api/objects/Teacher.class.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="50" lean-forward="false" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
+            <state relative-caret-position="25">
+              <caret line="81" column="5" lean-forward="false" selection-start-line="81" selection-start-column="5" selection-end-line="81" selection-end-column="5" />
+              <folding>
+                <marker date="1520673268142" expanded="true" signature="306:432" ph="SELECT teach... teachers" />
+                <marker date="1520673268142" expanded="true" signature="664:781" ph="INSERT INTO `teachers`... " />
+                <marker date="1520673268142" expanded="true" signature="1633:1752" ph="UPDATE `teac... " />
+                <marker date="1520673268142" expanded="true" signature="1633:1761" ph="UPDATE `teac... " />
+                <marker date="1520673268142" expanded="true" signature="1633:1762" ph="UPDATE `teac... " />
+                <marker date="1520673268142" expanded="true" signature="1633:1778" ph="UPDATE `teac... " />
+                <marker date="1520673268142" expanded="true" signature="1633:1798" ph="UPDATE `teac... " />
+                <marker date="1520673268142" expanded="true" signature="1633:1812" ph="UPDATE `teac... " />
+                <marker date="1520673268142" expanded="true" signature="1633:1835" ph="UPDATE `teac... " />
+                <marker date="1520673268142" expanded="true" signature="1633:1836" ph="UPDATE `teac... " />
+                <marker date="1520673268142" expanded="true" signature="1633:1843" ph="UPDATE `teac... " />
+                <marker date="1520673268142" expanded="true" signature="2689:2732" ph="DELETE FROM " />
+                <marker date="1520673268142" expanded="true" signature="3596:3627" ph="SELECT COUNT... teachers" />
+                <marker date="1520673268142" expanded="true" signature="3855:3995" ph="SELECT teach... teachers" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="show_teachers.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dance_api/api/functions/show_teachers.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="200">
+              <caret line="14" column="4" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -89,8 +166,8 @@
       <file leaf-file-name="create_teacher.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dance_api/api/functions/create_teacher.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="36" lean-forward="false" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
+            <state relative-caret-position="45">
+              <caret line="3" column="34" lean-forward="false" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
               <folding>
                 <element signature="e#1234#1743#0#PHP" expanded="false" />
                 <marker date="1520321703377" expanded="true" signature="1273:1568" ph="..." />
@@ -100,28 +177,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Teacher.class.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/dance_api/api/objects/Teacher.class.php">
+      <file leaf-file-name="update.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/crm-main/templates/modals/teachers/update.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="38" column="44" lean-forward="false" selection-start-line="38" selection-start-column="44" selection-end-line="38" selection-end-column="44" />
-              <folding>
-                <marker date="1520331710963" expanded="true" signature="306:432" ph="SELECT teach... teachers" />
-                <marker date="1520331710963" expanded="true" signature="664:781" ph="INSERT INTO `teachers`... " />
-                <marker date="1520331710963" expanded="true" signature="1645:1774" ph="UPDATE `teac... " />
-                <marker date="1520331710963" expanded="true" signature="2281:2324" ph="DELETE FROM " />
-                <marker date="1520331710963" expanded="true" signature="3188:3219" ph="SELECT COUNT... teachers" />
-                <marker date="1520331710963" expanded="true" signature="3447:3587" ph="SELECT teach... teachers" />
-              </folding>
+            <state relative-caret-position="15">
+              <caret line="1" column="4" lean-forward="false" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/login.php">
+      <file leaf-file-name="template.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/crm-main/templates/template.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="26" column="87" lean-forward="false" selection-start-line="26" selection-start-column="87" selection-end-line="26" selection-end-column="87" />
+            <state relative-caret-position="-423">
+              <caret line="31" column="83" lean-forward="false" selection-start-line="31" selection-start-column="83" selection-end-line="31" selection-end-column="83" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="add.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/crm-main/templates/modals/teachers/add.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-131">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -148,6 +228,7 @@
       <find>a</find>
       <find>add.</find>
       <find>isValid</find>
+      <find>isValidAuth</find>
     </findStrings>
     <replaceStrings>
       <replace>isValidSignUp</replace>
@@ -165,13 +246,11 @@
         <option value="$PROJECT_DIR$/dance_api/api/config/config.php" />
         <option value="&lt;c853964b-1a22-416f-b4c0-a7f2b2cf995e&gt;/www/dancecrm.ru/index.php" />
         <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/crm-main/templates/template.php" />
         <option value="$PROJECT_DIR$/crm-main/js/test.js" />
         <option value="$PROJECT_DIR$/dance_api/api/functions/createStudio.php" />
         <option value="$PROJECT_DIR$/test_mail.php" />
         <option value="$PROJECT_DIR$/dance_api/api/functions/readTeacher.php" />
         <option value="$PROJECT_DIR$/dance_api/api/functions/deleteTeacher.php" />
-        <option value="$PROJECT_DIR$/crm-main/templates/dashboard.php" />
         <option value="$PROJECT_DIR$/mvc/public/css/style.css" />
         <option value="$PROJECT_DIR$/mvc/db/config.php" />
         <option value="$PROJECT_DIR$/grid_v2/connection.php" />
@@ -195,15 +274,20 @@
         <option value="$PROJECT_DIR$/dance_api/api/functions/createTeacher.php" />
         <option value="&lt;c1a591db-463e-42fc-915b-e2a274289bf8&gt;/dance_api/api/objects/Teacher.class.php" />
         <option value="$PROJECT_DIR$/dance_api/api/functions/create_teacher.php" />
-        <option value="$PROJECT_DIR$/crm-main/templates/modals/teachers/add.php" />
-        <option value="$PROJECT_DIR$/crm-main/templates/teachers.php" />
         <option value="$PROJECT_DIR$/dance_api/api/functions/show_teachers.php" />
-        <option value="$PROJECT_DIR$/dance_api/api/objects/Teacher.class.php" />
         <option value="$PROJECT_DIR$/dance_api/api/functions/register_user.php" />
         <option value="$PROJECT_DIR$/dance_api/api/functions/loginUser.php" />
-        <option value="$PROJECT_DIR$/dance_api/api/functions/ajax.js" />
         <option value="$PROJECT_DIR$/templates/login.php" />
+        <option value="$PROJECT_DIR$/dance_api/api/functions/login_user.php" />
         <option value="$PROJECT_DIR$/dance_api/api/objects/User.class.php" />
+        <option value="$PROJECT_DIR$/crm-main/templates/modals/teachers/update.php" />
+        <option value="$PROJECT_DIR$/dance_api/api/functions/update_teacher.php" />
+        <option value="$PROJECT_DIR$/crm-main/templates/modals/teachers/add.php" />
+        <option value="$PROJECT_DIR$/dance_api/api/objects/Teacher.class.php" />
+        <option value="$PROJECT_DIR$/crm-main/templates/teachers.php" />
+        <option value="$PROJECT_DIR$/dance_api/api/functions/ajax.js" />
+        <option value="$PROJECT_DIR$/crm-main/templates/template.php" />
+        <option value="$PROJECT_DIR$/crm-main/templates/dashboard.php" />
       </list>
     </option>
   </component>
@@ -233,7 +317,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -345,10 +429,6 @@
               <option name="myItemId" value="api" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="objects" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -387,6 +467,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -450,7 +534,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -591,7 +675,8 @@
       <workItem from="1519645078744" duration="5916000" />
       <workItem from="1520260994076" duration="1853000" />
       <workItem from="1520320810619" duration="4622000" />
-      <workItem from="1520329399060" duration="4240000" />
+      <workItem from="1520329399060" duration="4767000" />
+      <workItem from="1520587299033" duration="12359000" />
     </task>
     <task id="LOCAL-00001" summary="v1.0.0.29 &#10; - Method CreateTeacher() working without dance style&#10; - Auth() method nearly done">
       <created>1520327761824</created>
@@ -604,7 +689,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82173000" />
+    <option name="totallyTimeSpent" value="95059000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -616,19 +701,20 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1680" height="1050" extended-state="6" />
+    <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23690476" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15119047" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893288" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32801595" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13452381" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29511467" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="File Transfer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29511467" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298647" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32801595" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23690476" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15119047" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13452381" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901296" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -638,7 +724,6 @@
       <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32801595" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32901296" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -659,34 +744,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/dance_api/api/functions/register_user.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/crm-main/templates/template.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-977">
-          <caret line="15" column="47" lean-forward="false" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/crm-main/templates/clients.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="25" lean-forward="true" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/crm-main/templates/studio/add.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -742,13 +799,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="28" lean-forward="false" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/crm-main/templates/dashboard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="33" lean-forward="true" selection-start-line="7" selection-start-column="33" selection-end-line="7" selection-end-column="33" />
         </state>
       </provider>
     </entry>
@@ -895,68 +945,98 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/crm-main/templates/modals/teachers/add.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="49" lean-forward="true" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dance_api/api/functions/show_teachers.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="40" lean-forward="false" selection-start-line="32" selection-start-column="40" selection-end-line="32" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/crm-main/templates/teachers.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="53" lean-forward="true" selection-start-line="10" selection-start-column="53" selection-end-line="10" selection-end-column="53" />
-          <folding>
-            <marker date="1520321939296" expanded="true" signature="207:232" ph="SELECT * FRO... dance_style" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dance_api/api/objects/Auth.class.php" />
-    <entry file="file://$PROJECT_DIR$/dance_api/api/functions/register_user.php">
+    <entry file="file://$PROJECT_DIR$/templates/login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="29" column="12" lean-forward="false" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
+        <state relative-caret-position="420">
+          <caret line="28" column="83" lean-forward="false" selection-start-line="28" selection-start-column="73" selection-end-line="28" selection-end-column="83" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/register.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
+        <state relative-caret-position="388">
           <caret line="27" column="50" lean-forward="false" selection-start-line="27" selection-start-column="50" selection-end-line="27" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dance_api/api/objects/Teacher.class.php">
+    <entry file="file://$PROJECT_DIR$/dance_api/api/functions/register_user.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="38" column="44" lean-forward="false" selection-start-line="38" selection-start-column="44" selection-end-line="38" selection-end-column="44" />
+        <state relative-caret-position="270">
+          <caret line="23" column="4" lean-forward="false" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dance_api/api/functions/login_user.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="43" lean-forward="false" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crm-main/templates/modals/teachers/add.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-131">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dance_api/api/objects/User.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="604">
+          <caret line="121" column="79" lean-forward="false" selection-start-line="121" selection-start-column="79" selection-end-line="121" selection-end-column="79" />
           <folding>
-            <marker date="1520331710963" expanded="true" signature="306:432" ph="SELECT teach... teachers" />
-            <marker date="1520331710963" expanded="true" signature="664:781" ph="INSERT INTO `teachers`... " />
-            <marker date="1520331710963" expanded="true" signature="1645:1774" ph="UPDATE `teac... " />
-            <marker date="1520331710963" expanded="true" signature="2281:2324" ph="DELETE FROM " />
-            <marker date="1520331710963" expanded="true" signature="3188:3219" ph="SELECT COUNT... teachers" />
-            <marker date="1520331710963" expanded="true" signature="3447:3587" ph="SELECT teach... teachers" />
+            <marker date="1520594066127" expanded="true" signature="514:614" ph="INSERT INTO `users`... " />
+            <marker date="1520594066127" expanded="true" signature="1055:1112" ph="SELECT COUNT... users" />
+            <marker date="1520594066127" expanded="true" signature="2313:2361" ph="SELECT * FRO... users" />
+            <marker date="1520594066127" expanded="true" signature="3666:3766" ph="INSERT INTO `remembered_logins`... " />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dance_api/api/functions/update_teacher.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="32" column="28" lean-forward="false" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
+          <folding>
+            <element signature="e#1095#1553#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crm-main/js/stacktable.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="83" column="2" lean-forward="false" selection-start-line="83" selection-start-column="2" selection-end-line="83" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crm-main/templates/modals/teachers/update.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="4" lean-forward="false" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crm-main/templates/template.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-423">
+          <caret line="31" column="83" lean-forward="false" selection-start-line="31" selection-start-column="83" selection-end-line="31" selection-end-column="83" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dance_api/api/functions/create_teacher.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="36" lean-forward="false" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
+        <state relative-caret-position="45">
+          <caret line="3" column="34" lean-forward="false" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
           <folding>
             <element signature="e#1234#1743#0#PHP" expanded="false" />
             <marker date="1520321703377" expanded="true" signature="1273:1568" ph="..." />
@@ -965,41 +1045,95 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/login.php">
+    <entry file="file://$PROJECT_DIR$/dance_api/api/objects/Teacher.class.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="26" column="87" lean-forward="false" selection-start-line="26" selection-start-column="87" selection-end-line="26" selection-end-column="87" />
+        <state relative-caret-position="25">
+          <caret line="81" column="5" lean-forward="false" selection-start-line="81" selection-start-column="5" selection-end-line="81" selection-end-column="5" />
+          <folding>
+            <marker date="1520673268142" expanded="true" signature="306:432" ph="SELECT teach... teachers" />
+            <marker date="1520673268142" expanded="true" signature="664:781" ph="INSERT INTO `teachers`... " />
+            <marker date="1520673268142" expanded="true" signature="1633:1752" ph="UPDATE `teac... " />
+            <marker date="1520673268142" expanded="true" signature="1633:1761" ph="UPDATE `teac... " />
+            <marker date="1520673268142" expanded="true" signature="1633:1762" ph="UPDATE `teac... " />
+            <marker date="1520673268142" expanded="true" signature="1633:1778" ph="UPDATE `teac... " />
+            <marker date="1520673268142" expanded="true" signature="1633:1798" ph="UPDATE `teac... " />
+            <marker date="1520673268142" expanded="true" signature="1633:1812" ph="UPDATE `teac... " />
+            <marker date="1520673268142" expanded="true" signature="1633:1835" ph="UPDATE `teac... " />
+            <marker date="1520673268142" expanded="true" signature="1633:1836" ph="UPDATE `teac... " />
+            <marker date="1520673268142" expanded="true" signature="1633:1843" ph="UPDATE `teac... " />
+            <marker date="1520673268142" expanded="true" signature="2689:2732" ph="DELETE FROM " />
+            <marker date="1520673268142" expanded="true" signature="3596:3627" ph="SELECT COUNT... teachers" />
+            <marker date="1520673268142" expanded="true" signature="3855:3995" ph="SELECT teach... teachers" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crm-main/templates/teachers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="35" column="40" lean-forward="false" selection-start-line="35" selection-start-column="40" selection-end-line="35" selection-end-column="40" />
+          <folding>
+            <element signature="n#style#0;n#button#1;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#1;n#div#0;n#!!top" expanded="true" />
+            <marker date="1520840759413" expanded="true" signature="207:232" ph="SELECT * FRO... dance_style" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dance_api/api/functions/show_teachers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="14" column="4" lean-forward="true" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="41" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crm-main/templates/dashboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="83" column="34" lean-forward="false" selection-start-line="83" selection-start-column="34" selection-end-line="83" selection-end-column="34" />
+          <folding>
+            <marker date="1520841863482" expanded="true" signature="454:1051" ph="..." />
+            <marker date="1520841863482" expanded="true" signature="485:1051" ph="..." />
+            <marker date="1520841863482" expanded="true" signature="505:1051" ph="..." />
+            <marker date="1520841863482" expanded="true" signature="532:620" ph="..." />
+            <marker date="1520841863482" expanded="true" signature="561:610" ph="..." />
+            <marker date="1520841863482" expanded="true" signature="653:1051" ph="..." />
+            <marker date="1520841863482" expanded="true" signature="679:1051" ph="..." />
+            <marker date="1520841863482" expanded="true" signature="721:1051" ph="..." />
+            <marker date="1520841863482" expanded="true" signature="767:1051" ph="..." />
+            <marker date="1520841863482" expanded="true" signature="809:1051" ph="..." />
+            <marker date="1520841863482" expanded="true" signature="843:1051" ph="..." />
+            <marker date="1520841863482" expanded="true" signature="884:967" ph="..." />
+            <marker date="1520841863482" expanded="true" signature="1019:1051" ph="..." />
+            <marker date="1520841863482" expanded="true" signature="1247:1529" ph="..." />
+            <marker date="1520841863482" expanded="true" signature="1290:1510" ph="..." />
+            <marker date="1520841863482" expanded="true" signature="1607:1934" ph="..." />
+            <marker date="1520841863482" expanded="true" signature="1651:1934" ph="..." />
+            <marker date="1520841863482" expanded="true" signature="1693:1934" ph="..." />
+            <marker date="1520841863482" expanded="true" signature="1727:1934" ph="..." />
+            <marker date="1520841863482" expanded="true" signature="1768:1850" ph="..." />
+            <marker date="1520841863482" expanded="true" signature="1902:1934" ph="..." />
+            <marker date="1520841863482" expanded="true" signature="2101:2383" ph="..." />
+            <marker date="1520841863482" expanded="true" signature="2144:2364" ph="..." />
+            <marker date="1520841863482" expanded="true" signature="2461:2785" ph="..." />
+            <marker date="1520841863482" expanded="true" signature="2506:2785" ph="..." />
+            <marker date="1520841863482" expanded="true" signature="2548:2785" ph="..." />
+            <marker date="1520841863482" expanded="true" signature="2582:2785" ph="..." />
+            <marker date="1520841863482" expanded="true" signature="2623:2701" ph="..." />
+            <marker date="1520841863482" expanded="true" signature="2753:2785" ph="..." />
+            <marker date="1520841863482" expanded="true" signature="2957:3239" ph="..." />
+            <marker date="1520841863482" expanded="true" signature="3000:3220" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dance_api/api/functions/ajax.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="607">
-          <caret line="106" column="114" lean-forward="true" selection-start-line="106" selection-start-column="114" selection-end-line="106" selection-end-column="114" />
+        <state relative-caret-position="218">
+          <caret line="141" column="0" lean-forward="true" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
           <folding>
-            <marker date="1520333278917" expanded="true" signature="572:579" ph="×" />
-            <marker date="1520333278917" expanded="true" signature="1370:1377" ph="×" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dance_api/api/functions/loginUser.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="12" lean-forward="false" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dance_api/api/objects/User.class.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="82" column="90" lean-forward="false" selection-start-line="82" selection-start-column="90" selection-end-line="82" selection-end-column="90" />
-          <folding>
-            <marker date="1520334547091" expanded="true" signature="514:614" ph="INSERT INTO `users`... " />
-            <marker date="1520334547091" expanded="true" signature="1055:1112" ph="SELECT COUNT... users" />
-            <marker date="1520334547091" expanded="true" signature="2411:2451" ph="SELECT * FRO... users" />
+            <marker date="1520841136573" expanded="true" signature="571:578" ph="×" />
+            <marker date="1520841136573" expanded="true" signature="1706:1713" ph="×" />
           </folding>
         </state>
       </provider>

@@ -40,19 +40,25 @@ class Teacher {
 		}
     }
 
-    public function UpdateTeacher($id, $surname, $name, $patronymic, $phone_number, $email) {
-        $query = "UPDATE `teachers` SET surname=:surname, name=:name, patronymic=:patronymic, phone_number=:phone_number, email=:email WHERE id=:id";
+    public function UpdateTeacher($surname, $name, $patronymic, $phone, $email) {
+        $query = "UPDATE `teachers` SET surname = :surname, name = :name, patronymic = :patronymic, email = :email, phone = :phone WHERE surname = $surname, name = $name, patronymic = $patronymic, phone = $phone, email = $email";
         $stmt = $this->conn->prepare($query);
-        $stmt->bindValue(":id", $id);
         $stmt->bindValue(":surname", $surname);
         $stmt->bindValue(":name", $name);
         $stmt->bindValue(":patronymic", $patronymic);
-        $stmt->bindValue(":phone_number", $phone_number);
+        $stmt->bindValue(":phone", $phone);
         $stmt->bindValue(":email", $email);
-        if($stmt->execute()){
-            return true;
-        } else {
-            return false;
+        try {
+            if($stmt->execute()){
+                $this->data[] = 'Успешное изменение информации!';
+                echo json_encode($this->data);
+            } else {
+                $this->errors[] = 'Ошибка при изменении: ' . $stmt->errorInfo();
+                echo json_encode($this->errors);
+            }
+        } catch(Exception $e){
+            echo 'Непредвиденная ошибка при изменении информации: ' . $e->getMessage();
+            echo json_encode($this->errors);
         }
     }
 

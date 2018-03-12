@@ -47,6 +47,7 @@ class User {
 		}
 	}
 
+
 	public function isValidSignUp($name, $email, $password, $user_type) {
     	$this->errors = [];
     	$this->success = [];
@@ -77,22 +78,56 @@ class User {
 		return empty($this->errors);
 	}
 
+    public function verifyPass($password) {
+	    //ToDO: исправить запрос
+        try {
+            $query = "SELECT * FROM `users` WHERE password = :password";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindValue(":password", $password);
+            $stmt->execute();
+            $user_data = $stmt->fetch(PDO::FETCH_ASSOC);
+            $valid_pass = password_verify($password, $user_data['password']);
+            if($valid_pass) {
+                return true;
+            }
+        } catch (PDOException $exception) {
+            error_log($exception->getMessage());
+            return false;
+        }
+    }
+
 	public function isValidAuth($name, $password) {
-	    $this->errors = [];
-	    $this->success = [];
-        //ToDo: что на счет генерации токена, записи в бд? как чекать жизнь токена - cron?
-        $query = "SELECT * FROM `users` WHERE name = :name";
-        $stmt = $this->conn->prepare($query);
-        $stmt->bindValue(":name", $name);
-        $stmt->execute();
-        $user_data = $stmt->fetch(PDO::FETCH_ASSOC);
-        $valid_pass = password_verify($password, $user_data['password']);
-        if(!$user_data AND !$valid_pass) {
-            $this->errors['user_data'] = 'Неверный логин или пароль!';
-        } elseif(empty($this->errors) AND $user_data){
+	    //ToDo: неверный пароль всегда, ошибки не ловит и делает отправку
+        $this->errors = [];
+        $this->success = [];
+
+        if($name == '') {
+            $this->errors['user_name'] = 'Не заполнено поле "Логин"!';
+        }
+        if($password == '') {
+            $this->errors['user_password'] = 'Не заполнено поле "Пароль"!';
+        }
+        if($this->verifyPass($password) == false) {
+            $this->errors['user_password_verify'] = 'Неверный пароль!';
+        }
+        if(empty($this->errors)) {
             $this->success['message'] = "Авторизация успешна!";
-            $_SESSION['logged_user'] = $user_data['email'];
         }
         return empty($this->errors);
+    }
+
+	public function Auth($name, $password) {
+        if($this->isValidAuth($name, $password)){
+            try {
+                $query = "INSERT INTO `remembered_logins` (token, id_user , expires_at) VALUES (:token, :id_user, :expires_at)";
+                $stmt = $this->conn->prepare($query);
+                $stmt->bindValue(":token", $name);
+                $stmt->bindValue(":id_user", 2);
+                $stmt->bindValue(":expires_at", '1998-12-02');
+                $stmt->execute();
+            }catch (PDOException $exception) {
+                error_log($exception->getMessage());
+            }
+        }
     }
 }

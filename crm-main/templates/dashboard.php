@@ -1,6 +1,15 @@
 <?php
-
 include __DIR__ . '/../templates/template.php';
+ini_set('error_reporting', E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+include_once __DIR__ . '/../../dance_api/api/config/database.php';
+include_once __DIR__ . '/../../dance_api/api/objects/Teacher.class.php';
+$database = new Database();
+$db = $database->getConnection();
+
+$teacher = new Teacher($db);
+$num = $teacher->ShowCountTeachers();
 
 ?>
 
@@ -23,12 +32,12 @@ include __DIR__ . '/../templates/template.php';
                     <i class="fa fa-file-text fa-5x"></i>
                   </div>
                   <div class="col-xs-9 text-right">
-                    <div class='huge'>12</div>
-                    <div>Преподаватели</div>
+                    <div class='huge'><?php echo $num; ?></div>
+                    <div>Количество преподавателей</div>
                   </div>
                 </div>
               </div>
-              <a href="posts.php">
+              <a href="teachers.php">
                 <div class="panel-footer">
                   <span class="pull-left">Подробнее</span>
                   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -46,11 +55,11 @@ include __DIR__ . '/../templates/template.php';
                   </div>
                   <div class="col-xs-9 text-right">
                     <div class='huge'>5</div>
-                    <div>Группы</div>
+                    <div>Количество групп</div>
                   </div>
                 </div>
               </div>
-              <a href="comments.php">
+              <a href="groups.php">
                 <div class="panel-footer">
                   <span class="pull-left">Подробнее</span>
                   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
@@ -68,11 +77,11 @@ include __DIR__ . '/../templates/template.php';
                   </div>
                   <div class="col-xs-9 text-right">
                     <div class='huge'>50</div>
-                    <div> Клиенты</div>
+                    <div>Количество клиентов</div>
                   </div>
                 </div>
               </div>
-              <a href="users.php">
+              <a href="clients.php">
                 <div class="panel-footer">
                   <span class="pull-left">Подробнее</span>
                   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>

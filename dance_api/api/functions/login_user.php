@@ -10,9 +10,10 @@ $user = new User($db);
 
 $name = !empty($_POST['name']) ? trim($_POST['name']) : null;
 $password = !empty($_POST['password']) ? trim($_POST['password']) : null;
+$remember_me = !empty($_POST['rememberMe']) ? trim($_POST['rememberMe']) : null;
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $user->isValidAuth($name, $password);
+    $user->Auth($name, $password);
     if(empty($user->errors)){
         echo json_encode($user->success);
     } else {

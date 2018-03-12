@@ -3,21 +3,13 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<!--	<meta name="viewport" content="width=device-width, initial-scale=1">
--->
+	<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
   <meta name="description" content="crm_main_page">
 	<meta name="author" content="crm_main_page">
-	<title>DS Admin</title>
+	<title>DanceCRM</title>
 	<link href="/crm-main/styles/css/bootstrap.css" rel="stylesheet">
 	<link href="/crm-main/styles/css/sb-admin.css" rel="stylesheet">
-  <link type="text/css" rel="stylesheet" href="/crm-main/tbl/jsgrid.min.css" />
-  <link type="text/css" rel="stylesheet" href="/crm-main/tbl/jsgrid-theme.min.css" />
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&amp;subset=cyrillic" rel="stylesheet">
-  <script src="/crm-main/js/jquery-3.2.1.min.js"></script>
-  <script src="/crm-main/js/maskedinput.js"></script>
-  <script src="/dance_api/api/functions/ajax.js"></script>
-  <script src="/crm-main/js/bootstrap.min.js"></script>
-  <script type="text/javascript" src="/crm-main/tbl/jsgrid.min.js"></script>
 </head>
 
 <body>
@@ -37,7 +29,7 @@
 		</div>
 		<ul class="nav navbar-right top-nav">
 			<li class="dropdown">
-				<a href="#" class="dropdown-toggle" data-toggle="dropdown"> Супер-лог <b class="caret"></b></a>
+				<a href="#" class="dropdown-toggle" data-toggle="dropdown"> История <b class="caret"></b></a>
 				<ul class="dropdown-menu message-dropdown">
 					<li class="message-preview">
 						<a href="#">
@@ -133,28 +125,13 @@
 			</ul>
 		</div>
 	</nav>
-
-
-	<!--<div id="page-wrapper">
-		<div class="container-fluid">
-			<div class="row">
-				<div class="col-lg-12">
-					<h1 class="page-header">
-						Рабочий стол
-						<small></small>
-					</h1>
-				</div>
-
-        <div id="jsGrid">
-          <script type="text/javascript" src="/crm-main/js/test.js"></script>
-        </div>
-			</div>
-		</div>
-	</div>
-</div>-->
-
-
-
+    <script src="/crm-main/js/jquery-3.2.1.min.js"></script>
+    <script src="/crm-main/js/maskedinput.js"></script>
+    <script src="/dance_api/api/functions/ajax.js"></script>
+    <script src="/crm-main/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/crm-main/js/jquery.tablesorter.min.js"></script>
+    <script type="text/javascript" src="/crm-main/js/jquery.metadata.js"></script>
+    <script type="text/javascript" src="/crm-main/js/table2download.js"></script>
+    <script type="text/javascript" src="/crm-main/js/stacktable.js"></script>
 </body>
-
 </html>

@@ -4,7 +4,6 @@ function addNewTeacher(){
         type: "POST",
         url: '/dance_api/api/functions/create_teacher.php',
         data: $("#addTeacherForm").serialize()
-
     }).done(function (data) {
         alert(data);
         // TODO: Добавить обновление таблички
@@ -16,6 +15,18 @@ function addNewTeacher(){
         //$(".table").append("<td class='information'>" + data + "</td>");
         //$("#teacher-table-data").append(data);
         //location.reload();
+    });
+    return false;
+}
+
+function updateTeacher(selectedId) {
+    $.ajax({
+        type: "POST",
+        url: '/dance_api/api/functions/update_teacher.php',
+        data: {'id_teacher': selectedId }
+    }).done(function(data) {
+        alert(data);
+        $("#teacher-table-data").html("<td class='information'>" + data + "</td>");
     });
     return false;
 }
@@ -89,6 +100,7 @@ function registerUser() {
                 $("#registerUserForm").html("<h2 class='form-signin-heading'>Аккаунт зарегистрирован.</h2><p>Подтвердите Ваш аккаунт, данные отправлены на E-Mail.</p> <p>На страницу <a href='/templates/login.php'>авторизации</a></p></div>");
             }
         }
+        location.replace("https://dancecrm.ru/templates/login.php");
     });
     return false;
 }
@@ -96,15 +108,21 @@ function registerUser() {
 function authUser() {
     $.ajax({
         type: "POST",
-        url: '/dance_api/api/functions/loginUser.php',
+        url: '/dance_api/api/functions/login_user.php',
         data: $("#loginUserForm").serialize()
     }).done(function (data) {
         var json = JSON.parse(data);
         console.log(json);
         $('#display_errors').html('');
         if(json) {
-            if(json.user_data) {
-                $('#display_errors').append("<span class='label label-danger'>" + json.user_data + "</span><br>");
+            if(json.user_name) {
+                $('#display_errors').append("<span class='label label-danger'>" + json.user_name + "</span><br>");
+            }
+            if(json.user_password) {
+                $('#display_errors').append("<span class='label label-danger'>" + json.user_password + "</span><br>");
+            }
+            if(json.user_password_verify) {
+                $('#display_errors').append("<span class='label label-danger'>" + json.user_password_verify + "</span><br>");
             }
             if(json.message) {
                 $('#form-content').hide();
@@ -114,3 +132,38 @@ function authUser() {
     });
     return false;
 }
+
+
+//Stackable table
+$(document).on('click', '#stackable-table', function(e) {
+    e.preventDefault();
+    $('#teacher-table').stacktable({hideOriginal:true});
+});
+
+
+// Searching
+$(document).ready(function(){
+    $("#search").keyup(function(){
+        _this = this;
+        $.each($("#teacher-table tbody tr"), function() {
+            if ($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1) {
+                $(this).hide();
+            } else {
+                $(this).show();
+            }
+        });
+    });
+});
+
+//CSV
+function downloadCSV(){
+    $("#teacher-table").table_download({
+        format: "csv",
+        separator: ",",
+        filename: "data",
+        linkname: "Export",
+        quotes: "\"",
+        newline: "\r\n"
+    });
+}
+
