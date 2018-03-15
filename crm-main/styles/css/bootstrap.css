@@ -1390,7 +1390,7 @@ a.bg-danger:hover {
 }
 .page-header {
   padding-bottom: 9px;
-  margin: 40px 0 20px;
+  margin: 50px 0px 20px;
   border-bottom: 1px solid #eee;
   color: #FE424D;
   font-family: 'Roboto', sans-serif;
@@ -4458,6 +4458,9 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
     color: #ccc;
     background-color: transparent;
   }
+  .navbar-inverse {
+    font-size: 14px;
+  }
 }
 .navbar-default .navbar-link {
   color: #777;
@@ -4479,9 +4482,8 @@ fieldset[disabled] .navbar-default .btn-link:focus {
   color: #ccc;
 }
 .navbar-inverse {
-  background-color: #1AA6B7;
+  background-color: #1a8495;
   border-color: #1AA6B7;
-  font-size: 18px;
 }
 .navbar-inverse .navbar-brand {
   color: #ffffff;

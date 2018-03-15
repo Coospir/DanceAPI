@@ -17,10 +17,9 @@
         $patronymicTeacher = !empty($_POST['patronymic']) ? trim($_POST['patronymic']) : null;
         $emailTeacher = !empty($_POST['mail']) ? trim($_POST['mail']) : null;
         $phone_numberTeacher = !empty($_POST['phone']) ? trim($_POST['phone']) : null;
-        $styleTeacher = !empty($_POST['id_style']) ? trim($_POST['id_style']) : null;
-        var_dump($_POST['id_style']);
+        $styleTeacher = $_POST['styles'];
 
-        if($teacher->CreateTeacher($surnameTeacher, $nameTeacher, $patronymicTeacher, $emailTeacher, $phone_numberTeacher)) {
+        if($teacher->CreateTeacher($surnameTeacher, $nameTeacher, $patronymicTeacher, $emailTeacher, $phone_numberTeacher, $styleTeacher)) {
          /*   echo <<< START
                 <tr>
                 <td class="information">$surnameTeacher $nameTeacher $patronymicTeacher</td>

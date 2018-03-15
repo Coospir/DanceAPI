@@ -19,6 +19,8 @@ $emailTeacher = !empty($_POST['mail']) ? trim($_POST['mail']) : null;
 $phone_numberTeacher = !empty($_POST['phone']) ? trim($_POST['phone']) : null;
 $styleTeacher = !empty($_POST['id_style']) ? trim($_POST['id_style']) : null;
 
+//todo: не работает обновление - исправить запрос?
+
 if($teacher->UpdateTeacher($surnameTeacher, $nameTeacher, $patronymicTeacher, $emailTeacher, $phone_numberTeacher)) {
     /*   echo <<< START
            <tr>

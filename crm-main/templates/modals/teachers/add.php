@@ -31,7 +31,7 @@
                         </div>
                 </div>
                 <div class="modal-footer">
-                    <input type="submit" name="addNewTeacher" class="btn btn-success" id="add-teacher-btn" onclick="window.addNewTeacher()" value="Создать">
+                    <input type="button" name="addNewTeacher" class="btn btn-success" id="add-teacher-btn" onclick="window.addNewTeacher()" value="Создать">
                     <button class="btn btn-danger" data-dismiss="modal">Закрыть</button>
                 </div>
             </div>

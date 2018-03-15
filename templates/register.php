@@ -31,7 +31,7 @@
             <p style="margin: 5px 10px 10px; font-size: 10px; font-style: italic;">
                 <input type="checkbox" name="user_type"> Подтверждаю, что являюсь руководителем танцевальной студии
             </p>
-            <button class="btn btn-lg btn-success btn-block" style="margin-bottom: 10px; margin-top: 20px;" type="submit" onclick="window.registerUser()">Зарегистрироваться</button>
+            <button type="button" class="btn btn-lg btn-success btn-block" style="margin-bottom: 10px; margin-top: 20px;" onclick="window.registerUser()">Зарегистрироваться</button>
         </div>
     </form>
 </div>

@@ -10,6 +10,14 @@
 	<link href="/crm-main/styles/css/bootstrap.css" rel="stylesheet">
 	<link href="/crm-main/styles/css/sb-admin.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&amp;subset=cyrillic" rel="stylesheet">
+    <script src="/crm-main/js/jquery-3.2.1.min.js"></script>
+    <script src="/crm-main/js/maskedinput.js"></script>
+    <script src="/dance_api/api/functions/ajax.js"></script>
+    <script src="/crm-main/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/crm-main/js/jquery.tablesorter.min.js"></script>
+    <script type="text/javascript" src="/crm-main/js/jquery.metadata.js"></script>
+    <script type="text/javascript" src="/crm-main/js/table2download.js"></script>
+    <script type="text/javascript" src="/crm-main/js/stacktable.js"></script>
 </head>
 
 <body>
@@ -92,7 +100,7 @@
 			</li>
 		</ul>
 		<div class="collapse navbar-collapse navbar-ex1-collapse">
-			<ul class="nav navbar-nav side-nav">
+			<ul class="nav navbar-nav">
 				<li>
 					<a href="/crm-main/templates/dashboard.php"> Рабочий стол</a>
 				</li>
@@ -112,26 +120,10 @@
 					<a href="/crm-main/templates/events.php"> События</a>
 				</li>
 				<li>
-					<a href="javascript:;" data-toggle="collapse" data-target="#settings"><i class="fa fa-fw fa-arrows-v"></i> Настройки <i class="fa fa-fw fa-caret-down"></i></a>
-					<ul id="settings" class="collapse">
-						<li>
-							<a href="#">Общие настройки</a>
-						</li>
-						<li>
-							<a href="#">Бэкап</a>
-						</li>
-					</ul>
+					<a href="javascript:;">Настройки</a>
 				</li>
 			</ul>
 		</div>
 	</nav>
-    <script src="/crm-main/js/jquery-3.2.1.min.js"></script>
-    <script src="/crm-main/js/maskedinput.js"></script>
-    <script src="/dance_api/api/functions/ajax.js"></script>
-    <script src="/crm-main/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="/crm-main/js/jquery.tablesorter.min.js"></script>
-    <script type="text/javascript" src="/crm-main/js/jquery.metadata.js"></script>
-    <script type="text/javascript" src="/crm-main/js/table2download.js"></script>
-    <script type="text/javascript" src="/crm-main/js/stacktable.js"></script>
 </body>
 </html>

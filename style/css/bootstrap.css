@@ -1412,7 +1412,7 @@ a.bg-danger:focus {
 }
 .page-header {
   padding-bottom: 9px;
-  margin: 40px 0 20px;
+  margin: 50px 0px 20px;
   border-bottom: 1px solid #eee;
 }
 ul,
@@ -2330,6 +2330,7 @@ th {
 .table-bordered > tbody > tr > td,
 .table-bordered > tfoot > tr > td {
   border: 1px solid #ddd;
+  font-size: 14px;
 }
 .table-bordered > thead > tr > th,
 .table-bordered > thead > tr > td {

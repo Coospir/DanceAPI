@@ -1,5 +1,7 @@
 <?php
-
+ini_set('error_reporting', E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
 class Teacher {
     private $conn;
     public $errors = [];
@@ -8,26 +10,38 @@ class Teacher {
         $this->conn = $db;
     }
 
-    //TODO: сделать нормальный метод для добавления ид_препода и ид_стиля в промежуточную
+    //TODO: выбрать данные о преподавателе и взять данные из промежуточной
     public function ReadTeacher() {
-        $query = "SELECT teachers.id_teacher, teachers.surname, teachers.name, teachers.patronymic, teachers.email, teachers.phone FROM teachers";
+        $query = "SELECT * FROM `teachers`";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt;
     }
 
-
-    public function CreateTeacher($surname, $name, $patronymic, $mail, $phone) {
+    public function CreateTeacher($surname, $name, $patronymic, $mail, $phone, array $styles) {
         $this->errors = [];
-        $query = "INSERT INTO `teachers`(surname, name, patronymic, email, phone) VALUES (:surname, :name, :patronymic, :email, :phone)";
-        $stmt = $this->conn->prepare($query);
-        $stmt->bindValue(":surname", $surname);
-        $stmt->bindValue(":name", $name);
-        $stmt->bindValue(":patronymic", $patronymic);
-		$stmt->bindValue(":email", $mail);
-        $stmt->bindValue(":phone", $phone);
 		try {
+            $query = "INSERT INTO `teachers`(surname, name, patronymic, email, phone) VALUES(:surname, :name, :patronymic, :email, :phone)";
+
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindValue(":surname", $surname);
+            $stmt->bindValue(":name", $name);
+            $stmt->bindValue(":patronymic", $patronymic);
+            $stmt->bindValue(":email", $mail);
+            $stmt->bindValue(":email", $mail);
+            $stmt->bindValue(":phone", $phone);
 			if($stmt->execute()){
+                $id = $this->conn->lastInsertId();
+                $query_styles = "INSERT INTO `styles_teachers`(id_style, id_teacher) VALUES";
+                $flag = true;
+                foreach($styles as $s) {
+                    if(!$flag) {
+                        $query_styles .= ",";
+                    }
+                    $query_styles .= "(".(int)$s.", ".$id.")";
+                    $flag = false;
+                }
+                $this->conn->query($query_styles);
                 $this->data[] = 'Успешное создание сущности "Преподаватель"';
                 echo json_encode($this->data);
 			} else {
@@ -35,13 +49,13 @@ class Teacher {
 				echo json_encode($this->errors);
 			}
 		} catch(Exception $e){
-			echo 'Непредвиденная ошибка при создании сущности "Преподаватель": ' . $e->getMessage();
+			echo 'Непредвиденная ошибка при создании сущности "Преподаватель" -> ' . $e->getMessage();
             echo json_encode($this->errors);
 		}
     }
 
     public function UpdateTeacher($surname, $name, $patronymic, $phone, $email) {
-        $query = "UPDATE `teachers` SET surname = :surname, name = :name, patronymic = :patronymic, email = :email, phone = :phone WHERE surname = $surname, name = $name, patronymic = $patronymic, phone = $phone, email = $email";
+        $query = "UPDATE `teachers` SET surname = :surname, name = :name, patronymic = :patronymic, email = :email, phone = :phone WHERE surname ='".$surname."' AND name = '".$name."' AND patronymic = '".$patronymic."' AND email = '".$email."' AND phone = '".$phone."'";
         $stmt = $this->conn->prepare($query);
         $stmt->bindValue(":surname", $surname);
         $stmt->bindValue(":name", $name);

@@ -12,9 +12,7 @@
     <link href="https://fonts.googleapis.com/css?family=Jura|Ubuntu+Mono" rel="stylesheet">
     <!--    <meta name="viewport" content="width=device-width, initial-scale=0.65, maximum-scale=0.85, user-scalable=0">
     -->    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="/style/js/jquery-3.2.1.min.js"></script>
-    <script src="/style/js/datatables.js"></script>
-    <script src="/style/js/dataTables.bootstrap.js"></script>
+    <script src="/style/js/jquery-3.2.1.min.js"></script>>
     <script src="/style/js/bootstrap.js"></script>
     <script src="/style/js/functions_jquery.js"></script>
     <script src="/style/js/maskedinput.js"></script>

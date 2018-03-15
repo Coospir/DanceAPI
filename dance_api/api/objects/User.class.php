@@ -13,6 +13,7 @@ class User {
     private $conn;
     public $errors = [];
     public $success= [];
+    public $id_user;
 
     public function __construct($db){
         $this->conn = $db;
@@ -80,6 +81,8 @@ class User {
 
     public function verifyPass($password) {
 	    //ToDO: исправить запрос
+        $this->errors = [];
+        $this->success = [];
         try {
             $query = "SELECT * FROM `users` WHERE password = :password";
             $stmt = $this->conn->prepare($query);
@@ -88,8 +91,9 @@ class User {
             $user_data = $stmt->fetch(PDO::FETCH_ASSOC);
             $valid_pass = password_verify($password, $user_data['password']);
             if($valid_pass) {
+                $this->id_user = $user_data['id'];
                 return true;
-            }
+            } else return false;
         } catch (PDOException $exception) {
             error_log($exception->getMessage());
             return false;
@@ -107,7 +111,7 @@ class User {
         if($password == '') {
             $this->errors['user_password'] = 'Не заполнено поле "Пароль"!';
         }
-        if($this->verifyPass($password) == false) {
+        if(!$this->verifyPass($password)) {
             $this->errors['user_password_verify'] = 'Неверный пароль!';
         }
         if(empty($this->errors)) {
@@ -119,11 +123,10 @@ class User {
 	public function Auth($name, $password) {
         if($this->isValidAuth($name, $password)){
             try {
-                $query = "INSERT INTO `remembered_logins` (token, id_user , expires_at) VALUES (:token, :id_user, :expires_at)";
+                $query = "INSERT INTO `remembered_logins` (token, id_user , expires_at) VALUES (:token, :id_user, NOW())";
                 $stmt = $this->conn->prepare($query);
-                $stmt->bindValue(":token", $name);
-                $stmt->bindValue(":id_user", 2);
-                $stmt->bindValue(":expires_at", '1998-12-02');
+                $stmt->bindValue(":token", bin2hex(openssl_random_pseudo_bytes(16)));
+                $stmt->bindValue(":id_user", $this->id_user);
                 $stmt->execute();
             }catch (PDOException $exception) {
                 error_log($exception->getMessage());

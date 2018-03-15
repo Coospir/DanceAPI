@@ -6,24 +6,15 @@ function addNewTeacher(){
         data: $("#addTeacherForm").serialize()
     }).done(function (data) {
         alert(data);
-        // TODO: Добавить обновление таблички
-        //$('#addNewTeacher').hide();
-        //$(".container-fluid").append("<div class='alert alert-success alert-dismissible' id='success-added-teacher'role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Успешно!</strong> Добавлен новый преподаватель. </div>");
-        /*setTimeout(function () {
-            $('#success-added-teacher').hide();
-        }, 3000);*/
-        //$(".table").append("<td class='information'>" + data + "</td>");
-        //$("#teacher-table-data").append(data);
-        //location.reload();
     });
     return false;
 }
-
-function updateTeacher(selectedId) {
+//todo: open modal, then serialize of form and selectedId (не обязательно)
+function updateTeacher() {
     $.ajax({
         type: "POST",
         url: '/dance_api/api/functions/update_teacher.php',
-        data: {'id_teacher': selectedId }
+        data: $("#update-teacher-form").serialize()
     }).done(function(data) {
         alert(data);
         $("#teacher-table-data").html("<td class='information'>" + data + "</td>");
@@ -39,12 +30,12 @@ function addNewStudio(){
   });
   $.done(function (data) {
     alert(data);
-    $("#addStudioForm").append("<div class='alert alert-success alert-dismissible' id='success-added-teacher'role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Успешно!</strong> Новая студия создана.</div>");
+    $("#addStudioForm").append("<div class='alert alert-success alert-dismissible' id='success-added-teacher' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Успешно!</strong> Новая студия создана.</div>");
   });
   return false;
 }
 
-//TODO: Обновление элемента
+//TODO: Обновление элемента, удаление через implode и цикл
 function deleteTeacher(selectedId) {
     var answer = confirm('Вы уверены, что хотите удалить выбранный элемент?');
     if(answer == true) {
@@ -66,7 +57,7 @@ function deleteAllTeachers() {
         type: "POST",
         url: '/dance_api/api/functions/deleteAllTeachers.php',
         data: $("#DeleteAllTeachers").serialize()
-    }).done(function(data){
+    }).done(function(data) {
         console.log(data);
         location.reload();
     })
@@ -95,12 +86,14 @@ function registerUser() {
             if(json.user_type){
                 $('#display_errors').append("<span class='label label-danger'>" + json.user_type + "</span><br>");
             }
+            //alert (json.message);
             if(json.message){
                 $('#form-content').hide();
                 $("#registerUserForm").html("<h2 class='form-signin-heading'>Аккаунт зарегистрирован.</h2><p>Подтвердите Ваш аккаунт, данные отправлены на E-Mail.</p> <p>На страницу <a href='/templates/login.php'>авторизации</a></p></div>");
+                //ToDo: обновление страницы убрать
+                //location.replace("https://dancecrm.ru/templates/login.php");
             }
         }
-        location.replace("https://dancecrm.ru/templates/login.php");
     });
     return false;
 }
@@ -114,6 +107,7 @@ function authUser() {
         var json = JSON.parse(data);
         console.log(json);
         $('#display_errors').html('');
+        //ToDo: обновление страницы убрать
         if(json) {
             if(json.user_name) {
                 $('#display_errors').append("<span class='label label-danger'>" + json.user_name + "</span><br>");
@@ -133,14 +127,6 @@ function authUser() {
     return false;
 }
 
-
-//Stackable table
-$(document).on('click', '#stackable-table', function(e) {
-    e.preventDefault();
-    $('#teacher-table').stacktable({hideOriginal:true});
-});
-
-
 // Searching
 $(document).ready(function(){
     $("#search").keyup(function(){
@@ -155,9 +141,10 @@ $(document).ready(function(){
     });
 });
 
+
 //CSV
 function downloadCSV(){
-    $("#teacher-table").table_download({
+    $("table").table_download({
         format: "csv",
         separator: ",",
         filename: "data",

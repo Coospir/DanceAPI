@@ -14,7 +14,7 @@
     $stmt = $teacher->ReadTeacher();
     $num = $teacher->ShowCountTeachers();
 
-    //TODO: Что-то метод показа кол-ва преподавателей не сработал :с
+    //TODO: исправить отображение со стилями
     if($num > 0) {
         $teachers_arr = array();
         $teachers_arr["teachers"] = array();
@@ -28,7 +28,7 @@
                 "email" => $email,
                 "phone" => $phone,
                // "id_style" => $id_style,
-                "title" => $title
+                //"title" => $title
             );
             array_push($teachers_arr["teachers"], $teacher_item);
         }

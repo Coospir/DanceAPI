@@ -22,7 +22,7 @@ $num = $teacher->ShowCountTeachers();
 					<small></small>
 				</h1>
 			</div>
-			<div class="container-fluid">
+        <div class="container-fluid">
         <div class="row">
           <div class="col-lg-3 col-md-6">
             <div class="panel panel-primary">
@@ -37,9 +37,9 @@ $num = $teacher->ShowCountTeachers();
                   </div>
                 </div>
               </div>
-              <a href="teachers.php">
+              <a href="/dance_api/api/functions/show_teachers.php">
                 <div class="panel-footer">
-                  <span class="pull-left">Подробнее</span>
+                  <span class="pull-left">Перейти в раздел "Преподаватели"</span>
                   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                   <div class="clearfix"></div>
                 </div>

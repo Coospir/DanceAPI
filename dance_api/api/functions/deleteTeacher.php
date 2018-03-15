@@ -12,6 +12,8 @@ include_once __DIR__ . '/../objects/Teacher.class.php';
 $database = new Database();
 $db = $database->getConnection();
 
+
+//todo: как удалить несколько записей по чекбоксу?
 $teacher = new Teacher($db);
 if(isset($_POST['id_teacher'])) {
     $selected = !empty($_POST['id_teacher']) ? trim($_POST['id_teacher']) : null;
