@@ -20,12 +20,13 @@
 </div>
 <div class="jumbotron">
   <div class="container">
-    <h1 class="text-center" style="color: white">Dance Studio CRM</h1><hr>
-    <h3 class="text-center" style="color: white">Остался последний штрих! Создайте Вашу танцевальную студию, чтобы завершить базовую настройку аккаунта!</h3>
+    <h1 class="text-center" style="color: white">Создание студии</h1><hr>
+    <h3 class="text-center" style="color: white">Заполните необходимую информацию.</h3>
   </div>
 </div>
 <div class="container">
   <form class="form-control-static" id="addStudioForm" method="post">
+  <span id="display_errors"></span><br>
     <div class="form-group">
       <input type="text" class="form-control input-lg" name="name" id="name" placeholder="Название студии *" required>
     </div>

@@ -22,19 +22,6 @@ function updateTeacher() {
     return false;
 }
 
-function addNewStudio(){
-  $.ajax({
-    type: "POST",
-    url: '/dance_api/api/functions/createStudio.php',
-    data: $("#addStudioForm").serialize()
-  });
-  $.done(function (data) {
-    alert(data);
-    $("#addStudioForm").append("<div class='alert alert-success alert-dismissible' id='success-added-teacher' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Успешно!</strong> Новая студия создана.</div>");
-  });
-  return false;
-}
-
 //TODO: Обновление элемента, удаление через implode и цикл
 function deleteTeacher(selectedId) {
     var answer = confirm('Вы уверены, что хотите удалить выбранный элемент?');
@@ -123,6 +110,43 @@ function authUser() {
                 alert('Успешно авторизован!');
             }
         }
+    });
+    return false;
+}
+
+function addNewStudio() {
+    $.ajax({
+        type: "POST",
+        url: '/dance_api/api/functions/create_studio.php',
+        data: $("#addStudioForm").serialize()
+    }).done(function (data) {
+        var json = JSON.parse(data);
+        console.log(json);
+        $('#display_errors').html('');
+        if(json) {
+            if(json.name) {
+                $('#display_errors').append("<span class='label label-danger'>" + json.name + "</span><br>");
+            }
+
+            if(json.studio_exists) {
+                $('#display_errors').append("<span class='label label-danger'>" + json.studio_exists + "</span><br>");
+            }
+
+            if(json.address) {
+                $('#display_errors').append("<span class='label label-danger'>" + json.address + "</span><br>");
+            }
+
+            if(json.phone) {
+                $('#display_errors').append("<span class='label label-danger'>" + json.phone + "</span><br>");
+            }
+
+            if(json.message) {
+                alert('success');
+            }
+        }
+/*
+        $("#addStudioForm").append("<div class='alert alert-success alert-dismissible' id='success-added-teacher' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Успешно!</strong> Новая студия создана.</div>");
+*/
     });
     return false;
 }

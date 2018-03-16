@@ -18,6 +18,7 @@
     <script type="text/javascript" src="/crm-main/js/jquery.metadata.js"></script>
     <script type="text/javascript" src="/crm-main/js/table2download.js"></script>
     <script type="text/javascript" src="/crm-main/js/stacktable.js"></script>
+    <script type="text/javascript" src="/crm-main/js/jquery.spincrement.js"></script>
 </head>
 
 <body>

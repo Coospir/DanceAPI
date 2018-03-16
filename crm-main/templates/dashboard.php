@@ -96,3 +96,7 @@ $num = $teacher->ShowCountTeachers();
 	</div>
 </div>
 
+<script>
+    $(".huge").spincrement();
+</script>
+

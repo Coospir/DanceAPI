@@ -79,29 +79,30 @@ class User {
 		return empty($this->errors);
 	}
 
-    public function verifyPass($password) {
+    public function verifyPass($name, $password) {
 	    //ToDO: исправить запрос
         $this->errors = [];
         $this->success = [];
         try {
-            $query = "SELECT * FROM `users` WHERE password = :password";
+            $query = "SELECT name, email, password, user_type FROM `users` WHERE name = :name";
             $stmt = $this->conn->prepare($query);
-            $stmt->bindValue(":password", $password);
+            $stmt->bindValue(":name", $name);
             $stmt->execute();
-            $user_data = $stmt->fetch(PDO::FETCH_ASSOC);
-            $valid_pass = password_verify($password, $user_data['password']);
+            $user = $stmt->fetch(PDO::FETCH_ASSOC);
+            $valid_pass = password_verify($password, $_POST['password']);
+            var_dump($password);
+            var_dump($valid_pass);
             if($valid_pass) {
-                $this->id_user = $user_data['id'];
+                $this->id_user = $user['id'];
                 return true;
             } else return false;
-        } catch (PDOException $exception) {
+        } catch(PDOException $exception) {
             error_log($exception->getMessage());
             return false;
         }
     }
-
+    //ToDo: ошибки в логике авторизации
 	public function isValidAuth($name, $password) {
-	    //ToDo: неверный пароль всегда, ошибки не ловит и делает отправку
         $this->errors = [];
         $this->success = [];
 
@@ -111,7 +112,7 @@ class User {
         if($password == '') {
             $this->errors['user_password'] = 'Не заполнено поле "Пароль"!';
         }
-        if(!$this->verifyPass($password)) {
+        if($this->verifyPass($name, $password)) {
             $this->errors['user_password_verify'] = 'Неверный пароль!';
         }
         if(empty($this->errors)) {
