@@ -107,6 +107,8 @@ function authUser() {
             }
             if(json.message) {
                 $('#form-content').hide();
+                console.log(json.token);
+                document.cookie='access_token='+json.token+';path=/';
                 alert('Успешно авторизован!');
             }
         }

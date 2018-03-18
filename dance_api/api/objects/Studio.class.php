@@ -1,27 +1,33 @@
 <?php
+include_once "User.class.php";
 class Studio {
 	private $conn;
     public $errors = [];
     public $success = [];
+    public $user;
 
 	public function __construct($db){
 		$this->conn = $db;
+		$this->user = new User($db);
 	}
 
 
-	public function CreateStudio($name, $address, $phone){
+	public function CreateStudio($name, $address, $phone, $token) {
 	    $this->errors = [];
 	    $this->success = [];
-	    if($this->isValidInfo($name, $address, $phone)) {
-            try {
-                $query = "INSERT INTO `studios` (name, address, phone) VALUES (:name, :address, :phone)";
-                $stmt = $this->conn->prepare($query);
-                $stmt->bindValue(":name", $name);
-                $stmt->bindValue(":address", $address);
-                $stmt->bindValue(":phone", $phone);
-                $stmt->execute();
-            } catch(Exception $e) {
-                error_log($e->getMessage());
+	    if($this->user->authUserByToken($token)) {
+            if($this->isValidInfo($name, $address, $phone)) {
+                try {
+                    $query = "INSERT INTO `studios` (name, address, phone, id_user) VALUES (:name, :address, :phone, :id_user)";
+                    $stmt = $this->conn->prepare($query);
+                    $stmt->bindValue(":name", $name);
+                    $stmt->bindValue(":address", $address);
+                    $stmt->bindValue(":phone", $phone);
+                    $stmt->bindValue(":id_user", $this->user->id_user);
+                    $stmt->execute();
+                } catch(Exception $e) {
+                    error_log($e->getMessage());
+                }
             }
         }
 	}

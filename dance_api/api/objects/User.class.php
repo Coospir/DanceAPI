@@ -14,9 +14,33 @@ class User {
     public $errors = [];
     public $success= [];
     public $id_user;
+    public $token;
 
     public function __construct($db){
         $this->conn = $db;
+    }
+
+    public function authUserByToken($token) {
+        try {
+            $query = "SELECT id_user FROM `remembered_logins` WHERE token = :token AND DATE_ADD(expires_at, INTERVAL 1 DAY) >= NOW()";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindValue(":token", $token);
+            $user_data = $stmt->execute();
+            if(!$user_data) {
+                $this->errors['query_error'] = $this->conn->errorInfo();
+            } else {
+                $rowCount = $stmt->rowCount();
+                if($rowCount !== 1) {
+                    $this->errors['token_not_found'] = 'Не найден токен для пользователя!';
+                } else {
+                    $this->id_user = $user_data['id_user'];
+                    return true;
+                }
+            }
+        }catch (PDOException $exception) {
+            error_log($exception->getMessage());
+        }
+
     }
 
     public function signup($name, $email, $password, $user_type) {
@@ -84,14 +108,12 @@ class User {
         $this->errors = [];
         $this->success = [];
         try {
-            $query = "SELECT name, email, password, user_type FROM `users` WHERE name = :name";
+            $query = "SELECT id, name, email, password, user_type FROM `users` WHERE name = :name";
             $stmt = $this->conn->prepare($query);
             $stmt->bindValue(":name", $name);
             $stmt->execute();
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
-            $valid_pass = password_verify($password, $_POST['password']);
-            var_dump($password);
-            var_dump($valid_pass);
+            $valid_pass = password_verify($password, $user['password']);
             if($valid_pass) {
                 $this->id_user = $user['id'];
                 return true;
@@ -112,26 +134,34 @@ class User {
         if($password == '') {
             $this->errors['user_password'] = 'Не заполнено поле "Пароль"!';
         }
-        if($this->verifyPass($name, $password)) {
+        if(!$this->verifyPass($name, $password)) {
             $this->errors['user_password_verify'] = 'Неверный пароль!';
         }
         if(empty($this->errors)) {
             $this->success['message'] = "Авторизация успешна!";
+
         }
         return empty($this->errors);
     }
 
 	public function Auth($name, $password) {
         if($this->isValidAuth($name, $password)){
+            $this->token = bin2hex(openssl_random_pseudo_bytes(16));
             try {
                 $query = "INSERT INTO `remembered_logins` (token, id_user , expires_at) VALUES (:token, :id_user, NOW())";
                 $stmt = $this->conn->prepare($query);
-                $stmt->bindValue(":token", bin2hex(openssl_random_pseudo_bytes(16)));
+                $stmt->bindValue(":token", $this->token);
                 $stmt->bindValue(":id_user", $this->id_user);
-                $stmt->execute();
+                if (!$stmt->execute()) {
+                    $this->errors['insert'] = $this->conn->errorInfo();
+                } else {
+                    $this->success['token'] = $this->token;
+                }
             }catch (PDOException $exception) {
                 error_log($exception->getMessage());
             }
         }
     }
+
+
 }

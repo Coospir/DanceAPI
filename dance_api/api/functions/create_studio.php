@@ -16,10 +16,11 @@ $studio = new Studio($db);
 $name_studio = !empty($_POST['name']) ? trim($_POST['name']) : null;
 $address_studio = !empty($_POST['address']) ? trim($_POST['address']) : null;
 $phone_studio = !empty($_POST['phone']) ? trim($_POST['phone']) : null;
+$token = $_COOKIE["access_token"];
 
 //ToDo: проблема с созданием танцевальной студии (внешние ключи)
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
-	$studio->CreateStudio($name_studio, $address_studio, $phone_studio);
+	$studio->CreateStudio($name_studio, $address_studio, $phone_studio, $token);
     if(empty($studio->errors)){
         echo json_encode($studio->success);
     } else {
