@@ -1,7 +1,6 @@
 <?php
 include __DIR__ . '/../templates/template.php';
 ?>
-
 <div id="page-wrapper">
 	<div class="container-fluid">
 		<div class="row">

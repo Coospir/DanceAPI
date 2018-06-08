@@ -12,14 +12,17 @@ $database = new Database();
 $db = $database->getConnection();
 
 $studio = new Studio($db);
+$user = new User($db);
 
 $name_studio = !empty($_POST['name']) ? trim($_POST['name']) : null;
 $address_studio = !empty($_POST['address']) ? trim($_POST['address']) : null;
 $phone_studio = !empty($_POST['phone']) ? trim($_POST['phone']) : null;
-$token = $_COOKIE["access_token"];
+$token = $_COOKIE["auth_token"];
 
-//ToDo: проблема с созданием танцевальной студии (внешние ключи)
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if($token === null) {
+        $studio->errors['error_token'] = 'Ошибка авторизации!';
+    }
 	$studio->CreateStudio($name_studio, $address_studio, $phone_studio, $token);
     if(empty($studio->errors)){
         echo json_encode($studio->success);

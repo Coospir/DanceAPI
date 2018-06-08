@@ -5,7 +5,10 @@ function addNewTeacher(){
         url: '/dance_api/api/functions/create_teacher.php',
         data: $("#addTeacherForm").serialize()
     }).done(function (data) {
-        alert(data);
+        var json = JSON.parse(data);
+        alert(json[0]);
+        $('#addNewTeacher').remove();
+        $('#teacher-cards').html(data);
     });
     return false;
 }
@@ -22,31 +25,32 @@ function updateTeacher() {
     return false;
 }
 
-//TODO: Обновление элемента, удаление через implode и цикл
+//TODO: Проблема с JSON'ом
 function deleteTeacher(selectedId) {
     var answer = confirm('Вы уверены, что хотите удалить выбранный элемент?');
-    if(answer == true) {
+    if(answer === true) {
         $.ajax({
             type: "POST",
             url: '/dance_api/api/functions/deleteTeacher.php',
             data: {'id_teacher': selectedId}
         }).done(function (data) {
-            alert(data);
-            console.log(data);
-            $("#teacher-table-data").remove("<td class='information'>" + data + "</td>");
+            var json = JSON.parse(data);
+            alert(json[0]);
+            alert('Привет мир');
+            $("#teacher" + selectedId).remove();
+
         });
         return false;
     } else alert(data); return false;
 }
 
 function deleteAllTeachers() {
+    alert('hi');
     $.ajax({
         type: "POST",
-        url: '/dance_api/api/functions/deleteAllTeachers.php',
-        data: $("#DeleteAllTeachers").serialize()
-    }).done(function(data) {
-        console.log(data);
-        location.reload();
+        url: '/dance_api/api/functions/deleteAllTeachers.php'
+    }).done(function() {
+
     })
 }
 
@@ -107,9 +111,9 @@ function authUser() {
             }
             if(json.message) {
                 $('#form-content').hide();
-                console.log(json.token);
-                document.cookie='access_token='+json.token+';path=/';
-                alert('Успешно авторизован!');
+                document.cookie='auth_token='+json.token+';path=/';
+                alert(json.message);
+                window.location.href = '/crm-main/templates/studio/add.php';
             }
         }
     });
@@ -142,27 +146,34 @@ function addNewStudio() {
                 $('#display_errors').append("<span class='label label-danger'>" + json.phone + "</span><br>");
             }
 
+            if(json.create_studio) {
+                $('#display_errors').append("<span class='label label-danger'>" + json.create_studio + "</span><br>");
+            }
+
+            if(json.error_token) {
+                $('#display_errors').append("<span class='label label-danger'>" + json.error_token + "</span><br>");
+            }
+
             if(json.message) {
-                alert('success');
+                $('#addStudioForm').hide();
+                $('#studioAdd').append("<div class='alert alert-success'>Вы успешно создали студию!</div>");
+                setTimeout(function(){
+                    window.location.href = '/crm-main/templates/dashboard.php';
+                }, 3000);
             }
         }
-/*
-        $("#addStudioForm").append("<div class='alert alert-success alert-dismissible' id='success-added-teacher' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Успешно!</strong> Новая студия создана.</div>");
-*/
+        /*
+         $("#addStudioForm").append("<div class='alert alert-success alert-dismissible' id='success-added-teacher' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button> <strong>Успешно!</strong> Новая студия создана.</div>");
+         */
     });
     return false;
 }
 
-// Searching
 $(document).ready(function(){
-    $("#search").keyup(function(){
-        _this = this;
-        $.each($("#teacher-table tbody tr"), function() {
-            if ($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1) {
-                $(this).hide();
-            } else {
-                $(this).show();
-            }
+    $("#search").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#teacher-cards .panel").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
     });
 });

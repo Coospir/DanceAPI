@@ -26,7 +26,6 @@
         <span id="display_errors"></span><br>
         <input type="text" class="form-control" name="name" id="name" placeholder="Ваш логин" required="" autofocus="" />
         <input type="password" class="form-control" name="password" id="password" placeholder="Пароль" required="" style="margin-top: 5px;"/>
-        <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Запомнить меня
         <button class="btn btn-lg btn-success btn-block" style="margin-top: 20px;" type="button" onclick="window.authUser()">Войти</button>
     </form>
 </div>

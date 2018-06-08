@@ -18,9 +18,8 @@ $teacher = new Teacher($db);
 if(isset($_POST['id_teacher'])) {
     $selected = !empty($_POST['id_teacher']) ? trim($_POST['id_teacher']) : null;
     if ($teacher->DeleteTeacher($selected)) {
-        return true;
-    }
-    else {
-        return false;
+        echo json_encode($teacher->data);
+    } else {
+        echo json_encode($teacher->errors);
     }
 }
