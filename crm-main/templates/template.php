@@ -1,5 +1,5 @@
 <?php
-    include __DIR__ . '/../../dance_api/api/config/database.php';
+    include __DIR__ . '/../../dance_api/api/config/Database.class.php';
     include __DIR__ . '/../../dance_api/api/objects/User.class.php';
 
     $db = new Database();
@@ -16,9 +16,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="crm_main_page">
-    <meta name="author" content="crm_main_page">
-    <title>DanceCRM</title>
+    <meta name="description" content="cms_main_page">
+    <meta name="author" content="cms_main_page">
+    <title>DanceCMS</title>
     <link href="/crm-main/styles/css/bootstrap.css" rel="stylesheet">
     <link href="/crm-main/styles/css/sb-admin.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&amp;subset=cyrillic" rel="stylesheet">
@@ -56,9 +56,6 @@
                     <li>
                         <a href="#"><i class="fa fa-fw fa-user"></i> Профиль</a>
                     </li>
-                    <li>
-                        <a href="#"><i class="fa fa-fw fa-gear"></i> Настройки</a>
-                    </li>
                     <li class="divider"></li>
                     <li>
                         <a href="#"><i class="fa fa-fw fa-power-off"></i> Выйти</a>
@@ -72,22 +69,19 @@
                     <a href="/crm-main/templates/dashboard.php"> Рабочий стол</a>
                 </li>
                 <li>
-                    <a href="/dance_api/api/functions/show_teachers.php"> Преподаватели</a>
+                    <a href="/dance_api/api/functions/read_teachers.php"> Преподаватели</a>
                 </li>
                 <li>
                     <a href="/crm-main/templates/groups.php"> Группы</a>
                 </li>
                 <li>
-                    <a href="/crm-main/templates/clients.php"> Клиенты</a>
+                    <a href="/dance_api/api/functions/read_clients.php"> Клиенты</a>
                 </li>
                 <li>
                     <a href="/crm-main/templates/shedule.php"> Расписание</a>
                 </li>
                 <li>
                     <a href="/crm-main/templates/events.php"> События</a>
-                </li>
-                <li>
-                    <a href="javascript:;">Настройки</a>
                 </li>
             </ul>
         </div>

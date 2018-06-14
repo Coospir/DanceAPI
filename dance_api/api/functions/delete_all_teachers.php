@@ -8,7 +8,7 @@
 
 
     // include database and object file
-    include_once '../config/database.php';
+    include_once '../config/Database.class.php';
     include_once '../objects/Teacher.class.php';
 
     // get database connection
@@ -16,10 +16,8 @@
     $db = $database->getConnection('localhost','h117710_api_db', 'h117710_root','DanceCRM');
 
     $teacher = new Teacher($db);
-    if(isset($_POST['deleteAllTeachers'])) {
         if ($teacher->DeleteAllTeachers()) {
             echo json_encode($teacher->data);
         } else {
             echo json_encode($teacher->errors);
-        }
     }

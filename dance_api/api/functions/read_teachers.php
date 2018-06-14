@@ -4,7 +4,7 @@
 ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
-include_once __DIR__ . '/../config/database.php';
+include_once __DIR__ . '/../config/Database.class.php';
 include_once __DIR__ . '/../objects/Teacher.class.php';
 
 $database = new Database();
@@ -14,7 +14,6 @@ $teacher = new Teacher($db);
 $stmt = $teacher->ReadTeacher();
 $num = $teacher->ShowCountTeachers();
 
-//TODO: исправить отображение со стилями
 if($num > 0) {
     $teachers_arr = array();
     $teachers_arr["teachers"] = array();

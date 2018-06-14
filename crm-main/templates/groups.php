@@ -12,7 +12,7 @@ include __DIR__ . '/../templates/template.php';
 				</h1>
 			</div>
 			<div class="container-fluid">
-				<p><b>Скоро</b> что-то будет..</p>
+				<p><b>Скоро</b>что-то будет!</p>
 			</div>
 			<div id="jsGrid">
 				<script type="text/javascript" src="/crm-main/js/test.js"></script>

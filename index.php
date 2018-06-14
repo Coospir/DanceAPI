@@ -11,7 +11,7 @@
     <script src="style/js/bootstrap.js"></script>
     <script src="style/js/functions_jquery.js"></script>
     <script src="/dance_api/api/functions/ajax.js"></script>
-    <title>DanceCRM</title>
+    <title>DanceCMS</title>
 </head>
 <body>
     <div id="preloader">
@@ -20,18 +20,18 @@
     <div class="jumbotron">
         <div class="container text-center">
             <br>
-            <h1 style="color: white; font-size: 80px;">Dance Studio CRM</h1>
-            <p style="font-size: 24px; text-align: center; color: white">Первая, бесплатная и удобная система управления танцевальной студией.</p>
+            <h1 style="color: white; font-size: 80px;">Dance Studio CMS</h1>
+            <p style="font-size: 24px; text-align: center; color: white">Первая, бесплатная и удобная система управления контентом танцевальной студии.</p>
             <a class="btn btn-info justify-content-center" style="font-size: 18px" href="/templates/login.php">Войти в систему</a> <b class="lead" style="color:white">или</b>
             <a class="btn btn-info justify-content-center" style="font-size: 18px" href="/templates/register.php">Регистрация нового пользователя</a>
         </div>
     </div>
     <?php
 	    //TODO: Можно ли оставить такую проверочку?
-      require __DIR__ . "/dance_api/api/config/database.php";
+      require __DIR__ . "/dance_api/api/config/Database.class.php";
       $database = new Database();
       if(!$database->getConnection()) {
-        echo "<div class='alert alert-danger' style='text-align: center'><b>Проблема с подключением к сервису DanceCRM:</b> обратитесь в тех. поддержку.</div>";
+        echo "<div class='alert alert-danger' style='text-align: center'><b>Проблема с подключением к базе данных DanceCMS:</b> обратитесь в тех. поддержку.</div>";
       }
     ?>
     <div class="container">
@@ -59,6 +59,5 @@
         </div>
 
     </div>
-    <!--<footer class="footer">Copyright by Eugene Starodubov</footer>-->
 </body>
 </html>

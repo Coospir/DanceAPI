@@ -35,6 +35,7 @@ class User {
                 if($rowCount !== 1) {
                     $this->errors['token_not_found'] = 'Не найден токен для пользователя!';
                 } else {
+                    $this->success['success_auth'] = 'Успешная авторизация!';
                     $this->id_user = $user['id_user'];
                     return true;
                 }

@@ -1,6 +1,6 @@
 <?php
 //header("Access-Control-Allow-Origin: *");
-include_once __DIR__ . '/../config/database.php';
+include_once __DIR__ . '/../config/Database.class.php';
 include_once __DIR__ . '/../objects/User.class.php';
 
 $database = new Database();

@@ -8,7 +8,7 @@ function addNewTeacher(){
         var json = JSON.parse(data);
         alert(json[0]);
         $('#addNewTeacher').remove();
-        $('#teacher-cards').html(data);
+        $('#teacher-cards').html(json[0]);
     });
     return false;
 }
@@ -31,7 +31,7 @@ function deleteTeacher(selectedId) {
     if(answer === true) {
         $.ajax({
             type: "POST",
-            url: '/dance_api/api/functions/deleteTeacher.php',
+            url: '/dance_api/api/functions/delete_teacher.php',
             data: {'id_teacher': selectedId}
         }).done(function (data) {
             var json = JSON.parse(data);
@@ -45,13 +45,12 @@ function deleteTeacher(selectedId) {
 }
 
 function deleteAllTeachers() {
-    alert('hi');
     $.ajax({
-        type: "POST",
-        url: '/dance_api/api/functions/deleteAllTeachers.php'
-    }).done(function() {
-
-    })
+        url: '/dance_api/api/functions/delete_all_teachers.php',
+        type: "POST"
+    }).done(function(data){
+            console.log(data);
+        })
 }
 
 function registerUser() {
@@ -170,13 +169,20 @@ function addNewStudio() {
 }
 
 $(document).ready(function(){
-    $("#search").on("keyup", function() {
+    $("#search-teacher").on("keyup", function() {
         var value = $(this).val().toLowerCase();
-        $("#teacher-cards .panel").filter(function() {
+        $("#teachers-cards .panel").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+    $("#search-client").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#clients-cards .panel").filter(function() {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
     });
 });
+
 
 
 //CSV

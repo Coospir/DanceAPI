@@ -3,4 +3,4 @@ RewriteEngine On
 RewriteCond %{SERVER_PORT} !^443$
 RewriteRule .* https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]
 
-RewriteRule ^(([^/]+/)*[^.]+)$ /$1.php [L]
+RewriteRule ^(?:index\.php/)?(?:[^/]+/)+(\d+-[^/]+)$ /$1 [R=301,L,NC]

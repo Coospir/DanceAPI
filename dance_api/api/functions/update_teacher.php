@@ -4,7 +4,7 @@ header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Allow-Methods: POST");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");*/
-include_once __DIR__. '/../config/database.php';
+include_once __DIR__ . '/../config/Database.class.php';
 include_once __DIR__ . '/../objects/Teacher.class.php';
 
 $database = new Database();
@@ -22,16 +22,6 @@ $styleTeacher = !empty($_POST['id_style']) ? trim($_POST['id_style']) : null;
 //todo: не работает обновление - исправить запрос?
 
 if($teacher->UpdateTeacher($surnameTeacher, $nameTeacher, $patronymicTeacher, $emailTeacher, $phone_numberTeacher)) {
-    /*   echo <<< START
-           <tr>
-           <td class="information">$surnameTeacher $nameTeacher $patronymicTeacher</td>
-           <td class="information">$emailTeacher</td>
-           <td class="information">$phone_numberTeacher</td>
-           <td class="information">$styleTeacher</td>
-
-           <td><button type="submit" name="deleteTeacherBtn" class="btn btn-danger" onclick="window.deleteTeacher()">Удалить</button></td>
-           </tr>
-START;*/
     echo json_encode($teacher->data);
 } else {
     echo json_encode($teacher->errors);

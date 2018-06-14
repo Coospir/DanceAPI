@@ -3,7 +3,7 @@ include __DIR__ . '/../templates/template.php';
 ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
-include_once __DIR__ . '/../../dance_api/api/config/database.php';
+include_once __DIR__ . '/../../dance_api/api/config/Database.class.php';
 include_once __DIR__ . '/../../dance_api/api/objects/Teacher.class.php';
 $database = new Database();
 $db = $database->getConnection();
@@ -37,7 +37,7 @@ $num = $teacher->ShowCountTeachers();
                   </div>
                 </div>
               </div>
-              <a href="/dance_api/api/functions/show_teachers.php">
+              <a href="/dance_api/api/functions/read_teachers.php">
                 <div class="panel-footer">
                   <span class="pull-left">Перейти в раздел "Преподаватели"</span>
                   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
