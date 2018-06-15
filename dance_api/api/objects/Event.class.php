@@ -3,7 +3,7 @@ ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 
-class Client {
+class Event {
     private $conn;
     public $errors = [];
     public $data = [];
@@ -12,8 +12,8 @@ class Client {
         $this->conn = $db;
     }
 
-    public function ReadClients() {
-        $query = "SELECT * FROM `clients`";
+    public function ReadEvents() {
+        $query = "SELECT * FROM `events`";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt;

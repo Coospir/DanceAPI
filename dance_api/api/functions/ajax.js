@@ -112,7 +112,7 @@ function authUser() {
                 $('#form-content').hide();
                 document.cookie='auth_token='+json.token+';path=/';
                 alert(json.message);
-                window.location.href = '/crm-main/templates/studio/add.php';
+                window.location.href = '/crm-main/templates/dashboard.php';
             }
         }
     });

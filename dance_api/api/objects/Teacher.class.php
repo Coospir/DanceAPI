@@ -22,7 +22,7 @@ class Teacher {
         $this->errors = [];
         $result = false;
         try {
-            $query = "INSERT INTO `teachers`(surname, name, pagit gitronymic, email, phone) VALUES(:surname, :name, :patronymic, :email, :phone)";
+            $query = "INSERT INTO `teachers`(surname, name, patronymic, email, phone) VALUES(:surname, :name, :patronymic, :email, :phone)";
 
             $stmt = $this->conn->prepare($query);
             $stmt->bindValue(":surname", $surname);
