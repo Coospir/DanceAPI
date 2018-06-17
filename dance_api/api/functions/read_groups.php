@@ -10,8 +10,8 @@ $db = $database->getConnection();
 
 $group = new Group($db);
 $stmt = $group->ReadGroups();
-//$num = $teacher->ShowCountTeachers();
-$num = 5;
+$num = $group->ShowCountGroups();
+
 
 if($num > 0) {
     $groups_arr = array();
@@ -19,16 +19,18 @@ if($num > 0) {
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         extract($row);
         $groups_item = array(
-            "id_group" => $id_client,
-            "name" => $name,
-            "level" => $patronymic,
-            "training_duration" => $email,
-            "price" => $phone,
-            //"id_teacher" => $id_teacher
+            "id_group" => $id_group,
+            "group_name" => $group_name,
+            "level" => $level,
+            "training_duration" => $training_duration,
+            "price" => $price,
+            "id_teacher" => $id_teacher,
+            "teacher_surname" => $teacher_surname,
+            "teacher_name" => $teacher_name
         );
         array_push($groups_arr["groups"], $groups_item);
     }
-    include __DIR__ . '/../../../crm-main/templates/clients.php';
+    include __DIR__ . '/../../../crm-main/templates/groups.php';
 } else {
-    include __DIR__ . '/../../../crm-main/templates/clients.php';
+    include __DIR__ . '/../../../crm-main/templates/groups.php';
 }

@@ -72,7 +72,7 @@
                     <a href="/dance_api/api/functions/read_teachers.php"> Преподаватели</a>
                 </li>
                 <li>
-                    <a href="/crm-main/templates/groups.php"> Группы</a>
+                    <a href="/dance_api/api/functions/read_groups.php"> Группы</a>
                 </li>
                 <li>
                     <a href="/dance_api/api/functions/read_clients.php"> Клиенты</a>

@@ -14,6 +14,7 @@ function addNewTeacher(){
 }
 //todo: open modal, then serialize of form and selectedId (не обязательно)
 function updateTeacher() {
+    location.reload('https://dancecrm.ru/crm-main/templates/modals/teachers/update.php');
     $.ajax({
         type: "POST",
         url: '/dance_api/api/functions/update_teacher.php',
@@ -50,7 +51,47 @@ function deleteAllTeachers() {
         type: "POST"
     }).done(function(data){
             console.log(data);
-        })
+    })
+}
+
+function addNewGroup(){
+    $.ajax({
+        type: "POST",
+        url: '/dance_api/api/functions/create_group.php',
+        data: $("#addGroupForm").serialize()
+    }).done(function (data) {
+        var json = JSON.parse(data);
+        alert(json[0]);
+        $('#addNewGroup').remove();
+        $('#groups-cards').html(json[0]);
+    });
+    return false;
+}
+
+function deleteGroup(selectedId) {
+    var answer = confirm('Вы уверены, что хотите удалить выбранный элемент?');
+    if(answer === true) {
+        $.ajax({
+            type: "POST",
+            url: '/dance_api/api/functions/delete_group.php',
+            data: {'id_group': selectedId}
+        }).done(function (data) {
+            var json = JSON.parse(data);
+            alert(json[0]);
+            $("#group" + selectedId).remove();
+
+        });
+        return false;
+    } else alert(data); return false;
+}
+
+function deleteAllGroups() {
+    $.ajax({
+        url: '/dance_api/api/functions/delete_all_groups.php',
+        type: "POST"
+    }).done(function(data){
+        console.log(data);
+    })
 }
 
 function registerUser() {
@@ -175,9 +216,17 @@ $(document).ready(function(){
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
     });
+
     $("#search-client").on("keyup", function() {
         var value = $(this).val().toLowerCase();
         $("#clients-cards .panel").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+
+    $("#search-group").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#groups-cards .panel").filter(function() {
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
     });

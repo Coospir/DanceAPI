@@ -5,11 +5,14 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 include_once __DIR__ . '/../../dance_api/api/config/Database.class.php';
 include_once __DIR__ . '/../../dance_api/api/objects/Teacher.class.php';
+include_once __DIR__ . '/../../dance_api/api/objects/Group.class.php';
 $database = new Database();
 $db = $database->getConnection();
 
 $teacher = new Teacher($db);
-$num = $teacher->ShowCountTeachers();
+$group = new Group($db);
+$num_teachers = $teacher->ShowCountTeachers();
+$num_groups = $group->ShowCountGroups();
 
 ?>
 
@@ -32,7 +35,9 @@ $num = $teacher->ShowCountTeachers();
                     <i class="fa fa-file-text fa-5x"></i>
                   </div>
                   <div class="col-xs-9 text-right">
-                    <div class='huge'><?php echo $num; ?></div>
+                    <div class='huge'>
+                        <?php echo $num_teachers; ?>
+                    </div>
                     <div>Количество преподавателей</div>
                   </div>
                 </div>
@@ -54,14 +59,16 @@ $num = $teacher->ShowCountTeachers();
                     <i class="fa fa-comments fa-5x"></i>
                   </div>
                   <div class="col-xs-9 text-right">
-                    <div class='huge'>5</div>
+                    <div class='huge'>
+                        <?php echo $num_groups; ?>
+                    </div>
                     <div>Количество групп</div>
                   </div>
                 </div>
               </div>
-              <a href="groups.php">
+              <a href="/dance_api/api/functions/read_groups.php">
                 <div class="panel-footer">
-                  <span class="pull-left">Подробнее</span>
+                  <span class="pull-left">Перейти в раздел "Группы"</span>
                   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                   <div class="clearfix"></div>
                 </div>

@@ -39,6 +39,9 @@ include __DIR__ . '/../templates/modals/teachers/add.php';
                                 <p><b>Контактный телефон: </b><?= $teacher['phone']; ?></p>
                                 <p><b>Стили танца: </b><?= $teacher['style']; ?></p>
                                 <button type="submit" style="align-content: flex-end; " name="deleteTeacherBtn" class="btn btn-danger btn-xs" onclick="window.deleteTeacher('<?= $teacher['id_teacher'] ?>')"><span class="glyphicon glyphicon-trash"></span> Удалить</button>
+                                <form id="updateTeacherForm" method="post" action="/crm-main/templates/modals/teachers/update.php">
+                                    <button type="submit" style="align-content: flex-end; " name="updateTeacherBtn" class="btn btn-danger btn-xs" value="<?= $teacher['id_teacher'] ?>"><span class="glyphicon glyphicon-pencil"></span> Изменить</button>
+                                </form>
                             </div>
                         </div>
                     </div>

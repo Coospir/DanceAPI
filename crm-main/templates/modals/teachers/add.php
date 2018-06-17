@@ -3,7 +3,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h4 class="modal-title">Добавление информации о новом преподавателе</h4>
+                    <h4 class="modal-title">Создание нового преподавателя</h4>
                 </div>
                 <div class="modal-body">
                         <div class="form-group">

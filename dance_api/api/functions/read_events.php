@@ -19,16 +19,14 @@ if($num > 0) {
     while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
         extract($row);
         $events_item = array(
-            "id_event" => $id_client,
+            "id_event" => $id_event,
             "name" => $name,
-            "level" => $patronymic,
-            "training_duration" => $email,
-            "price" => $phone,
-            //"id_teacher" => $id_teacher
+            "date" => $date,
+            "price" => $price
         );
         array_push($events_arr["events"], $events_item);
     }
-    include __DIR__ . '/../../../crm-main/templates/clients.php';
+    include __DIR__ . '/../../../crm-main/templates/events.php';
 } else {
-    include __DIR__ . '/../../../crm-main/templates/clients.php';
+    include __DIR__ . '/../../../crm-main/templates/events.php';
 }

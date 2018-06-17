@@ -53,8 +53,8 @@ class Teacher {
         }
         return $result;
     }
-
-    public function UpdateTeacher($surname, $name, $patronymic, $phone, $email) {
+    // При нажатии на кнопку удалить все связаные стили у преподаваетеля из промежуточной таблицы и вставить
+    public function UpdateTeacher($surname, $name, $patronymic, $phone, $email, array $styles) {
         $query = "UPDATE `teachers` SET surname = :surname, name = :name, patronymic = :patronymic, email = :email, phone = :phone WHERE surname ='".$surname."' AND name = '".$name."' AND patronymic = '".$patronymic."' AND email = '".$email."' AND phone = '".$phone."'";
         $stmt = $this->conn->prepare($query);
         $stmt->bindValue(":surname", $surname);

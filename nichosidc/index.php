@@ -91,6 +91,28 @@ if(!$database->getConnection()) {
                     <strong>Внимание!</strong> Список преподавателей пуст.
                 </div>
             <?php endif; ?>
+            <br>
+            <br>
+            <h1 style="text-align: center;">Запись на событие</h1>
+            <form action="/action_page.php">
+                <div class="form-group">
+                    <label for="name">Ваше имя:</label>
+                    <input type="text" class="form-control" id="name">
+                </div>
+                <div class="form-group">
+                    <label for="surname">Ваша фамилия:</label>
+                    <input type="text" class="form-control" id="surname">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Телефон:</label>
+                    <input type="text" class="form-control" id="phone">
+                </div>
+                <div class="form-group">
+                    <label for="pwd">Электронный адрес:</label>
+                    <input type="email" class="form-control" id="email">
+                </div>
+                <button type="submit" class="btn btn-default">Записаться</button>
+            </form>
         </div>
     </div>
 
