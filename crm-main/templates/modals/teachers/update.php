@@ -16,9 +16,7 @@ $styles_arr = array();
 $styles = $db->prepare("SELECT id_style as id FROM styles_teachers WHERE styles_teachers.id_teacher=:id");
 $styles -> bindValue(":id", $_POST['updateTeacherBtn']);
 $styles -> execute();
-
     while ($row = $styles->fetch(PDO::FETCH_ASSOC)) {
-
     array_push($styles_arr, $row["id"]);
 }
 
@@ -48,6 +46,9 @@ $styles -> execute();
 <form id="updateTeacherForm" method="post">
     <h4 class="panel-title">Изменение информации о преподавателе</h4>
     <div class="form-group">
+        <input type="hidden"  class="form-control" name="id_teacher" id="id_teacher" value="<?php echo $data_teachers['id_teacher']; ?>"
+    </div>
+    <div class="form-group">
         <input type="text" class="form-control" name="surname" id="surname" placeholder="Фамилия" value="<?php echo $data_teachers['surname']; ?>" required>
     </div>
     <div class="form-group">
@@ -67,14 +68,14 @@ $styles -> execute();
         <?php
         foreach ($all_styles as $style) {
             if(in_array($style["id_style"], $styles_arr)) {
-                echo "<input type='checkbox' checked name='styles[]' value=".$style['id_style']."><rt>"." ".$style['title']."<br>";
+                echo "<input type='checkbox' checked id='styles' name='styles[]' value=".$style['id_style']."><rt>"." ".$style['title']."<br>";
             } else {
-                echo "<input type='checkbox' name='styles[]' value=".$style['id_style']."><rt>"." ".$style['title']."<br>";
+                echo "<input type='checkbox' id='styles' name='styles[]' value=".$style['id_style']."><rt>"." ".$style['title']."<br>";
             }
         }
         ?>
     </div>
-    <input type="submit" name="updateTeacher" class="btn btn-success" id="add-teacher-btn" onclick="window.updateTeacher()" value="Изменить">
+    <input type="submit" name="updateTeacher" class="btn btn-success" id="updateTeacher" onclick="window.updateTeacher()" value="Изменить">
 </form>
 </body>
 </html>

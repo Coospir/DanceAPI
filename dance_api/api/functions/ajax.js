@@ -12,23 +12,25 @@ function addNewTeacher(){
     });
     return false;
 }
+
 //todo: open modal, then serialize of form and selectedId (не обязательно)
 function updateTeacher() {
-    location.reload('https://dancecrm.ru/crm-main/templates/modals/teachers/update.php');
     $.ajax({
         type: "POST",
         url: '/dance_api/api/functions/update_teacher.php',
         data: $("#update-teacher-form").serialize()
     }).done(function(data) {
         alert(data);
-        $("#teacher-table-data").html("<td class='information'>" + data + "</td>");
+        var json = JSON.parse(data);
+        alert(json);
+        $("#teacher-table-data").html();
     });
     return false;
 }
 
 //TODO: Проблема с JSON'ом
 function deleteTeacher(selectedId) {
-    var answer = confirm('Вы уверены, что хотите удалить выбранный элемент?');
+    var answer = confirm('Вы уверены, что хотите удалить выбранного преподавателя?');
     if(answer === true) {
         $.ajax({
             type: "POST",
@@ -42,7 +44,7 @@ function deleteTeacher(selectedId) {
 
         });
         return false;
-    } else alert(data); return false;
+    } else alert('Ошибка!');
 }
 
 function deleteAllTeachers() {
@@ -50,7 +52,7 @@ function deleteAllTeachers() {
         url: '/dance_api/api/functions/delete_all_teachers.php',
         type: "POST"
     }).done(function(data){
-            console.log(data);
+        console.log(data);
     })
 }
 
@@ -69,7 +71,7 @@ function addNewGroup(){
 }
 
 function deleteGroup(selectedId) {
-    var answer = confirm('Вы уверены, что хотите удалить выбранный элемент?');
+    var answer = confirm('Вы уверены, что хотите удалить выбранную группу?');
     if(answer === true) {
         $.ajax({
             type: "POST",
@@ -88,6 +90,47 @@ function deleteGroup(selectedId) {
 function deleteAllGroups() {
     $.ajax({
         url: '/dance_api/api/functions/delete_all_groups.php',
+        type: "POST"
+    }).done(function(data){
+        alert(data);
+        console.log(data);
+    })
+}
+
+function addNewClient(){
+    $.ajax({
+        type: "POST",
+        url: '/dance_api/api/functions/create_client.php',
+        data: $("#addClientForm").serialize()
+    }).done(function (data) {
+        var json = JSON.parse(data);
+        alert(json[0]);
+        $('#addNewClient').remove();
+        $('#teacher-cards').html(json[0]);
+    });
+    return false;
+}
+
+function deleteClient(selectedId) {
+    var answer = confirm('Вы уверены, что хотите удалить выбранного клиента?');
+    if(answer === true) {
+        $.ajax({
+            type: "POST",
+            url: '/dance_api/api/functions/delete_client.php',
+            data: {'id_client': selectedId}
+        }).done(function (data) {
+            var json = JSON.parse(data);
+            alert(json[0]);
+            $("#client" + selectedId).remove();
+
+        });
+        return false;
+    } else alert(data); return false;
+}
+
+function deleteAllClients() {
+    $.ajax({
+        url: '/dance_api/api/functions/delete_all_clients.php',
         type: "POST"
     }).done(function(data){
         console.log(data);

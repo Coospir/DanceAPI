@@ -7,6 +7,8 @@
 
 $(document).ready(function () {
     $("#phone").mask("9(999)999-99-99");
+    $("#phone_dubl").mask("9(999)999-99-99");
+    $("#training_duration").mask("99:99");
 });
 
 $(window).on('load', function() { // makes sure the whole site is loaded
@@ -15,19 +17,3 @@ $(window).on('load', function() { // makes sure the whole site is loaded
     $('body').delay(350).css({'overflow':'visible'});
 });
 
-
-$(document).ready(function(){
-    $('#teacher-table').DataTable();
-});
-
-function CheckForm() {
-  var requiredField = $("#addStudioForm").children("[required=required]"); // Получаем все элементы, которые указаны как обязательные к заполнению
-  for (var i = 0; i < requiredField.length; i++) { // Обходим все полученные элементы
-    if ($(requiredField[i]).val() == '') { // Если хотя бы одно из обязательных полей не заполнено
-      //alert("Заполните все обязательные поля"); // Выводим сообщение об ошибке
-      requiredField.css({'border-color':'#d8512d'});
-      return false; // Возвращаем false
-    }
-  }
-  return true; // Если все обязательные поля заполнены - возвращаем true
-}

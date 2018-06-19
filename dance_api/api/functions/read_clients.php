@@ -9,9 +9,9 @@ $database = new Database();
 $db = $database->getConnection();
 
 $client = new Client($db);
-$stmt = $client->ReadClients();
-//$num = $teacher->ShowCountTeachers();
-$num = 5;
+$stmt = $client->ReadClient();
+$num = $client->ShowCountClients();
+
 if($num > 0) {
     $clients_arr = array();
     $clients_arr["clients"] = array();
@@ -26,7 +26,7 @@ if($num > 0) {
             "phone" => $phone,
             "phone_dubl" => $phone_dubl,
             "address" => $address,
-            "groups" => $groups
+            "group_name" => $group_name
         );
         array_push($clients_arr["clients"], $clients_item);
     }

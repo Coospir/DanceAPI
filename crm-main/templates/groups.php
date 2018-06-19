@@ -33,12 +33,13 @@ include __DIR__ . '/../templates/modals/groups/add.php';
                     <div class="panel panel-primary" id="group<? echo $group["id_group"]; ?>">
                         <div class="panel-heading">
                             <?= $group['group_name']; ?>
+                            <button type="submit" style="align-content: flex-end; " name="deleteGroupBtn" class="btn btn-primary btn-xs" onclick="window.deleteGroup('<?= $group['id_group'] ?>')"><span class="glyphicon glyphicon-trash"></span> </button>
                         </div>
                         <div class="panel-body">
                             <p><b>Уровень: </b><?= $group['level']; ?></p>
                             <p><b>Длительность занятия: </b><?= $group['training_duration']; ?></p>
+                            <p><b>Стоимость абонемента (8 занятий): </b><?= $group['price'] . " руб." ?></p>
                             <p><b>Преподаватель: </b><?= $group['teacher_surname'] . " " .$group['teacher_name'] ?></p>
-                            <button type="submit" style="align-content: flex-end; " name="deleteGroupBtn" class="btn btn-danger btn-xs" onclick="window.deleteGroup('<?= $group['id_group'] ?>')"><span class="glyphicon glyphicon-trash"></span> Удалить</button>
                             <button type="submit" style="align-content: flex-end; " name="updateGroupBtn" class="btn btn-danger btn-xs" onclick="window.updateGroup('<?= $group['id_group'] ?>')"><span class="glyphicon glyphicon-trash"></span> Изменить</button>
                         </div>
                     </div>

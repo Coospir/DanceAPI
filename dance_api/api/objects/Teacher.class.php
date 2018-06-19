@@ -53,10 +53,16 @@ class Teacher {
         }
         return $result;
     }
+
     // При нажатии на кнопку удалить все связаные стили у преподаваетеля из промежуточной таблицы и вставить
-    public function UpdateTeacher($surname, $name, $patronymic, $phone, $email, array $styles) {
-        $query = "UPDATE `teachers` SET surname = :surname, name = :name, patronymic = :patronymic, email = :email, phone = :phone WHERE surname ='".$surname."' AND name = '".$name."' AND patronymic = '".$patronymic."' AND email = '".$email."' AND phone = '".$phone."'";
+    public function UpdateTeacher($id_teacher, $surname, $name, $patronymic, $phone, $email, array $styles) {
+        $this->errors = [];
+        $bool = false;
+
+        $query = "UPDATE `teachers` SET id_teacher = :id_teacher, surname = :surname, name = :name, patronymic = :patronymic, email = :email, phone = :phone WHERE id_teacher ='".$id_teacher."' AND surname ='".$surname."' AND name = '".$name."' AND patronymic = '".$patronymic."' AND email = '".$email."' AND phone = '".$phone."'";
         $stmt = $this->conn->prepare($query);
+        var_dump("id teacher => " . $id_teacher);
+        $stmt->bindValue(":id_teacher", $id_teacher);
         $stmt->bindValue(":surname", $surname);
         $stmt->bindValue(":name", $name);
         $stmt->bindValue(":patronymic", $patronymic);
@@ -64,7 +70,20 @@ class Teacher {
         $stmt->bindValue(":email", $email);
         try {
             if($stmt->execute()){
-                $this->data[] = 'Успешное изменение информации!';
+                var_dump($styles);
+                $id = $this->conn->lastInsertId();
+                $query_styles = "INSERT INTO `styles_teachers`(id_style, id_teacher) VALUES";
+                $flag = true;
+                foreach($styles as $s) {
+                    if(!$flag) {
+                        $query_styles .= ",";
+                    }
+                    $query_styles .= "(".(int)$s.", ".$id.")";
+                    $flag = false;
+                }
+                $this->conn->query($query_styles);
+                $bool = true;
+                $this->data[] = "Информация о преподавателе изменена!";
                 echo json_encode($this->data);
             } else {
                 $this->errors[] = 'Ошибка при изменении информации: ' . $stmt->errorInfo();
@@ -74,6 +93,25 @@ class Teacher {
             echo 'Ошибка при изменении информации: ' . $e->getMessage();
             echo json_encode($this->errors);
         }
+
+        $query_delete = "DELETE FROM `styles_teachers` WHERE styles_teachers.id_teacher = :id";
+        $stmt = $this->conn->prepare($query_delete);
+        $stmt->bindValue(":id", $id_teacher);
+        try {
+            if($stmt->execute()){
+                $this->data[] = "Успешное удаление совпадающих стилей у преподавателя ". $id_teacher ." информации!";
+                echo json_encode($this->data);
+            } else {
+                $this->errors[] = "Ошибка при удалении совпадающих стилей у преподавателя ". $id_teacher." : " . $stmt->errorInfo();
+                echo json_encode($this->errors);
+            }
+        } catch(Exception $e){
+            echo "Ошибка при удалении совпадающих стилей у преподавателя ". $id_teacher." : " . $e->getMessage();
+            echo json_encode($this->errors);
+        }
+        return $bool;
+
+
     }
 
     public function DeleteTeacher($id) {

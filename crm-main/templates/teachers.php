@@ -33,14 +33,14 @@ include __DIR__ . '/../templates/modals/teachers/add.php';
                         <div class="panel panel-info" id="teacher<? echo $teacher["id_teacher"]; ?>">
                             <div class="panel-heading">
                                 <?= $teacher['surname'] . ' ' . $teacher['name'] . ' ' . $teacher['patronymic'] ?>
+                                <button type="submit" style="align-content: flex-end; " name="deleteTeacherBtn" class="btn btn-info btn-xs" onclick="window.deleteTeacher('<?= $teacher['id_teacher'] ?>')"><span class="glyphicon glyphicon-trash"></span> </button><br>
                             </div>
                             <div class="panel-body">
                                 <p><b>E-Mail: </b><?= $teacher['email']; ?></p>
                                 <p><b>Контактный телефон: </b><?= $teacher['phone']; ?></p>
                                 <p><b>Стили танца: </b><?= $teacher['style']; ?></p>
-                                <button type="submit" style="align-content: flex-end; " name="deleteTeacherBtn" class="btn btn-danger btn-xs" onclick="window.deleteTeacher('<?= $teacher['id_teacher'] ?>')"><span class="glyphicon glyphicon-trash"></span> Удалить</button>
                                 <form id="updateTeacherForm" method="post" action="/crm-main/templates/modals/teachers/update.php">
-                                    <button type="submit" style="align-content: flex-end; " name="updateTeacherBtn" class="btn btn-danger btn-xs" value="<?= $teacher['id_teacher'] ?>"><span class="glyphicon glyphicon-pencil"></span> Изменить</button>
+                                    <button type="submit" style="align-content: flex-end; " name="updateTeacherBtn" class="btn btn-info btn-xs" value="<?= $teacher['id_teacher'] ?>"><span class="glyphicon glyphicon-pencil"></span> Изменить</button>
                                 </form>
                             </div>
                         </div>

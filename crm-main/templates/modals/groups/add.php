@@ -42,4 +42,4 @@
 <script src="/style/js/jquery-3.2.1.min.js"></script>
 <script src="/style/js/functions_jquery.js"></script>
 <script src="/dance_api/api/functions/ajax.js"></script>
-
+<script src="/crm-main/js/maskedinput.js"></script>

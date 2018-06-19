@@ -13,7 +13,7 @@
 
     // get database connection
     $database = new Database();
-    $db = $database->getConnection('localhost','h117710_api_db', 'h117710_root','DanceCRM');
+    $db = $database->getConnection();
 
     $teacher = new Teacher($db);
         if ($teacher->DeleteAllTeachers()) {
