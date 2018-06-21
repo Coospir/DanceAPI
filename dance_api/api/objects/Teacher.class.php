@@ -12,7 +12,7 @@ class Teacher {
 
     //TODO: выбрать данные о преподавателе и взять данные из промежуточной
     public function ReadTeacher() {
-        $query = "SELECT GROUP_CONCAT( dance_style.title ) as style, styles_teachers.id_teacher, teachers.id_teacher, teachers.surname, teachers.name, teachers.patronymic, teachers.email, teachers.phone FROM dance_style INNER JOIN styles_teachers ON ( dance_style.id_style = styles_teachers.id_style ) INNER JOIN teachers ON ( teachers.id_teacher = styles_teachers.id_teacher ) GROUP BY teachers.id_teacher";
+        $query = "SELECT GROUP_CONCAT( dance_style.title ) as style, styles_teachers.id_teacher, teachers.id_teacher, teachers.surname, teachers.name, teachers.patronymic, teachers.email, teachers.phone FROM dance_style  RIGHT JOIN styles_teachers ON ( dance_style.id_style = styles_teachers.id_style ) RIGHT JOIN teachers ON ( teachers.id_teacher = styles_teachers.id_teacher ) GROUP BY teachers.id_teacher";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt;
@@ -55,45 +55,32 @@ class Teacher {
     }
 
     // При нажатии на кнопку удалить все связаные стили у преподаваетеля из промежуточной таблицы и вставить
-    public function UpdateTeacher($id_teacher, $surname, $name, $patronymic, $phone, $email, array $styles) {
+    public function UpdateTeacher($id_teacher, $surname, $name, $patronymic, $email, $phone, array $styles) {
         $this->errors = [];
         $bool = false;
 
-        $query = "UPDATE `teachers` SET id_teacher = :id_teacher, surname = :surname, name = :name, patronymic = :patronymic, email = :email, phone = :phone WHERE id_teacher ='".$id_teacher."' AND surname ='".$surname."' AND name = '".$name."' AND patronymic = '".$patronymic."' AND email = '".$email."' AND phone = '".$phone."'";
+        $query = "UPDATE `teachers` SET id_teacher = :id_teacher, surname = :surname, name = :name, patronymic = :patronymic, email = :email, phone = :phone WHERE id_teacher =:id_teacher";
         $stmt = $this->conn->prepare($query);
-        var_dump("id teacher => " . $id_teacher);
         $stmt->bindValue(":id_teacher", $id_teacher);
         $stmt->bindValue(":surname", $surname);
         $stmt->bindValue(":name", $name);
         $stmt->bindValue(":patronymic", $patronymic);
-        $stmt->bindValue(":phone", $phone);
         $stmt->bindValue(":email", $email);
+        $stmt->bindValue(":phone", $phone);
         try {
             if($stmt->execute()){
-                var_dump($styles);
-                $id = $this->conn->lastInsertId();
-                $query_styles = "INSERT INTO `styles_teachers`(id_style, id_teacher) VALUES";
-                $flag = true;
-                foreach($styles as $s) {
-                    if(!$flag) {
-                        $query_styles .= ",";
-                    }
-                    $query_styles .= "(".(int)$s.", ".$id.")";
-                    $flag = false;
-                }
-                $this->conn->query($query_styles);
-                $bool = true;
-                $this->data[] = "Информация о преподавателе изменена!";
+                $this->data[] = "Успешное изменение данных преподавателя №". $id_teacher;
                 echo json_encode($this->data);
             } else {
-                $this->errors[] = 'Ошибка при изменении информации: ' . $stmt->errorInfo();
+                $this->errors[] = "Ошибка при изменении данных у преподавателя ". $id_teacher." : " . $stmt->errorInfo();
                 echo json_encode($this->errors);
             }
         } catch(Exception $e){
-            echo 'Ошибка при изменении информации: ' . $e->getMessage();
+            echo "Ошибка при изменении данных у преподавателя ". $id_teacher." : " . $e->getMessage();
             echo json_encode($this->errors);
         }
 
+        var_dump($id_teacher);
         $query_delete = "DELETE FROM `styles_teachers` WHERE styles_teachers.id_teacher = :id";
         $stmt = $this->conn->prepare($query_delete);
         $stmt->bindValue(":id", $id_teacher);
@@ -109,6 +96,27 @@ class Teacher {
             echo "Ошибка при удалении совпадающих стилей у преподавателя ". $id_teacher." : " . $e->getMessage();
             echo json_encode($this->errors);
         }
+
+        try {
+            $query_styles = "INSERT INTO `styles_teachers`(id_style, id_teacher) VALUES";
+            $flag = true;
+            foreach($styles as $s) {
+                if(!$flag) {
+                    $query_styles .= ",";
+                }
+                var_dump($s);
+                $query_styles .= "(".(int)$s.", ".$id_teacher.")";
+                $flag = false;
+            }
+            $this->conn->query($query_styles);
+            $bool = true;
+            $this->data[] = "Информация о преподавателе изменена!";
+            echo json_encode($this->data);
+        } catch(Exception $e){
+            echo 'Ошибка при изменении информации: ' . $e->getMessage();
+            echo json_encode($this->errors);
+        }
+
         return $bool;
 
 

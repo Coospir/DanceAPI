@@ -13,7 +13,7 @@ class Group {
     }
 
     public function ReadGroups() {
-        $query = "SELECT groups.id_group, groups.name as group_name, groups.level, groups.training_duration, groups.price, teachers_groups.id_group, teachers.id_teacher, teachers.surname as teacher_surname, teachers.name as teacher_name FROM groups INNER JOIN teachers_groups ON(groups.id_group = teachers_groups.id_group) INNER JOIN teachers ON(teachers.id_teacher = teachers_groups.id_teacher)";
+        $query = "SELECT groups.id_group, groups.name as group_name, groups.level, groups.training_duration, groups.price, teachers_groups.id_group, teachers.id_teacher, teachers.surname as teacher_surname, teachers.name as teacher_name FROM groups LEFT JOIN teachers_groups ON(groups.id_group = teachers_groups.id_group) LEFT JOIN teachers ON(teachers.id_teacher = teachers_groups.id_teacher)";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt;

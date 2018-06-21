@@ -33,12 +33,13 @@ include __DIR__ . '/../templates/modals/clients/add.php';
                     <div class="panel panel-success" id="client<? echo $client["id_client"]; ?>">
                         <div class="panel-heading">
                             <?= $client['surname'] . ' ' . $client['name'] . ' ' . $client['patronymic'] ?>
-                            <button type="submit" style="align-content: flex-end; " name="deleteClientBtn" class="btn btn-success btn-xs" onclick="window.deleteClient('<?= $client['id_client'] ?>')"><span class="glyphicon glyphicon-trash"></span></button>
+                            <button type="submit" style="align-content: flex-end; " name="deleteClientBtn" class="btn btn-success btn-xs" onclick="window.deleteClient('<?= $client['id_client'] ?>')"><span class="glyphicon glyphicon-trash"></span> </button>
                         </div>
                         <div class="panel-body">
                             <p><b>E-Mail: </b><?= $client['email']; ?></p>
                             <p><b>Контактный телефон: </b><?= $client['phone']; ?></p>
                             <p><b>Доп. телефон для связи: </b><?= $client['phone_dubl']; ?></p>
+                            <p><b>Адрес: </b><?= $client['address']; ?></p>
                             <p><b>Занимается в группах: </b><?= $client['group_name']; ?></p>
                         </div>
                     </div>

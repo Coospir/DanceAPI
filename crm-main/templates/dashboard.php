@@ -6,13 +6,16 @@ ini_set('display_startup_errors', 1);
 include_once __DIR__ . '/../../dance_api/api/config/Database.class.php';
 include_once __DIR__ . '/../../dance_api/api/objects/Teacher.class.php';
 include_once __DIR__ . '/../../dance_api/api/objects/Group.class.php';
+include_once __DIR__ . '/../../dance_api/api/objects/Client.class.php';
 $database = new Database();
 $db = $database->getConnection();
 
 $teacher = new Teacher($db);
 $group = new Group($db);
+$client = new Client($db);
 $num_teachers = $teacher->ShowCountTeachers();
 $num_groups = $group->ShowCountGroups();
+$num_clients = $client->ShowCountClients();
 
 ?>
 
@@ -83,14 +86,16 @@ $num_groups = $group->ShowCountGroups();
                     <i class="fa fa-user fa-5x"></i>
                   </div>
                   <div class="col-xs-9 text-right">
-                    <div class='huge'>50</div>
+                    <div class='huge'>
+                        <?php echo $num_groups; ?>
+                    </div>
                     <div>Количество клиентов</div>
                   </div>
                 </div>
               </div>
-              <a href="clients.php">
+              <a href="/dance_api/api/functions/read_clients.php">
                 <div class="panel-footer">
-                  <span class="pull-left">Подробнее</span>
+                  <span class="pull-left">Перейти в раздел "Клиенты"</span>
                   <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                   <div class="clearfix"></div>
                 </div>

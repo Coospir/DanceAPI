@@ -22,7 +22,9 @@ if($num > 0) {
             "id_event" => $id_event,
             "name" => $name,
             "date" => $date,
-            "price" => $price
+            "price" => $price,
+            "teacher_surname" => $teacher_surname,
+            "teacher_name" => $teacher_name
         );
         array_push($events_arr["events"], $events_item);
     }

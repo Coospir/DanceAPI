@@ -18,12 +18,11 @@ function updateTeacher() {
     $.ajax({
         type: "POST",
         url: '/dance_api/api/functions/update_teacher.php',
-        data: $("#update-teacher-form").serialize()
+        data: $("#updateTeacherForm").serialize()
     }).done(function(data) {
         alert(data);
         var json = JSON.parse(data);
         alert(json);
-        $("#teacher-table-data").html();
     });
     return false;
 }
@@ -183,8 +182,8 @@ function authUser() {
         $('#display_errors').html('');
         //ToDo: обновление страницы убрать
         if(json) {
-            if(json.user_name) {
-                $('#display_errors').append("<span class='label label-danger'>" + json.user_name + "</span><br>");
+            if(json.user_email) {
+                $('#display_errors').append("<span class='label label-danger'>" + json.user_email + "</span><br>");
             }
             if(json.user_password) {
                 $('#display_errors').append("<span class='label label-danger'>" + json.user_password + "</span><br>");
@@ -192,11 +191,18 @@ function authUser() {
             if(json.user_password_verify) {
                 $('#display_errors').append("<span class='label label-danger'>" + json.user_password_verify + "</span><br>");
             }
+            if(json.studio_already_exists) {
+                alert('Студия есть!');
+                window.location.href = '/crm-main/templates/dashboard.php';
+            }
+            if(json.studio_not_exists) {
+                alert('Студия отсутствует!');
+                window.location.href = '/crm-main/templates/studio/add.php';
+            }
             if(json.message) {
                 $('#form-content').hide();
                 document.cookie='auth_token='+json.token+';path=/';
                 alert(json.message);
-                window.location.href = '/crm-main/templates/dashboard.php';
             }
         }
     });
@@ -237,9 +243,9 @@ function addNewStudio() {
                 $('#display_errors').append("<span class='label label-danger'>" + json.error_token + "</span><br>");
             }
 
-            if(json.message) {
+            if(json.create_studio_success) {
                 $('#addStudioForm').hide();
-                $('#studioAdd').append("<div class='alert alert-success'>Вы успешно создали студию!</div>");
+                $('#addStudioForm').append("<div class='alert alert-success'>Вы успешно создали студию!</div>");
                 setTimeout(function(){
                     window.location.href = '/crm-main/templates/dashboard.php';
                 }, 3000);

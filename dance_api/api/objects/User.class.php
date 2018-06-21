@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: COOSPIR-PC
- * Date: 22.10.2017
- * Time: 15:43
- */
+
 ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
@@ -107,14 +102,14 @@ class User {
         return empty($this->errors);
     }
 
-    public function verifyPass($name, $password) {
+    public function verifyPass($email, $password) {
         //ToDO: исправить запрос
         $this->errors = [];
         $this->success = [];
         try {
-            $query = "SELECT id, name, email, password, user_type FROM `users` WHERE name = :name";
+            $query = "SELECT id, name, email, password, user_type FROM `users` WHERE email = :email";
             $stmt = $this->conn->prepare($query);
-            $stmt->bindValue(":name", $name);
+            $stmt->bindValue(":email", $email);
             $stmt->execute();
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
             $valid_pass = password_verify($password, $user['password']);
@@ -132,24 +127,38 @@ class User {
         $this->errors = [];
         $this->success = [];
 
-        if($name === '') {
-            $this->errors['user_name'] = 'Не заполнено поле "Логин"!';
+        if ($name === '') {
+            $this->errors['user_email'] = 'Не заполнено поле "Электронный адрес"!';
         }
-        if($password === '') {
+        if ($password === '') {
             $this->errors['user_password'] = 'Не заполнено поле "Пароль"!';
         }
-        if(!$this->verifyPass($name, $password)) {
+        if (!$this->verifyPass($name, $password)) {
             $this->errors['user_password_verify'] = 'Неверный пароль!';
         }
-        if(empty($this->errors)) {
+        if (empty($this->errors)) {
             $this->success['message'] = "Авторизация успешна!";
+        }
 
+        try {
+            $query = "SELECT * FROM studios";
+            $stmt = $this->conn->prepare($query);
+            $result = $stmt->execute();
+            $count = $stmt->rowCount();
+            if($result && $count > 0) {
+                $this->success['studio_already_exists'] = "success";
+            } else {
+                $this->errors['studio_not_exists'] = "not found";
+            }
+        } catch (PDOException $exception) {
+            error_log($exception->getMessage());
+            return false;
         }
         return empty($this->errors);
     }
 
-    public function Auth($name, $password) {
-        if($this->isValidAuth($name, $password)){
+    public function Auth($email, $password) {
+        if($this->isValidAuth($email, $password)){
             $this->token = bin2hex(openssl_random_pseudo_bytes(16));
             try {
                 $query = "INSERT INTO `remembered_logins` (token, id_user , expires_at) VALUES (:token, :id_user, NOW())";

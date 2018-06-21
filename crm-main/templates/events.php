@@ -6,7 +6,6 @@ include __DIR__ . '/../../dance_api/api/objects/Event.class.php';
 $db = new Database();
 $db = $db->getConnection();
 
-
 ?>
 <div id="page-wrapper">
     <div class="container-fluid">
@@ -34,9 +33,9 @@ $db = $db->getConnection();
                             <?= $event['name'] ?>
                         </div>
                         <div class="panel-body">
-                            <p><b>Дата проведения: </b><?= $event['date']; ?></p>
-                            <p><b>Преподаватель: </b><?php echo "Связать с преподавателями"; ?></p>
-                            <p><b>Стоимость: </b><?= $event['price']; ?></p>
+                            <p><b>Дата проведения: </b><?= date_format(new DateTime($event['date']), 'd.m.Y'); ?></p>
+                            <p><b>Преподаватель: </b><?= $event['teacher_surname'] .' '. $event['teacher_name']; ?></p>
+                            <p><b>Стоимость: </b><?= $event['price']; ?> руб.</p>
                             <button type="submit" style="align-content: flex-end; " name="deleteEventBtn" class="btn btn-danger btn-xs" onclick="window.deleteEvent('<?= $event['id_event'] ?>')"><span class="glyphicon glyphicon-trash"></span> Удалить</button>
                         </div>
                     </div>

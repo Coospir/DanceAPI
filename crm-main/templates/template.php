@@ -78,10 +78,10 @@
                     <a href="/dance_api/api/functions/read_clients.php"> Клиенты</a>
                 </li>
                 <li>
-                    <a href="/crm-main/templates/shedule.php"> Расписание</a>
+                    <a href="/dance_api/api/functions/read_shedule.php"> Расписание</a>
                 </li>
                 <li>
-                    <a href="/crm-main/templates/events.php"> События</a>
+                    <a href="/dance_api/api/functions/read_events.php"> События</a>
                 </li>
             </ul>
         </div>

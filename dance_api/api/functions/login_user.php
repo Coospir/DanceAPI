@@ -8,12 +8,11 @@ $db = $database->getConnection();
 
 $user = new User($db);
 
-$name = !empty($_POST['name']) ? trim($_POST['name']) : null;
+$email = !empty($_POST['email']) ? trim($_POST['email']) : null;
 $password = !empty($_POST['password']) ? trim($_POST['password']) : null;
-$remember_me = !empty($_POST['rememberMe']) ? trim($_POST['rememberMe']) : null;
 
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $user->Auth($name, $password);
+    $user->Auth($email, $password);
     if(empty($user->errors)){
         echo json_encode($user->success);
     } else {
