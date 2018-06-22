@@ -12,6 +12,7 @@ class Teacher {
 
     //TODO: выбрать данные о преподавателе и взять данные из промежуточной
     public function ReadTeacher() {
+        $this->errors = [];
         $query = "SELECT GROUP_CONCAT( dance_style.title ) as style, styles_teachers.id_teacher, teachers.id_teacher, teachers.surname, teachers.name, teachers.patronymic, teachers.email, teachers.phone FROM dance_style  RIGHT JOIN styles_teachers ON ( dance_style.id_style = styles_teachers.id_style ) RIGHT JOIN teachers ON ( teachers.id_teacher = styles_teachers.id_teacher ) GROUP BY teachers.id_teacher";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
@@ -39,7 +40,7 @@ class Teacher {
                     if(!$flag) {
                         $query_styles .= ",";
                     }
-                    $query_styles .= "(".(int)$s.", ".$id.")";
+                    $query_styles .= "(".(int)$s.",  ".$id.")";
                     $flag = false;
                 }
                 $this->conn->query($query_styles);
@@ -79,8 +80,6 @@ class Teacher {
             echo "Ошибка при изменении данных у преподавателя ". $id_teacher." : " . $e->getMessage();
             echo json_encode($this->errors);
         }
-
-        var_dump($id_teacher);
         $query_delete = "DELETE FROM `styles_teachers` WHERE styles_teachers.id_teacher = :id";
         $stmt = $this->conn->prepare($query_delete);
         $stmt->bindValue(":id", $id_teacher);
@@ -104,7 +103,6 @@ class Teacher {
                 if(!$flag) {
                     $query_styles .= ",";
                 }
-                var_dump($s);
                 $query_styles .= "(".(int)$s.", ".$id_teacher.")";
                 $flag = false;
             }

@@ -11,6 +11,9 @@ $db = $database->getConnection();
 $event = new Event($db);
 $stmt = $event->ReadEvents();
 $num = $event->ShowCountEvents();
+$error_events = [
+    "events" => false
+];
 
 if($num > 0) {
     $events_arr = array();
@@ -27,7 +30,9 @@ if($num > 0) {
         );
         array_push($events_arr["events"], $events_item);
     }
-    include __DIR__ . '/../../../crm-main/templates/events.php';
+}
+if(!empty($events_arr["events"])) {
+    echo json_encode($events_arr["events"]);
 } else {
-    include __DIR__ . '/../../../crm-main/templates/events.php';
+    echo json_encode($error_events);
 }

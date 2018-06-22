@@ -20,7 +20,7 @@ $db = $db->getConnection();
     <div class="container-fluid">
         <input type="text" class="form-control pull-left" id="search-event" placeholder="Поиск..">
         <div class="form-group">
-            <button class="btn btn-info btn-sm navbar-btn" data-toggle="modal" data-target="#addNewEvent"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Добавить событие</button>
+            <button class="btn btn-danger btn-sm navbar-btn" data-toggle="modal" data-target="#addNewEvent"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Добавить событие</button>
             <form id="deleteAllEventsForm" method="post">
                 <input type="button" class="btn btn-danger btn-sm navbar-btn" id="deleteAllEventsBtn" name="deleteAllEventsBtn" onclick="alert('I am working!');" value="Очистить список событий">
             </form>
@@ -28,15 +28,15 @@ $db = $db->getConnection();
         <?php if(!empty($events_arr["events"])) : ?>
             <?php foreach ($events_arr["events"] as $event) : ?>
                 <div class="col-md-4" id="events-cards" style="padding-left: 0px;">
-                    <div class="panel panel-info" id="event<? echo $event["id_event"]; ?>">
+                    <div class="panel panel-red" id="event<? echo $event["id_event"]; ?>">
                         <div class="panel-heading">
                             <?= $event['name'] ?>
+                            <button type="submit" style="align-content: flex-end; " name="deleteEventBtn" class="btn btn-danger btn-xs" onclick="window.deleteEvent('<?= $event['id_event'] ?>')"><span class="glyphicon glyphicon-trash"></span></button>
                         </div>
                         <div class="panel-body">
                             <p><b>Дата проведения: </b><?= date_format(new DateTime($event['date']), 'd.m.Y'); ?></p>
                             <p><b>Преподаватель: </b><?= $event['teacher_surname'] .' '. $event['teacher_name']; ?></p>
                             <p><b>Стоимость: </b><?= $event['price']; ?> руб.</p>
-                            <button type="submit" style="align-content: flex-end; " name="deleteEventBtn" class="btn btn-danger btn-xs" onclick="window.deleteEvent('<?= $event['id_event'] ?>')"><span class="glyphicon glyphicon-trash"></span> Удалить</button>
                         </div>
                     </div>
                 </div>

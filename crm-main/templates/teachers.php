@@ -22,25 +22,25 @@ include __DIR__ . '/../templates/modals/teachers/add.php';
     <div class="container-fluid">
         <input type="text" class="form-control pull-left" id="search-teacher" placeholder="Поиск..">
         <div class="form-group">
-            <button class="btn btn-info btn-sm navbar-btn" data-toggle="modal" data-target="#addNewTeacher"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Добавить преподавателя</button>
+            <button class="btn btn-primary btn-sm navbar-btn" data-toggle="modal" data-target="#addNewTeacher"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Добавить преподавателя</button>
             <form id="deleteAllTeachersForm" method="post">
-                <input type="button" class="btn btn-danger btn-sm navbar-btn" id="deleteAllTeachersBtn" name="deleteAllTeachersBtn" onclick="window.deleteAllTeachers()" value="Очистить список преподавателей">
+                <input type="button" class="btn btn-primary btn-sm navbar-btn" id="deleteAllTeachersBtn" name="deleteAllTeachersBtn" onclick="window.deleteAllTeachers()" value="Очистить список преподавателей">
             </form>
         </div>
         <?php if(!empty($teachers_arr["teachers"])) : ?>
             <?php foreach ($teachers_arr["teachers"] as $teacher) : ?>
                     <div class="col-md-4" id="teachers-cards" style="padding-left: 0px;">
-                        <div class="panel panel-info" id="teacher<? echo $teacher["id_teacher"]; ?>">
+                        <div class="panel panel-primary" id="teacher<? echo $teacher["id_teacher"]; ?>">
                             <div class="panel-heading">
                                 <?= $teacher['surname'] . ' ' . $teacher['name'] . ' ' . $teacher['patronymic'] ?>
-                                <button type="submit" style="align-content: flex-end; " name="deleteTeacherBtn" class="btn btn-info btn-xs" onclick="window.deleteTeacher('<?= $teacher['id_teacher'] ?>')"><span class="glyphicon glyphicon-trash"></span> </button><br>
+                                <button type="submit" style="align-content: flex-end; " name="deleteTeacherBtn" class="btn btn-primary btn-xs" onclick="window.deleteTeacher('<?= $teacher['id_teacher'] ?>')"><span class="glyphicon glyphicon-trash"></span> </button><br>
                             </div>
                             <div class="panel-body">
                                 <p><b>E-Mail: </b><?= $teacher['email']; ?></p>
                                 <p><b>Контактный телефон: </b><?= $teacher['phone']; ?></p>
                                 <p><b>Стили танца: </b><?= $teacher['style']; ?></p>
                                 <form id="updateTeacherForm" method="post" action="/crm-main/templates/modals/teachers/update.php">
-                                    <button type="submit" style="align-content: flex-end; " name="updateTeacherBtn" class="btn btn-info btn-xs" value="<?= $teacher['id_teacher'] ?>"><span class="glyphicon glyphicon-pencil"></span> Изменить</button>
+                                    <button type="submit" style="align-content: flex-end; " name="updateTeacherBtn" class="btn btn-primary btn-xs" value="<?= $teacher['id_teacher'] ?>"><span class="glyphicon glyphicon-pencil"></span> Изменить</button>
                                 </form>
                             </div>
                         </div>

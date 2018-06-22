@@ -22,25 +22,25 @@ include __DIR__ . '/../templates/modals/groups/add.php';
     <div class="container-fluid">
         <input type="text" class="form-control pull-left" id="search-group" placeholder="Поиск..">
         <div class="form-group">
-            <button class="btn btn-info btn-sm navbar-btn" data-toggle="modal" data-target="#addNewGroup"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Добавить группу</button>
+            <button class="btn btn-success btn-sm navbar-btn" data-toggle="modal" data-target="#addNewGroup"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Добавить группу</button>
             <form id="deleteAllGroupsForm" method="post">
-                <input type="button" class="btn btn-danger btn-sm navbar-btn" id="deleteAllGroupsBtn" name="deleteAllGroupsBtn" onclick="window.deleteAllGroups()" value="Очистить список групп">
+                <input type="button" class="btn btn-success btn-sm navbar-btn" id="deleteAllGroupsBtn" name="deleteAllGroupsBtn" onclick="window.deleteAllGroups()" value="Очистить список групп">
             </form>
         </div>
         <?php if(!empty($groups_arr["groups"])) : ?>
             <?php foreach ($groups_arr["groups"] as $group) : ?>
                 <div class="col-md-4" id="groups-cards" style="padding-left: 0px;">
-                    <div class="panel panel-primary" id="group<? echo $group["id_group"]; ?>">
+                    <div class="panel panel-green" id="group<? echo $group["id_group"]; ?>">
                         <div class="panel-heading">
                             <?= $group['group_name']; ?>
-                            <button type="submit" style="align-content: flex-end; " name="deleteGroupBtn" class="btn btn-primary btn-xs" onclick="window.deleteGroup('<?= $group['id_group'] ?>')"><span class="glyphicon glyphicon-trash"></span> </button>
+                            <button type="submit" style="align-content: flex-end; " name="deleteGroupBtn" class="btn btn-success btn-xs" onclick="window.deleteGroup('<?= $group['id_group'] ?>')"><span class="glyphicon glyphicon-trash"></span> </button>
                         </div>
                         <div class="panel-body">
                             <p><b>Уровень: </b><?= $group['level']; ?></p>
                             <p><b>Длительность занятия: </b><?= $group['training_duration']; ?></p>
                             <p><b>Стоимость абонемента (8 занятий): </b><?= $group['price'] . " руб." ?></p>
                             <p><b>Преподаватель: </b><?= $group['teacher_surname'] . " " .$group['teacher_name'] ?></p>
-                            <button type="submit" style="align-content: flex-end; " name="updateGroupBtn" class="btn btn-danger btn-xs" onclick="window.updateGroup('<?= $group['id_group'] ?>')"><span class="glyphicon glyphicon-trash"></span> Изменить</button>
+                            <button type="submit" style="align-content: flex-end; " name="updateGroupBtn" class="btn btn-success btn-xs" onclick="window.updateGroup('<?= $group['id_group'] ?>')"><span class="glyphicon glyphicon-trash"></span> Изменить</button>
                         </div>
                     </div>
                 </div>

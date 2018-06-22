@@ -13,7 +13,7 @@ class Client {
     }
 
     public function ReadClient() {
-        $query = "SELECT GROUP_CONCAT(groups.name) as group_name, clients_groups.id_client, clients.id_client, clients.surname, clients.name, clients.patronymic, clients.email, clients.phone, clients.phone_dubl, clients.address FROM groups INNER JOIN clients_groups ON(groups.id_group = clients_groups.id_group) INNER JOIN clients ON (clients.id_client = clients_groups.id_client) GROUP BY clients.id_client";
+        $query = "SELECT GROUP_CONCAT(groups.name) as group_name, clients_groups.id_client, clients.id_client, clients.surname, clients.name, clients.patronymic, clients.email, clients.phone, clients.phone_dubl, clients.address FROM groups LEFT JOIN clients_groups ON(groups.id_group = clients_groups.id_group) RIGHT JOIN clients ON (clients.id_client = clients_groups.id_client) GROUP BY clients.id_client";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt;

@@ -26,7 +26,7 @@ $styles -> execute();
 <html lang="ru">
 <head>
     <link href="/style/css/bootstrap.css" rel="stylesheet">
-    <link href="/style/css/login_form.css" rel="stylesheet">
+    <link href="/style/css/update_teacher_form.css" rel="stylesheet">
     <link rel="icon" type="image/vnd.microsoft.icon" href="/favicon.ico">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,44 +39,45 @@ $styles -> execute();
     <title>Изменение данных</title>
 </head>
 <body>
-
 <div id="preloader">
     <div id="status">&nbsp;</div>
 </div>
-<form id="updateTeacherForm" method="post">
-    <h4 class="panel-title">Изменение информации о преподавателе</h4>
-    <div class="form-group">
-        <input type="hidden"  class="form-control" name="id_teacher" id="id_teacher" value="<?php echo $data_teachers['id_teacher']; ?>"
-    </div>
-    <div class="form-group">
-        <input type="text" class="form-control" name="surname" id="surname" placeholder="Фамилия" value="<?php echo $data_teachers['surname']; ?>" required>
-    </div>
-    <div class="form-group">
-        <input type="text" class="form-control" name="name" id="name" placeholder="Имя" value="<?php echo $data_teachers['name']; ?>" required>
-    </div>
-    <div class="form-group">
-        <input type="text" class="form-control" name="patronymic" id="patronymic" placeholder="Отчество" value="<?php echo $data_teachers['patronymic']; ?>">
-    </div>
-    <div class="form-group">
-        <input type="email" class="form-control" name="mail" id="mail" placeholder="E-Mail" value="<?php echo $data_teachers['email']; ?>">
-    </div>
-    <div class="form-group">
-        <input type="text" class="form-control" name="phone" id="phone" placeholder="Телефон" value="<?php echo $data_teachers['phone']; ?>">
-    </div>
-    <div class="form-group">
-        <p>Выберите стиль/-ли преподавателя:</p>
-        <?php
-        foreach ($all_styles as $style) {
-            if(in_array($style["id_style"], $styles_arr)) {
-                echo "<input type='checkbox' checked id='styles' name='styles[]' value=".$style['id_style']."><rt>"." ".$style['title']."<br>";
-            } else {
-                echo "<input type='checkbox' id='styles' name='styles[]' value=".$style['id_style']."><rt>"." ".$style['title']."<br>";
+<div class="wrapper">
+    <form id="updateTeacherForm" class="form-update-teacher" method="post">
+        <h2 class="form-update-teacher-heading">Изменение информации преподавателя</h2>
+        <div class="form-group">
+            <input type="hidden"  class="form-control" name="id_teacher" id="id_teacher" value="<?php echo $data_teachers['id_teacher']; ?>"
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="surname" id="surname" placeholder="Фамилия" value="<?php echo $data_teachers['surname']; ?>" required>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="name" id="name" placeholder="Имя" value="<?php echo $data_teachers['name']; ?>" required>
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="patronymic" id="patronymic" placeholder="Отчество" value="<?php echo $data_teachers['patronymic']; ?>">
+        </div>
+        <div class="form-group">
+            <input type="email" class="form-control" name="mail" id="mail" placeholder="E-Mail" value="<?php echo $data_teachers['email']; ?>">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" name="phone" id="phone" placeholder="Телефон" value="<?php echo $data_teachers['phone']; ?>">
+        </div>
+        <div class="form-group">
+            <p>Выберите стиль/-ли преподавателя:</p>
+            <?php
+            foreach ($all_styles as $style) {
+                if(in_array($style["id_style"], $styles_arr)) {
+                    echo "<input type='checkbox' checked id='styles' name='styles[]' value=".$style['id_style']."><rt>"." ".$style['title']."<br>";
+                } else {
+                    echo "<input type='checkbox' id='styles' name='styles[]' value=".$style['id_style']."><rt>"." ".$style['title']."<br>";
+                }
             }
-        }
-        ?>
-    </div>
-    <input type="submit" name="updateTeacher" class="btn btn-success" id="updateTeacher" onclick="window.updateTeacher()" value="Изменить">
-</form>
+            ?>
+        </div>
+        <input type="submit" name="updateTeacher" class="btn btn-success btn-sm navbar-btn" id="updateTeacher" onclick="window.updateTeacher()" value="Сохранить изменения">
+    </form>
+</div>
 </body>
 </html>
 <script src="/style/js/jquery-3.2.1.min.js"></script>

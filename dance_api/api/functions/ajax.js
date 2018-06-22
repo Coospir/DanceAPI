@@ -1,3 +1,53 @@
+function GetTeachers() {
+    $.ajax({
+        type: "POST",
+        url: '/dance_api/api/functions/ajax_teachers.php',
+        dataType: 'json',
+    }).done(function (data) {
+        console.log(data);
+    })
+}
+
+function GetGroups() {
+    $.ajax({
+        type: "POST",
+        url: '/dance_api/api/functions/ajax_groups.php',
+        dataType: 'json',
+    }).done(function (data) {
+        console.log(data);
+    })
+}
+
+function GetClients() {
+    $.ajax({
+        type: "POST",
+        url: '/dance_api/api/functions/ajax_clients.php',
+        dataType: 'json',
+    }).done(function (data) {
+        console.log(data);
+    })
+}
+
+function GetShedule() {
+    $.ajax({
+        type: "POST",
+        url: '/dance_api/api/functions/ajax_shedule.php',
+        dataType: 'json',
+    }).done(function (data) {
+        console.log(data);
+    })
+}
+
+function GetEvents() {
+    $.ajax({
+        type: "POST",
+        url: '/dance_api/api/functions/ajax_events.php',
+        dataType: 'json',
+    }).done(function (data) {
+        console.log(data);
+    })
+}
+
 //TODO: Почему не пропадает модалка?
 function addNewTeacher(){
     $.ajax({
@@ -20,7 +70,6 @@ function updateTeacher() {
         url: '/dance_api/api/functions/update_teacher.php',
         data: $("#updateTeacherForm").serialize()
     }).done(function(data) {
-        alert(data);
         var json = JSON.parse(data);
         alert(json);
     });
@@ -38,7 +87,6 @@ function deleteTeacher(selectedId) {
         }).done(function (data) {
             var json = JSON.parse(data);
             alert(json[0]);
-            alert('Привет мир');
             $("#teacher" + selectedId).remove();
 
         });
@@ -51,7 +99,9 @@ function deleteAllTeachers() {
         url: '/dance_api/api/functions/delete_all_teachers.php',
         type: "POST"
     }).done(function(data){
-        console.log(data);
+        var json = JSON.parse(data);
+        alert(json);
+
     })
 }
 
@@ -91,7 +141,7 @@ function deleteAllGroups() {
         url: '/dance_api/api/functions/delete_all_groups.php',
         type: "POST"
     }).done(function(data){
-        alert(data);
+
         console.log(data);
     })
 }
@@ -134,6 +184,42 @@ function deleteAllClients() {
     }).done(function(data){
         console.log(data);
     })
+}
+
+function signUpEvent() {
+    $.ajax({
+        type: "POST",
+        url: '/dance_api/api/functions/reg_event.php',
+        data: $("#signUpEventForm").serialize()
+    }).done(function (data) {
+        var json = JSON.parse(data);
+        $('#display_errors').html('');
+        if(json) {
+            if(json.surname) {
+                $('#display_errors').append("<span class='label label-danger'>" + json.surname + "</span><br>");
+            }
+
+            if(json.name) {
+                $('#display_errors').append("<span class='label label-danger'>" + json.name + "</span><br>");
+            }
+
+            if(json.event) {
+                $('#display_errors').append("<span class='label label-danger'>" + json.id_event + "</span><br>");
+            }
+
+            if(json.email) {
+                $('#display_errors').append("<span class='label label-danger'>" + json.email + "</span><br>");
+            }
+
+            if(json.phone) {
+                $('#display_errors').append("<span class='label label-danger'>" + json.phone + "</span><br>");
+            }
+            if(json.messgae) {
+                alert(json.message);
+            }
+        }
+    });
+    return false;
 }
 
 function registerUser() {
@@ -259,6 +345,11 @@ function addNewStudio() {
 }
 
 $(document).ready(function(){
+    GetTeachers();
+    GetGroups();
+    GetClients();
+    GetEvents();
+    GetShedule();
     $("#search-teacher").on("keyup", function() {
         var value = $(this).val().toLowerCase();
         $("#teachers-cards .panel").filter(function() {
@@ -279,7 +370,22 @@ $(document).ready(function(){
             $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
         });
     });
+
+    $("#search-event").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#events-cards .panel").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
+
+    $("#search-shedule").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#shedule-cards .panel").filter(function() {
+            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+    });
 });
+
 
 
 

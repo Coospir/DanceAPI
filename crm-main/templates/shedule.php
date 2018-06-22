@@ -22,13 +22,13 @@ $db = $db->getConnection();
         <div class="form-group">
             <button class="btn btn-info btn-sm navbar-btn" data-toggle="modal" data-target="#addNewTrain"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Добавить занятие</button>
             <form id="deleteAllTrainingsForm" method="post">
-                <input type="button" class="btn btn-danger btn-sm navbar-btn" id="deleteAllTrainingsBtn" name="deleteAllTrainingsBtn" onclick="window.deleteAllTrainings()" value="Очистить расписание">
+                <input type="button" class="btn btn-info btn-sm navbar-btn" id="deleteAllTrainingsBtn" name="deleteAllTrainingsBtn" onclick="window.deleteAllTrainings()" value="Очистить расписание">
             </form>
         </div>
         <?php if(!empty($shedule_arr["shedule"])) : ?>
             <?php foreach ($shedule_arr["shedule"] as $shedule) : ?>
                 <div class="col-md-4" id="shedule-cards" style="padding-left: 0px;">
-                    <div class="panel panel-danger" id="shedule<? echo $shedule["id_shedule"]; ?>">
+                    <div class="panel panel-info" id="shedule<? echo $shedule["id_shedule"]; ?>">
                         <div class="panel-heading">
                             <?= date_format(new DateTime($shedule["date"]), 'l jS F Y') ?>
                         </div>

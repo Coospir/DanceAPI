@@ -22,18 +22,18 @@ include __DIR__ . '/../templates/modals/clients/add.php';
     <div class="container-fluid">
         <input type="text" class="form-control pull-left" id="search-client" placeholder="Поиск..">
         <div class="form-group">
-            <button class="btn btn-info btn-sm navbar-btn" data-toggle="modal" data-target="#addNewClient"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Добавить клиента</button>
+            <button class="btn btn-warning btn-sm navbar-btn" data-toggle="modal" data-target="#addNewClient"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Добавить клиента</button>
             <form id="deleteAllClientsForm" method="post">
-                <input type="button" class="btn btn-danger btn-sm navbar-btn" id="deleteAllClientsBtn" name="deleteAllClientsBtn" onclick="window.deleteAllClients()" value="Очистить список клиентов">
+                <input type="button" class="btn btn-warning btn-sm navbar-btn" id="deleteAllClientsBtn" name="deleteAllClientsBtn" onclick="window.deleteAllClients()" value="Очистить список клиентов">
             </form>
         </div>
         <?php if(!empty($clients_arr["clients"])) : ?>
             <?php foreach ($clients_arr["clients"] as $client) : ?>
                 <div class="col-md-4" id="clients-cards" style="padding-left: 0px;">
-                    <div class="panel panel-success" id="client<? echo $client["id_client"]; ?>">
+                    <div class="panel panel-yellow" id="client<? echo $client["id_client"]; ?>">
                         <div class="panel-heading">
                             <?= $client['surname'] . ' ' . $client['name'] . ' ' . $client['patronymic'] ?>
-                            <button type="submit" style="align-content: flex-end; " name="deleteClientBtn" class="btn btn-success btn-xs" onclick="window.deleteClient('<?= $client['id_client'] ?>')"><span class="glyphicon glyphicon-trash"></span> </button>
+                            <button type="submit" style="align-content: flex-end; " name="deleteClientBtn" class="btn btn-warning btn-xs" onclick="window.deleteClient('<?= $client['id_client'] ?>')"><span class="glyphicon glyphicon-trash"></span> </button>
                         </div>
                         <div class="panel-body">
                             <p><b>E-Mail: </b><?= $client['email']; ?></p>

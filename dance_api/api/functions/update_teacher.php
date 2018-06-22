@@ -20,7 +20,6 @@ $emailTeacher = !empty($_POST['mail']) ? trim($_POST['mail']) : null;
 $phone_numberTeacher = !empty($_POST['phone']) ? trim($_POST['phone']) : null;
 $styleTeacher = $_POST['styles'];
 
-var_dump($_POST);
 
 if($teacher->UpdateTeacher($idTeacher, $surnameTeacher, $nameTeacher, $patronymicTeacher, $emailTeacher, $phone_numberTeacher, $styleTeacher)) {
     echo json_encode($teacher->data);
