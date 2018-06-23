@@ -20,9 +20,69 @@ class Event {
         return $stmt;
     }
 
-    public function CreateEvent($name, $date, $teacher, $price) {
+    public function CreateEvent($name, $date, $id_teacher, $price) {
         $this->errors = [];
+        $result = false;
+        try {
+            $query = "INSERT INTO `events`(name, date, price) VALUES(:name, :date, :price)";
+            $stmt = $this->conn->prepare($query);
+            $stmt->bindValue(":name", $name);
+            $stmt->bindValue(":date", $date);
+            $stmt->bindValue(":price", $price);
+            if($stmt->execute()) {
+                $id_event = $this->conn->lastInsertId();
+                var_dump("ID event: ".$id_event);
+                var_dump("ID teacher: ".$id_teacher);
+                $events_teachers = "INSERT INTO `events_teachers`(id_event, id_teacher) VALUES(:event, :teacher)";
+                $stmt = $this->conn->prepare($events_teachers);
+                $stmt->bindValue(":event", $id_event);
+                $stmt->bindValue(":teacher", $id_teacher);
+                $stmt->execute();
+                $this->data[] = 'Событие создано!';
+                $result = true;
+            } else {
+                $this->errors[] = 'Ошибка при создании события: ' . $stmt->errorInfo();
+                $result = false;
+            }
+        } catch(Exception $e) {
+            $this->errors[] = 'Непредвиденная ошибка при создании события -> ' . $e->getMessage();
+        }
+        return $result;
+    }
 
+    public function DeleteEvent($id) {
+        $query = "DELETE FROM `events` WHERE id_event=:id";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindValue(":id", $id);
+        try {
+            if($stmt->execute()){
+                $this->data[] = 'Удаление события прошло успешно!';
+                return true;
+            } else {
+                $this->errors[] = 'Ошибка при удалении события: '.$stmt->errorInfo();
+                return false;
+            }
+        } catch(Exception $e){
+            $this->errors[] = 'Ошибка при удалении события: '.$e->getMessage();
+            return false;
+        }
+    }
+
+    public function DeleteAllEvents() {
+        $query = "DELETE FROM `events`";
+        $stmt = $this->conn->prepare($query);
+        try {
+            if($stmt->execute()) {
+                $this->data[] = 'Очистка списка событий прошло успешно!';
+                return true;
+            } else {
+                $this->errors = 'Ошибка при очистке списка событий: '.$stmt->errorInfo();
+                return false;
+            }
+        } catch(Exception $e) {
+            $this->errors[] = 'Ошибка очистки списка событий: ' .$e->getMessage();
+            return false;
+        }
     }
 
     public function signUpEvent($surname, $name, $event, $email, $phone) {

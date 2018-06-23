@@ -211,6 +211,7 @@ if(!$database->getConnection()) {
                             </div>
                         </div>
                     <?php endforeach; ?>
+            </div>
                     <!--</form> -->
                 <?php elseif (empty($shedule_arr["shedule"])) : ?>
                     <div class="alert alert-danger alert-dismissible" role="alert">

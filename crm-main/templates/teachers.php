@@ -5,6 +5,7 @@ include __DIR__ . '/../../dance_api/api/objects/User.class.php';
 
 $db = new Database();
 $db = $db->getConnection();
+
 $modal_styles = $db->query("SELECT * FROM dance_style")->fetchAll(PDO::FETCH_ASSOC);
 include __DIR__ . '/../templates/modals/teachers/add.php';
 

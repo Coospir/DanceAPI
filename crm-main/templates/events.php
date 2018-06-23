@@ -6,6 +6,9 @@ include __DIR__ . '/../../dance_api/api/objects/Event.class.php';
 $db = new Database();
 $db = $db->getConnection();
 
+$teachers_arr = $db->query("SELECT GROUP_CONCAT( dance_style.title ) as style, styles_teachers.id_teacher, teachers.id_teacher, teachers.surname, teachers.name, teachers.patronymic, teachers.email, teachers.phone FROM dance_style  RIGHT JOIN styles_teachers ON ( dance_style.id_style = styles_teachers.id_style ) RIGHT JOIN teachers ON ( teachers.id_teacher = styles_teachers.id_teacher ) GROUP BY teachers.id_teacher")->fetchAll(PDO::FETCH_ASSOC);
+include __DIR__ . '/../templates/modals/events/add.php';
+
 ?>
 <div id="page-wrapper">
     <div class="container-fluid">
@@ -22,7 +25,7 @@ $db = $db->getConnection();
         <div class="form-group">
             <button class="btn btn-danger btn-sm navbar-btn" data-toggle="modal" data-target="#addNewEvent"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Добавить событие</button>
             <form id="deleteAllEventsForm" method="post">
-                <input type="button" class="btn btn-danger btn-sm navbar-btn" id="deleteAllEventsBtn" name="deleteAllEventsBtn" onclick="alert('I am working!');" value="Очистить список событий">
+                <input type="button" class="btn btn-danger btn-sm navbar-btn" id="deleteAllEventsBtn" name="deleteAllEventsBtn" onclick="window.deleteAllEvents()" value="Очистить список событий">
             </form>
         </div>
         <?php if(!empty($events_arr["events"])) : ?>

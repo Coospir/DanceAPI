@@ -186,6 +186,45 @@ function deleteAllClients() {
     })
 }
 
+function addNewEvent() {
+    $.ajax({
+        type: "POST",
+        url: '/dance_api/api/functions/create_event.php',
+        data: $("#addEventForm").serialize()
+    }).done(function (data) {
+        var json = JSON.parse(data);
+        alert(json[0]);
+        $('#events-cards').html(json[0]);
+    });
+    return false;
+}
+
+function deleteEvent(selectedId) {
+    var answer = confirm('Вы уверены, что хотите удалить выбранное событие?');
+    if(answer === true) {
+        $.ajax({
+            type: "POST",
+            url: '/dance_api/api/functions/delete_event.php',
+            data: {'id_event': selectedId}
+        }).done(function (data) {
+            var json = JSON.parse(data);
+            alert(json[0]);
+            $("#event" + selectedId).remove();
+
+        });
+        return false;
+    } else alert(data); return false;
+}
+
+function deleteAllEvents() {
+    $.ajax({
+        url: '/dance_api/api/functions/delete_all_events.php',
+        type: "POST"
+    }).done(function(data){
+        console.log(data);
+    })
+}
+
 function signUpEvent() {
     $.ajax({
         type: "POST",
